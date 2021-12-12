@@ -17,10 +17,10 @@
 ### Gimp
 
 1. Clone this repository locally
-2. Open the app's settings
-3. Select `import theme` and browse to where you cloned Catppuccin
-4. Select it
+2. Navigate to Edit>Preferences>Folders>Palettes in GIMP
+3. Select the folder with the 'x' and press "Show file location in the file manager" (the rightmost button)
+4. Copy "Catppuccin.gpl" to this folder
 
 ## 💝 Thanks to
 
-- [Human](https://github.com/catppuccin)
+- [Gingeh](https://github.com/gingeh)
