@@ -1,5 +1,5 @@
 <p align="center">
-  <h2 align="center">😸 Catppuccin palette for Gimp</h2>
+  <h2 align="center">😸 Catppuccin palette for developers</h2>
 </p>
 
 <p align="center">Warm and colorful dark theme to show off your vibrant self!</p>
@@ -8,7 +8,13 @@
   <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/dev/assets/misc/sample.png"/>
 </p>
 
+## Available for
+
++ Gimp
+
 ## Usage
+
+### Gimp
 
 1. Clone this repository locally
 2. Open the app's settings
