@@ -11,14 +11,22 @@
 ## Available for
 
 + Gimp
++ Inkscape
 
 ## Usage
 
 ### Gimp
 
 1. Clone this repository locally
-2. Navigate to Edit>Preferences>Folders>Palettes in GIMP
+2. Navigate to Edit > Preferences > Folders > Palettes in GIMP
 3. Select the folder with the 'x' and press "Show file location in the file manager" (the rightmost button)
+4. Copy "Catppuccin.gpl" to this folder
+
+### Inkscape
+
+1. Clone this repository locally
+2. Navigate to Edit > Preferences > System > User palettes in Inkscape
+3. Press the "Open" button next to the folder path
 4. Copy "Catppuccin.gpl" to this folder
 
 ## 💝 Thanks to
