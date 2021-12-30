@@ -2,15 +2,19 @@ GIMP Palette
 Name: Catppuccin
 Columns: 2
 #
-242 206 207	Flamingo
+245 224 220 Rosewater
+242 205 205	Flamingo
 198 170 232	Magenta
 229 180 226	Pink
+228 156 179 Maroon
 227 140 143	Red
-249 192 150	Peach
-235 221 170	Yellow
-177 227 173	Green
-164 185 239	Blue
-190 228 237	Teal
+247 190 149	Peach
+236 221 170	Yellow
+177 225 166	Green
+183 229 230 Teal
+163 185 239	Blue
+146 210 232 Sky
+201 203 255	Lavender
  21  18  28	Black 0
  27  25  35	Black 1
  30  30  40	Black 2
@@ -19,4 +23,4 @@ Columns: 2
 110 108 126	Gray 0
 152 139 162	Gray 1
 195 186 198	Gray 2
-218 218 232	White
+223 222 241	White
