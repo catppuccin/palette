@@ -22,6 +22,7 @@
 + Inkscape
 + Aseprite/LibreSprite
 + PNG
++ CSS
 
 ## Usage
 
@@ -58,3 +59,4 @@
 
 - [Gingeh](https://github.com/gingeh)
 - [TheExistingOne](https://github.com/TheExistingOne)
+- [Andreas Grafen](https://github.com/andreasgrafen)
