@@ -21,6 +21,7 @@
 + Krita
 + Inkscape
 + Aseprite/LibreSprite
++ Affinity
 + PNG
 + CSS
 
