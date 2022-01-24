@@ -24,6 +24,7 @@
 + Affinity
 + PNG
 + CSS
++ Sass
 
 ## Usage
 
