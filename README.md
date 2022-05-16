@@ -17,16 +17,45 @@
 
 ## Available formats
 
++ Node Package
++ CSS
 + Gimp
 + Krita
 + Inkscape
 + Aseprite/LibreSprite
 + Affinity
 + PNG
-+ CSS
 + Sass
 
 ## Usage
+
+### Node Package
+
+```
+npm install @catppuccin/palette
+```
+
+Example: `test.js`
+
+```js
+import {variants, roles} from '@catppuccin/palette'
+
+console.log(variants.latte.lavender) // #7287FD
+console.log(roles.base.macchiato) // #24273A
+```
+
+### CSS
+
+Example: `test.css`
+
+```
+@import url('https://unpkg.com/@catppuccin/palette@0.1.0/css/catppuccin.css');
+
+body {
+	color: var(--ctp-mocha-text);
+	background: var(--ctp-frappe-base);
+}
+```
 
 ### Gimp
 
