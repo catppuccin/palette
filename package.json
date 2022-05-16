@@ -1,0 +1,39 @@
+{
+	"name": "@catppuccin/palette",
+	"version": "0.1.0",
+	"description": "Soothing pastel themes for the high-spirited!",
+	"main": "index.js",
+	"type": "module",
+	"exports": "./index.js",
+	"scripts": {
+		"test": "ava"
+	},
+	"files": [
+		"css/",
+		"index.js"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/catppuccin/palette.git"
+	},
+	"keywords": [
+		"pastel-colors",
+		"catppuccin",
+		"colors",
+		"theme",
+		"palette",
+		"soothing"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"author": "Catppuccin Org",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/catppuccin/palette/issues"
+	},
+	"homepage": "https://github.com/catppuccin/palette#readme",
+	"devDependencies": {
+		"ava": "^4.2.0"
+	}
+}
