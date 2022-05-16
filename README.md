@@ -48,7 +48,7 @@ console.log(roles.base.macchiato) // #24273A
 
 Example: `test.css`
 
-```
+```css
 @import url('https://unpkg.com/@catppuccin/palette@0.1.0/css/catppuccin.css');
 
 body {
