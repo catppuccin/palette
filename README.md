@@ -38,10 +38,10 @@ npm install @catppuccin/palette
 Example: `test.js`
 
 ```js
-import {variants, roles} from '@catppuccin/palette'
+import {variants, labels} from '@catppuccin/palette'
 
 console.log(variants.latte.lavender) // #7287FD
-console.log(roles.base.macchiato) // #24273A
+console.log(labels.base.macchiato) // #24273A
 ```
 
 ### CSS
