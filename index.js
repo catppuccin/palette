@@ -1,10 +1,8 @@
-// catppuccin palettes
-
 const latte = {
 	rosewater: {
-		hex: '#de9584',
-		rgb: 'rgb(222, 149, 132)',
-		hsl: 'hsl(11, 58%, 69%)',
+		hex: '#dc8a78',
+		rgb: 'rgb(220, 138, 120)',
+		hsl: 'hsl(11, 59%, 67%)',
 	},
 
 	flamingo: {
@@ -14,9 +12,9 @@ const latte = {
 	},
 
 	pink: {
-		hex: '#ec83d0',
-		rgb: 'rgb(236, 131, 208)',
-		hsl: 'hsl(316, 73%, 72%)',
+		hex: '#ea76cb',
+		rgb: 'rgb(234, 118, 203)',
+		hsl: 'hsl(316, 73%, 69%)',
 	},
 
 	mauve: {
@@ -44,9 +42,9 @@ const latte = {
 	},
 
 	yellow: {
-		hex: '#e49320',
-		rgb: 'rgb(228, 147, 32)',
-		hsl: 'hsl(35, 78%, 51%)',
+		hex: '#df8e1d',
+		rgb: 'rgb(223, 142, 29)',
+		hsl: 'hsl(35, 77%, 49%)',
 	},
 
 	green: {
@@ -74,9 +72,9 @@ const latte = {
 	},
 
 	blue: {
-		hex: '#2a6ef5',
-		rgb: 'rgb(42, 110, 245)',
-		hsl: 'hsl(220, 91%, 56%)',
+		hex: '#1e66f5',
+		rgb: 'rgb(30, 102, 245)',
+		hsl: 'hsl(220, 91%, 54%)',
 	},
 
 	lavender: {

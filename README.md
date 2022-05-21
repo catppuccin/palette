@@ -40,8 +40,8 @@ Example: `test.js`
 ```js
 import {variants, labels} from '@catppuccin/palette'
 
-console.log(variants.latte.lavender) // #7287FD
-console.log(labels.base.macchiato) // #24273A
+console.log(variants.latte.lavender.hex) // #7287FD
+console.log(labels.base.macchiato.hex) // #24273A
 ```
 
 ### CSS
@@ -49,7 +49,7 @@ console.log(labels.base.macchiato) // #24273A
 Example: `test.css`
 
 ```css
-@import url('https://unpkg.com/@catppuccin/palette@0.1.0/css/catppuccin.css');
+@import url('https://unpkg.com/@catppuccin/palette@0.1.1/css/catppuccin.css');
 
 body {
 	color: var(--ctp-mocha-text);
