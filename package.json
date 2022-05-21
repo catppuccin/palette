@@ -1,6 +1,6 @@
 {
 	"name": "@catppuccin/palette",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "Soothing pastel themes for the high-spirited!",
 	"main": "index.js",
 	"type": "module",
@@ -10,8 +10,10 @@
 	},
 	"files": [
 		"css/",
-		"index.js"
+		"index.js",
+		"index.d.ts"
 	],
+	"types": "index.d.ts",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/catppuccin/palette.git"
