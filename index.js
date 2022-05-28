@@ -242,51 +242,51 @@ const frappe = {
 	},
 
 	text: {
-		hex: '#c6ceef',
-		rgb: 'rgb(198, 206, 239)',
-		hsl: 'hsl(228, 56%, 86%)',
+		hex: '#c6d0f5',
+		rgb: 'rgb(198, 208, 245)',
+		hsl: 'hsl(227, 70%, 87%)',
 	},
 
 	subtext1: {
-		hex: '#b5bddc',
-		rgb: 'rgb(181, 189, 220)',
-		hsl: 'hsl(228, 36%, 79%)',
+		hex: '#b5bfe2',
+		rgb: 'rgb(181, 191, 226)',
+		hsl: 'hsl(227, 44%, 80%)',
 	},
 
 	subtext0: {
-		hex: '#a5acc9',
-		rgb: 'rgb(165, 172, 201)',
-		hsl: 'hsl(228, 25%, 72%)',
+		hex: '#a5adce',
+		rgb: 'rgb(165, 173, 206)',
+		hsl: 'hsl(228, 29%, 73%)',
 	},
 
 	overlay2: {
-		hex: '#949bb7',
-		rgb: 'rgb(148, 155, 183)',
-		hsl: 'hsl(228, 20%, 65%)',
+		hex: '#949cbb',
+		rgb: 'rgb(148, 156, 187)',
+		hsl: 'hsl(228, 22%, 66%)',
 	},
 
 	overlay1: {
-		hex: '#838aa4',
-		rgb: 'rgb(131, 138, 164)',
-		hsl: 'hsl(227, 15%, 58%)',
+		hex: '#838ba7',
+		rgb: 'rgb(131, 139, 167)',
+		hsl: 'hsl(227, 17%, 58%)',
 	},
 
 	overlay0: {
-		hex: '#737891',
-		rgb: 'rgb(115, 120, 145)',
-		hsl: 'hsl(230, 12%, 51%)',
+		hex: '#737994',
+		rgb: 'rgb(115, 121, 148)',
+		hsl: 'hsl(229, 13%, 52%)',
 	},
 
 	surface2: {
-		hex: '#62677e',
-		rgb: 'rgb(98, 103, 126)',
-		hsl: 'hsl(229, 13%, 44%)',
+		hex: '#626880',
+		rgb: 'rgb(98, 104, 128)',
+		hsl: 'hsl(228, 13%, 44%)',
 	},
 
 	surface1: {
-		hex: '#51566c',
-		rgb: 'rgb(81, 86, 108)',
-		hsl: 'hsl(229, 14%, 37%)',
+		hex: '#51576d',
+		rgb: 'rgb(81, 87, 109)',
+		hsl: 'hsl(227, 15%, 37%)',
 	},
 
 	surface0: {
@@ -400,50 +400,50 @@ const macchiato = {
 	},
 
 	text: {
-		hex: '#c5cff5',
-		rgb: 'rgb(197, 207, 245)',
-		hsl: 'hsl(228, 71%, 87%)',
+		hex: '#cad3f5',
+		rgb: 'rgb(202, 211, 245)',
+		hsl: 'hsl(227, 68%, 88%)',
 	},
 
 	subtext1: {
-		hex: '#b3bce0',
-		rgb: 'rgb(179, 188, 224)',
-		hsl: 'hsl(228, 42%, 79%)',
+		hex: '#b8c0e0',
+		rgb: 'rgb(184, 192, 224)',
+		hsl: 'hsl(228, 39%, 80%)',
 	},
 
 	subtext0: {
-		hex: '#a1aacb',
-		rgb: 'rgb(161, 170, 203)',
-		hsl: 'hsl(227, 29%, 71%)',
+		hex: '#a5adcb',
+		rgb: 'rgb(165, 173, 203)',
+		hsl: 'hsl(227, 27%, 72%)',
 	},
 
 	overlay2: {
-		hex: '#8f97b7',
-		rgb: 'rgb(143, 151, 183)',
-		hsl: 'hsl(228, 22%, 64%)',
+		hex: '#939ab7',
+		rgb: 'rgb(147, 154, 183)',
+		hsl: 'hsl(228, 20%, 65%)',
 	},
 
 	overlay1: {
-		hex: '#7d84a2',
-		rgb: 'rgb(125, 132, 162)',
-		hsl: 'hsl(229, 17%, 56%)',
+		hex: '#8087a2',
+		rgb: 'rgb(128, 135, 162)',
+		hsl: 'hsl(228, 15%, 57%)',
 	},
 
 	overlay0: {
-		hex: '#6c728d',
-		rgb: 'rgb(108, 114, 141)',
-		hsl: 'hsl(229, 13%, 49%)',
+		hex: '#6e738d',
+		rgb: 'rgb(110, 115, 141)',
+		hsl: 'hsl(230, 12%, 49%)',
 	},
 
 	surface2: {
-		hex: '#5a5f78',
-		rgb: 'rgb(90, 95, 120)',
+		hex: '#5b6078',
+		rgb: 'rgb(91, 96, 120)',
 		hsl: 'hsl(230, 14%, 41%)',
 	},
 
 	surface1: {
-		hex: '#484c64',
-		rgb: 'rgb(72, 76, 100)',
+		hex: '#494d64',
+		rgb: 'rgb(73, 77, 100)',
 		hsl: 'hsl(231, 16%, 34%)',
 	},
 
@@ -558,51 +558,51 @@ const mocha = {
 	},
 
 	text: {
-		hex: '#c6d0f5',
-		rgb: 'rgb(198, 208, 245)',
-		hsl: 'hsl(227, 70%, 87%)',
+		hex: '#cdd6f4',
+		rgb: 'rgb(205, 214, 244)',
+		hsl: 'hsl(226, 64%, 88%)',
 	},
 
 	subtext1: {
-		hex: '#b3bcdf',
-		rgb: 'rgb(179, 188, 223)',
-		hsl: 'hsl(228, 41%, 79%)',
+		hex: '#bac2de',
+		rgb: 'rgb(186, 194, 222)',
+		hsl: 'hsl(227, 35%, 80%)',
 	},
 
 	subtext0: {
-		hex: '#a1a8c9',
-		rgb: 'rgb(161, 168, 201)',
-		hsl: 'hsl(229, 27%, 71%)',
+		hex: '#a6adc8',
+		rgb: 'rgb(166, 173, 200)',
+		hsl: 'hsl(228, 24%, 72%)',
 	},
 
 	overlay2: {
-		hex: '#8e95b3',
-		rgb: 'rgb(142, 149, 179)',
-		hsl: 'hsl(229, 20%, 63%)',
+		hex: '#9399b2',
+		rgb: 'rgb(147, 153, 178)',
+		hsl: 'hsl(228, 17%, 64%)',
 	},
 
 	overlay1: {
-		hex: '#7b819d',
-		rgb: 'rgb(123, 129, 157)',
-		hsl: 'hsl(229, 15%, 55%)',
+		hex: '#7f849c',
+		rgb: 'rgb(127, 132, 156)',
+		hsl: 'hsl(230, 13%, 55%)',
 	},
 
 	overlay0: {
-		hex: '#696d86',
-		rgb: 'rgb(105, 109, 134)',
-		hsl: 'hsl(232, 12%, 47%)',
+		hex: '#6c7086',
+		rgb: 'rgb(108, 112, 134)',
+		hsl: 'hsl(231, 11%, 47%)',
 	},
 
 	surface2: {
-		hex: '#565970',
-		rgb: 'rgb(86, 89, 112)',
-		hsl: 'hsl(233, 13%, 39%)',
+		hex: '#585b70',
+		rgb: 'rgb(88, 91, 112)',
+		hsl: 'hsl(233, 12%, 39%)',
 	},
 
 	surface1: {
-		hex: '#43465a',
-		rgb: 'rgb(67, 70, 90)',
-		hsl: 'hsl(232, 15%, 31%)',
+		hex: '#45475a',
+		rgb: 'rgb(69, 71, 90)',
+		hsl: 'hsl(234, 13%, 31%)',
 	},
 
 	surface0: {
