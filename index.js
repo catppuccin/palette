@@ -546,9 +546,9 @@ const mocha = {
 	},
 
 	blue: {
-		hex: '#87b0f9',
-		rgb: 'rgb(135, 176, 249)',
-		hsl: 'hsl(218, 90%, 75%)',
+		hex: '#89b4fa',
+		rgb: 'rgb(137, 180, 250)',
+		hsl: 'hsl(217, 92%, 76%)',
 	},
 
 	lavender: {
