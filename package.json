@@ -1,9 +1,9 @@
 {
 	"name": "@catppuccin/palette",
 	"version": "0.1.5",
-    "description": "Soothing pastel themes for the high-spirited!",
+	"description": "Soothing pastel themes for the high-spirited!",
 	"main": "dist/index.js",
-    "module": "dist/index.mjs",
+	"module": "dist/index.mjs",
 	"exports": {
 		".": {
 			"require": "./dist/index.js",
@@ -12,15 +12,15 @@
 	},
 	"scripts": {
 		"test": "ava",
-        "build": "npm run build:cjs && npm run build:esm",
-        "build:cjs": "esbuild index.js --minify --format=cjs --outdir=dist",
+		"build": "npm run build:cjs && npm run build:esm",
+		"build:cjs": "esbuild index.js --minify --format=cjs --outdir=dist",
 		"build:esm": "esbuild index.js --minify --format=esm --outdir=dist --out-extension:.js=.mjs",
 		"prepublishOnly": "npm run build"
 	},
 	"files": [
 		"css/",
 		"dist/index.js",
-        "dist/index.mjs",
+		"dist/index.mjs",
 		"index.d.ts"
 	],
 	"types": "index.d.ts",
