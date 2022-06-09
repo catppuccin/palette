@@ -4,7 +4,10 @@
 	"description": "Soothing pastel themes for the high-spirited!",
 	"main": "index.js",
 	"type": "module",
-	"exports": "./index.js",
+	"exports": {
+		".": "./index.js",
+		"./style": "./css/catppuccin.css"
+	},
 	"scripts": {
 		"test": "ava"
 	},
