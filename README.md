@@ -46,11 +46,16 @@ console.log(labels.base.macchiato.hex) // #24273A
 
 ### CSS
 
-Example: `test.css`
+Import the palettes:
 
 ```css
-@import url('https://unpkg.com/@catppuccin/palette@0.1.1/css/catppuccin.css');
+@import "@catppuccin/palette/style"		/* directly from the file */
+@import url('https://unpkg.com/@catppuccin/palette@0.1.4/css/catppuccin.css');		/* or using unpkg.com */
+```
 
+Then use them:
+
+```css
 body {
 	color: var(--ctp-mocha-text);
 	background: var(--ctp-frappe-base);
