@@ -18,7 +18,7 @@
 	},
 	"files": [
 		"css/",
-		"dist/index.js",
+		"dist/index.cjs",
 		"dist/index.mjs",
 		"index.d.ts"
 	],
