@@ -9,8 +9,8 @@
 			"require": "./dist/index.cjs",
 			"import": "./dist/index.mjs"
 		},
-        "./style": "./css/catppuccin.css"
-    },
+		"./style": "./css/catppuccin.css"
+	},
 	"scripts": {
 		"test": "ava",
 		"build": "node esbuild.js",
