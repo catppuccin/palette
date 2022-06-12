@@ -1,19 +1,27 @@
 {
 	"name": "@catppuccin/palette",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"description": "Soothing pastel themes for the high-spirited!",
-	"main": "index.js",
-	"type": "module",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
 	"exports": {
-		".": "./index.js",
-		"./style": "./css/catppuccin.css"
-	},
+		".": {
+			"require": "./dist/index.js",
+			"import": "./dist/index.mjs"
+		},
+        "./style": "./css/catppuccin.css"
+    },
 	"scripts": {
-		"test": "ava"
+		"test": "ava",
+		"build": "npm run build:cjs && npm run build:esm",
+		"build:cjs": "esbuild index.js --minify --format=cjs --outdir=dist",
+		"build:esm": "esbuild index.js --minify --format=esm --outdir=dist --out-extension:.js=.mjs",
+		"prepublishOnly": "npm run build"
 	},
 	"files": [
 		"css/",
-		"index.js",
+		"dist/index.js",
+		"dist/index.mjs",
 		"index.d.ts"
 	],
 	"types": "index.d.ts",
@@ -39,6 +47,7 @@
 	},
 	"homepage": "https://github.com/catppuccin/palette#readme",
 	"devDependencies": {
-		"ava": "^4.2.0"
+		"ava": "^4.2.0",
+		"esbuild": "^0.14.42"
 	}
 }
