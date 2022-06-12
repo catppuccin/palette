@@ -6,16 +6,14 @@
 	"module": "dist/index.mjs",
 	"exports": {
 		".": {
-			"require": "./dist/index.js",
+			"require": "./dist/index.cjs",
 			"import": "./dist/index.mjs"
 		},
         "./style": "./css/catppuccin.css"
     },
 	"scripts": {
 		"test": "ava",
-		"build": "npm run build:cjs && npm run build:esm",
-		"build:cjs": "esbuild index.js --minify --format=cjs --outdir=dist",
-		"build:esm": "esbuild index.js --minify --format=esm --outdir=dist --out-extension:.js=.mjs",
+		"build": "node esbuild.js",
 		"prepublishOnly": "npm run build"
 	},
 	"files": [
