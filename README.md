@@ -64,6 +64,10 @@ body {
 }
 ```
 
+### Sass
+
+The usage instructions for Sass are documented [here](https://github.com/catppuccin/palette/tree/main/scss), in the `scss` folder.
+
 ### Gimp
 
 1. Clone this repository locally
