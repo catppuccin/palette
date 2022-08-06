@@ -17,24 +17,32 @@
 
 ## Available formats
 
-+ Node Package
-+ CSS
-+ Gimp
-+ Krita
-+ Inkscape
-+ Aseprite/LibreSprite
-+ Affinity
-+ PNG
-+ Sass
-+ Sip
-+ macOS Color Picker
+- Development
+    - [Node Package](#node-package)
+    - [CSS](#css)
+    - [Sass](#sass)
+    - [Tailwind CSS](https://github.com/catppuccin/tailwindcss) (separate repository)
+- Design
+    - [Affinity](#affinity)
+    - [Aseprite / LibreSprite](#aseprite)
+    - [Gimp](#gimp)
+    - [Inkscape](#inkscape)
+    - [Krita](#krita)
+- Colour pickers
+    - [macOS Color Picker](#macos-color-picker)
+    - [Sip](#sip)
+- Reference
+    - [PNG](#png)
 
 ## Usage
 
 ### Node Package
 
-```
+```bash
+# npm
 npm install @catppuccin/palette
+# yarn
+yarn add @catppuccin/palette
 ```
 
 Example: `test.js`
