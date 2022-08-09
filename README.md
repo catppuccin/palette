@@ -59,8 +59,10 @@ console.log(labels.base.macchiato.hex) // #24273A
 Import the palettes:
 
 ```css
-@import "@catppuccin/palette/style"		/* directly from the file */
-@import url('https://unpkg.com/@catppuccin/palette@0.1.4/css/catppuccin.css');		/* or using unpkg.com */
+/* directly from the file */
+@import "@catppuccin/palette/style"
+/* or using unpkg.com */
+@import url('https://unpkg.com/@catppuccin/palette@0.1.4/css/catppuccin.css');
 ```
 
 Then use them:
@@ -76,11 +78,31 @@ body {
 
 The usage instructions for Sass are documented [here](https://github.com/catppuccin/palette/tree/main/scss), in the `scss` folder.
 
+### Affinity
+
+1. Clone this repository locally
+2. Open a file in the `afpalette` folder. If you have multiple Affinity products
+   installed, you can choose to import it as a System palette
+
+### Aseprite / LibreSprite
+
+1. Clone this repository locally
+2. Open Palette Options
+3. Select "Load Palette" from the menu
+4. Open a file in `gpl/` in the dialog that appears
+
 ### Gimp
 
 1. Clone this repository locally
 2. Navigate to Edit > Preferences > Folders > Palettes in GIMP
 3. Select the folder with the 'x' and press "Show file location in the file manager" (the rightmost button)
+4. Copy the files in `gpl/` to this folder
+
+### Inkscape
+
+1. Clone this repository locally
+2. Navigate to Edit > Preferences > System > User palettes in Inkscape
+3. Press the "Open" button next to the folder path
 4. Copy the files in `gpl/` to this folder
 
 ### Krita
@@ -91,25 +113,6 @@ The usage instructions for Sass are documented [here](https://github.com/catppuc
 4. Select "Import a new palette from file"
 5. Open a file in `gpl/` in the dialog that appears
 
-### Inkscape
-
-1. Clone this repository locally
-2. Navigate to Edit > Preferences > System > User palettes in Inkscape
-3. Press the "Open" button next to the folder path
-4. Copy the files in `gpl/` to this folder
-
-### Aseprite
-
-1. Clone this repository locally
-2. Open Palette Options
-3. Select "Load Palette" from the menu
-4. Open Catppuccin.ase from the dialog that appears
-
-### Sip
-1. Clone this repository locally
-2. Open the `sip/` folder
-3. Open the `.palette` files, and Sip will import the palettes
-
 ### macOS Color Picker
 1. Clone this repository locally
 2. `cd` into the repo directory
@@ -117,6 +120,11 @@ The usage instructions for Sass are documented [here](https://github.com/catppuc
 ```bash
 cp -r clr/* ~/Library/Colors
 ```
+
+### Sip
+1. Clone this repository locally
+2. Open the `sip/` folder
+3. Open the `.palette` files, and Sip will import the palettes
 
 ## 💝 Thanks to
 
