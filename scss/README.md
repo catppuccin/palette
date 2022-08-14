@@ -30,6 +30,14 @@ Output:
 Another way to create all four flavours, in a single file, from a single file,
 is to use `_catppuccin.scss`.
 
+**NB**: Due to websafe colours being predefined in CSS, colours like `red`, `green`, `blue` will **not** be generated with this method, **when they are not** explicitly cast as a string. To ensure proper generation, wrap your values with `'`. 
+
+In short:\
+❌ Don't do this:
+`#{map-get($color, blue)}`\
+✅ Do this:
+`#{map-get($color, 'blue')}`
+
 Input:
 
 ```scss
@@ -37,8 +45,9 @@ Input:
 
 @each $flavour, $colour in catppuccin.$palette {
     .my-#{flavour}-class {
-        background: map-get($colour, base);
-        color: map-get($colour, text);
+        // you need surround the catppuccin colour names with quotes
+        background: map-get($colour, 'base');
+        color: map-get($colour, 'blue');
     }
 }
 ```
