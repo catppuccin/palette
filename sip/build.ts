@@ -42,7 +42,7 @@ for (const palette in library) {
         blue: b,
         name: key,
         createdAt: dateString,
-        id: "CD343FB2-2253-369A-AA19-9AE65B791EC2",
+        id: crypto.randomUUID().toUpperCase(),
       };
     }),
     lock: true,
