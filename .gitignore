@@ -1,2 +1,4 @@
 dist/
 node_modules/
+java/.idea/
+java/target/
