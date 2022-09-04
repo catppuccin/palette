@@ -19,6 +19,7 @@
 
 - Development
     - [Node Package](#node-package)
+    - [Java Library](#java-library)
     - [CSS](#css)
     - [Sass](#sass)
     - [Tailwind CSS](https://github.com/catppuccin/tailwindcss) (separate repository)
@@ -52,6 +53,31 @@ import {variants, labels} from '@catppuccin/palette'
 
 console.log(variants.latte.lavender.hex) // #7287FD
 console.log(labels.base.macchiato.hex) // #24273A
+```
+
+### Java Library
+
+**Maven**
+```xml
+<!-- https://mvnrepository.com/artifact/catppuccin/palette -->
+<dependency>
+    <groupId>com.catppuccin</groupId>
+    <artifactId>palette</artifactId>
+    <version>VERSION</version>
+</dependency>
+
+```
+
+**Gradle**
+```gradle
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/catppuccin/palette
+    implementation group: 'com.catppuccin', name: 'palette', version: 'VERSION'
+}
 ```
 
 ### CSS
