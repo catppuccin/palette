@@ -16,7 +16,7 @@ public class Palette {
 
     /**
      * Retrieve all the flavours of the palette in the
-     * following order: Latte, Frappé, Macchiato & Mocha
+     * following order: Latte, Frappé, Macchiato and Mocha
      *
      * @return {@link List} of {@link Flavor}
      */
