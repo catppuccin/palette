@@ -22,6 +22,7 @@
     - [CSS](#css)
     - [Sass](#sass)
     - [Tailwind CSS](https://github.com/catppuccin/tailwindcss) (separate repository)
+    - [Rust](#rust)
 - Design
     - [Affinity](#affinity)
     - [Aseprite / LibreSprite](#aseprite)
@@ -78,6 +79,17 @@ body {
 
 The usage instructions for Sass are documented [here](https://github.com/catppuccin/palette/tree/main/scss), in the `scss` folder.
 
+### Rust
+
+Add the crate to your `Cargo.toml`:
+
+```bash
+cargo add catppuccin
+```
+
+More information and examples can be found on [crates.io](https://crates.io/crates/catppuccin), [docs.rs](https://docs.rs/catppuccin/latest/catppuccin/),
+and in the [`rust`](https://github.com/catppuccin/palette/tree/main/rust) folder.
+
 ### Affinity
 
 1. Clone this repository locally
@@ -133,6 +145,7 @@ cp -r clr/* ~/Library/Colors
 - [Andreas Grafen](https://github.com/andreasgrafen)
 - [Pocco81](https://github.com/Pocco81)
 - [winston](https://github.com/nekowinston)
+- [backwardspy](https://github.com/backwardspy)
 
 &nbsp;
 
