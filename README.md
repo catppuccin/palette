@@ -22,6 +22,7 @@
     - [CSS](#css)
     - [Sass](#sass)
     - [Tailwind CSS](https://github.com/catppuccin/tailwindcss) (separate repository)
+    - [Rust](#rust)
 - Design
     - [Affinity](#affinity)
     - [Aseprite / LibreSprite](#aseprite)
@@ -77,6 +78,17 @@ body {
 ### Sass
 
 The usage instructions for Sass are documented [here](https://github.com/catppuccin/palette/tree/main/scss), in the `scss` folder.
+
+### Rust
+
+Add the crate to your `Cargo.toml`:
+
+```bash
+cargo add catppuccin
+```
+
+More information and examples can be found on [crates.io](https://crates.io/crates/catppuccin), [docs.rs](https://docs.rs/catppuccin/1.0.2/catppuccin/),
+and in the [`rust`](https://github.com/catppuccin/palette/tree/main/rust) folder.
 
 ### Affinity
 
