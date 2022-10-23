@@ -145,6 +145,7 @@ cp -r clr/* ~/Library/Colors
 - [Andreas Grafen](https://github.com/andreasgrafen)
 - [Pocco81](https://github.com/Pocco81)
 - [winston](https://github.com/nekowinston)
+- [backwardspy](https://github.com/backwardspy)
 
 &nbsp;
 
