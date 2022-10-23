@@ -8,7 +8,7 @@ Add Catppuccin to your project's `Cargo.toml`:
 
 ```toml
 [dependencies]
-catppuccin = "1.0.3"
+catppuccin = "1.0.4"
 ```
 
 ## Example
