@@ -87,7 +87,7 @@ Add the crate to your `Cargo.toml`:
 cargo add catppuccin
 ```
 
-More information and examples can be found on [crates.io](https://crates.io/crates/catppuccin), [docs.rs](https://docs.rs/catppuccin/1.0.2/catppuccin/),
+More information and examples can be found on [crates.io](https://crates.io/crates/catppuccin), [docs.rs](https://docs.rs/catppuccin/latest/catppuccin/),
 and in the [`rust`](https://github.com/catppuccin/palette/tree/main/rust) folder.
 
 ### Affinity

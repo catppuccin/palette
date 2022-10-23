@@ -8,7 +8,7 @@ Add Catppuccin to your project's `Cargo.toml`:
 
 ```toml
 [dependencies]
-catppuccin = "1.0.0"
+catppuccin = "1.0.2"
 ```
 
 ## Example
@@ -34,10 +34,17 @@ More examples can be found
 
 Clone the repository to run them locally:
 
-```shell
+```bash
 $ cargo run --example simple
+```
+
+![Output from simple example](https://raw.githubusercontent.com/catppuccin/palette/main/rust/assets/simple-example.png)
+
+```bash
 $ cargo run --features ansi --example term
 ```
+
+![Output from term example](https://raw.githubusercontent.com/catppuccin/palette/main/rust/assets/term-example.png)
 
 ## Optional Features
 
