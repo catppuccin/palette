@@ -11,9 +11,9 @@ impl Colour {
     /// # Examples
     ///
     /// ```
-    /// use catppuccin::MOCHA;
+    /// use catppuccin::Flavour;
     ///
-    /// let hex = MOCHA.teal.hex();
+    /// let hex = Flavour::Mocha.palette().teal.hex();
     /// assert_eq!(hex, "94E2D5");
     /// ```
     pub fn hex(&self) -> String {

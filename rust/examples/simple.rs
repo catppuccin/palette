@@ -1,15 +1,15 @@
-use catppuccin::{LATTE, MOCHA};
+use catppuccin::Flavour;
 
 fn main() {
-    let (r, g, b) = LATTE.teal.into();
+    let (r, g, b) = Flavour::Latte.palette().teal.into();
     println!(
         "Latte's teal is #{}, which is rgb({r}, {g}, {b})",
-        LATTE.teal.hex()
+        Flavour::Latte.palette().teal.hex()
     );
 
-    let (r, g, b) = MOCHA.teal.into();
+    let (r, g, b) = Flavour::Mocha.palette().teal.into();
     println!(
         "Mocha's teal is #{}, which is rgb({r}, {g}, {b})",
-        MOCHA.teal.hex()
+        Flavour::Mocha.palette().teal.hex()
     );
 }
