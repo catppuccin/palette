@@ -61,19 +61,14 @@ pub use palette::Palette;
 mod flavour;
 pub use flavour::Flavour;
 
-/// Returns an iterator over the four delicious Catppuccin flavours.
-pub fn flavours_iter() -> std::array::IntoIter<Flavour, 4> {
-    [Flavour::Latte, Flavour::Frappe, Flavour::Macchiato, Flavour::Mocha].into_iter()
-}
-
 #[cfg(test)]
 mod tests {
-    use super::{flavours_iter, Flavour};
+    use super::Flavour;
 
     /// Ensures flavours are iterated in the correct order.
     #[test]
     fn test_flavours_iter() {
-        let mut flavours = flavours_iter();
+        let mut flavours = Flavour::into_iter();
         assert_eq!(flavours.next(), Some(Flavour::Latte));
         assert_eq!(flavours.next(), Some(Flavour::Frappe));
         assert_eq!(flavours.next(), Some(Flavour::Macchiato));
@@ -84,9 +79,9 @@ mod tests {
     /// Ensures colours within each flavour are iterated in the correct order.
     #[test]
     fn test_colours_iter() {
-        for flavour in flavours_iter() {
+        for flavour in Flavour::into_iter() {
             let palette = flavour.palette();
-            let mut colours = palette.iter();
+            let mut colours = palette.into_iter();
             assert_eq!(colours.next(), Some(&palette.rosewater));
             assert_eq!(colours.next(), Some(&palette.flamingo));
             assert_eq!(colours.next(), Some(&palette.pink));
