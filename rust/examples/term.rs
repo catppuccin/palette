@@ -3,10 +3,10 @@ use catppuccin::flavours_iter;
 fn main() {
     // iterate over the four Catppuccin flavours.
     for flavour in flavours_iter() {
-        println!("{}", flavour.name);
+        println!("{}", flavour.name());
 
         // iterate over the 26 colours in the flavour.
-        for (i, colour) in flavour.iter().enumerate() {
+        for (i, colour) in flavour.palette().iter().enumerate() {
             print!("{}", colour.ansi_paint("██"));
 
             // the 14 analogous colours go on one line,
