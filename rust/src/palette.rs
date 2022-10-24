@@ -33,7 +33,7 @@ pub struct Palette {
 
 impl Palette {
     /// Returns an iterator over the colours in the flavour.
-    pub fn iter(&self) -> std::array::IntoIter<&Colour, 26> {
+    pub fn into_iter(&self) -> std::array::IntoIter<&Colour, 26> {
         [
             &self.rosewater,
             &self.flamingo,

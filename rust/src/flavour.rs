@@ -1,4 +1,3 @@
-
 use crate::{Colour, Palette};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -132,8 +131,18 @@ impl Flavour {
                 base: Colour(30, 30, 46),
                 mantle: Colour(24, 24, 37),
                 crust: Colour(17, 17, 27),
-            }
+            },
         }
+    }
+    /// Returns an iterator over the four delicious Catppuccin flavours.
+    pub fn into_iter() -> std::array::IntoIter<Flavour, 4> {
+        [
+            Self::Latte,
+            Self::Frappe,
+            Self::Macchiato,
+            Self::Mocha,
+        ]
+        .into_iter()
     }
 }
 #[cfg(test)]
