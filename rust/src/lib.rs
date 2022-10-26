@@ -22,7 +22,7 @@
 //! fn confirm(text: String) -> Button {
 //!     Button {
 //!         text,
-//!         background_colour: Flavour::Mocha.colours().green.hex(),
+//!         background_colour: Flavour::Mocha.green().hex(),
 //!     }
 //! }
 //! ```

@@ -8,6 +8,21 @@ pub enum Flavour {
     Mocha,
 }
 
+macro_rules! impl_colour_method {
+    ($x:ident) => (
+        pub fn $x(self) -> $crate::Colour {
+            self.colours().$x
+        }
+    );
+    ($x:ident, $($y:ident),+ $(,)?) => (
+        pub fn $x(self) -> $crate::Colour {
+            self.colours().$x
+        }
+
+        impl_colour_method!($($y),+);
+    );
+}
+
 impl Flavour {
     pub fn name(self) -> &'static str {
         match self {
@@ -17,6 +32,12 @@ impl Flavour {
             Self::Mocha => "mocha",
         }
     }
+
+    impl_colour_method!(
+        rosewater, flamingo, pink, mauve, red, maroon, peach, yellow, green, teal, sky, sapphire,
+        blue, lavender, text, subtext1, subtext0, overlay2, overlay1, overlay0, surface2, surface1,
+        surface0, base, mantle, crust,
+    );
 
     pub fn colours(self) -> FlavourColours {
         match self {
