@@ -22,7 +22,7 @@
 //! fn confirm(text: String) -> Button {
 //!     Button {
 //!         text,
-//!         background_colour: Flavour::Mocha.palette().green.hex(),
+//!         background_colour: Flavour::Mocha.colours().green.hex(),
 //!     }
 //! }
 //! ```
@@ -55,8 +55,8 @@
 mod colour;
 pub use colour::Colour;
 
-mod palette;
-pub use palette::Palette;
+mod flavour_colours;
+pub use flavour_colours::FlavourColours;
 
 mod flavour;
 pub use flavour::Flavour;
@@ -80,34 +80,34 @@ mod tests {
     #[test]
     fn test_colours_iter() {
         for flavour in Flavour::into_iter() {
-            let palette = flavour.palette();
-            let mut colours = palette.into_iter();
-            assert_eq!(colours.next(), Some(&palette.rosewater));
-            assert_eq!(colours.next(), Some(&palette.flamingo));
-            assert_eq!(colours.next(), Some(&palette.pink));
-            assert_eq!(colours.next(), Some(&palette.mauve));
-            assert_eq!(colours.next(), Some(&palette.red));
-            assert_eq!(colours.next(), Some(&palette.maroon));
-            assert_eq!(colours.next(), Some(&palette.peach));
-            assert_eq!(colours.next(), Some(&palette.yellow));
-            assert_eq!(colours.next(), Some(&palette.green));
-            assert_eq!(colours.next(), Some(&palette.teal));
-            assert_eq!(colours.next(), Some(&palette.sky));
-            assert_eq!(colours.next(), Some(&palette.sapphire));
-            assert_eq!(colours.next(), Some(&palette.blue));
-            assert_eq!(colours.next(), Some(&palette.lavender));
-            assert_eq!(colours.next(), Some(&palette.text));
-            assert_eq!(colours.next(), Some(&palette.subtext1));
-            assert_eq!(colours.next(), Some(&palette.subtext0));
-            assert_eq!(colours.next(), Some(&palette.overlay2));
-            assert_eq!(colours.next(), Some(&palette.overlay1));
-            assert_eq!(colours.next(), Some(&palette.overlay0));
-            assert_eq!(colours.next(), Some(&palette.surface2));
-            assert_eq!(colours.next(), Some(&palette.surface1));
-            assert_eq!(colours.next(), Some(&palette.surface0));
-            assert_eq!(colours.next(), Some(&palette.base));
-            assert_eq!(colours.next(), Some(&palette.mantle));
-            assert_eq!(colours.next(), Some(&palette.crust));
+            let colours = flavour.colours();
+            let mut colours_iter = colours.into_iter();
+            assert_eq!(colours_iter.next(), Some(&colours.rosewater));
+            assert_eq!(colours_iter.next(), Some(&colours.flamingo));
+            assert_eq!(colours_iter.next(), Some(&colours.pink));
+            assert_eq!(colours_iter.next(), Some(&colours.mauve));
+            assert_eq!(colours_iter.next(), Some(&colours.red));
+            assert_eq!(colours_iter.next(), Some(&colours.maroon));
+            assert_eq!(colours_iter.next(), Some(&colours.peach));
+            assert_eq!(colours_iter.next(), Some(&colours.yellow));
+            assert_eq!(colours_iter.next(), Some(&colours.green));
+            assert_eq!(colours_iter.next(), Some(&colours.teal));
+            assert_eq!(colours_iter.next(), Some(&colours.sky));
+            assert_eq!(colours_iter.next(), Some(&colours.sapphire));
+            assert_eq!(colours_iter.next(), Some(&colours.blue));
+            assert_eq!(colours_iter.next(), Some(&colours.lavender));
+            assert_eq!(colours_iter.next(), Some(&colours.text));
+            assert_eq!(colours_iter.next(), Some(&colours.subtext1));
+            assert_eq!(colours_iter.next(), Some(&colours.subtext0));
+            assert_eq!(colours_iter.next(), Some(&colours.overlay2));
+            assert_eq!(colours_iter.next(), Some(&colours.overlay1));
+            assert_eq!(colours_iter.next(), Some(&colours.overlay0));
+            assert_eq!(colours_iter.next(), Some(&colours.surface2));
+            assert_eq!(colours_iter.next(), Some(&colours.surface1));
+            assert_eq!(colours_iter.next(), Some(&colours.surface0));
+            assert_eq!(colours_iter.next(), Some(&colours.base));
+            assert_eq!(colours_iter.next(), Some(&colours.mantle));
+            assert_eq!(colours_iter.next(), Some(&colours.crust));
         }
     }
 }

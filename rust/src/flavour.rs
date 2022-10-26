@@ -1,4 +1,4 @@
-use crate::{Colour, Palette};
+use crate::{Colour, FlavourColours};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Flavour {
@@ -18,9 +18,9 @@ impl Flavour {
         }
     }
 
-    pub fn palette(self) -> Palette {
+    pub fn colours(self) -> FlavourColours {
         match self {
-            Self::Latte => Palette {
+            Self::Latte => FlavourColours {
                 rosewater: Colour(220, 138, 120),
                 flamingo: Colour(221, 120, 120),
                 pink: Colour(234, 118, 203),
@@ -48,7 +48,7 @@ impl Flavour {
                 mantle: Colour(230, 233, 239),
                 crust: Colour(220, 224, 232),
             },
-            Self::Frappe => Palette {
+            Self::Frappe => FlavourColours {
                 rosewater: Colour(242, 213, 207),
                 flamingo: Colour(238, 190, 190),
                 pink: Colour(244, 184, 228),
@@ -76,7 +76,7 @@ impl Flavour {
                 mantle: Colour(41, 44, 60),
                 crust: Colour(35, 38, 52),
             },
-            Self::Macchiato => Palette {
+            Self::Macchiato => FlavourColours {
                 rosewater: Colour(244, 219, 214),
                 flamingo: Colour(240, 198, 198),
                 pink: Colour(245, 189, 230),
@@ -104,7 +104,7 @@ impl Flavour {
                 mantle: Colour(30, 32, 48),
                 crust: Colour(24, 25, 38),
             },
-            Self::Mocha => Palette {
+            Self::Mocha => FlavourColours {
                 rosewater: Colour(245, 224, 220),
                 flamingo: Colour(242, 205, 205),
                 pink: Colour(245, 194, 231),
@@ -136,25 +136,19 @@ impl Flavour {
     }
     /// Returns an iterator over the four delicious Catppuccin flavours.
     pub fn into_iter() -> std::array::IntoIter<Flavour, 4> {
-        [
-            Self::Latte,
-            Self::Frappe,
-            Self::Macchiato,
-            Self::Mocha,
-        ]
-        .into_iter()
+        [Self::Latte, Self::Frappe, Self::Macchiato, Self::Mocha].into_iter()
     }
 }
 #[cfg(test)]
 mod tests {
     use super::Flavour;
-    use crate::palette::validate_colours;
+    use crate::flavour_colours::validate_colours;
     use indoc::indoc;
 
     #[test]
     fn validate_latte_colours() {
         validate_colours(
-            Flavour::Latte.palette(),
+            Flavour::Latte.colours(),
             indoc! {"
                 Rosewater 	#dc8a78 	rgb(220, 138, 120) 	hsl(11, 59%, 67%)
                 Flamingo 	#dd7878 	rgb(221, 120, 120) 	hsl(0, 60%, 67%)
@@ -189,7 +183,7 @@ mod tests {
     #[test]
     fn validate_frappe_colours() {
         validate_colours(
-            Flavour::Frappe.palette(),
+            Flavour::Frappe.colours(),
             indoc! {"
                 Rosewater 	#f2d5cf 	rgb(242, 213, 207) 	hsl(10, 57%, 88%)
                 Flamingo 	#eebebe 	rgb(238, 190, 190) 	hsl(0, 59%, 84%)
@@ -224,7 +218,7 @@ mod tests {
     #[test]
     fn validate_macchiato_colours() {
         validate_colours(
-            Flavour::Macchiato.palette(),
+            Flavour::Macchiato.colours(),
             indoc! {"
                 Rosewater 	#f4dbd6 	rgb(244, 219, 214) 	hsl(10, 58%, 90%)
                 Flamingo 	#f0c6c6 	rgb(240, 198, 198) 	hsl(0, 58%, 86%)
@@ -259,7 +253,7 @@ mod tests {
     #[test]
     fn validate_mocha_colours() {
         validate_colours(
-            Flavour::Mocha.palette(),
+            Flavour::Mocha.colours(),
             indoc! {"
                 Rosewater 	#f5e0dc 	rgb(245, 224, 220) 	hsl(10, 56%, 91%)
                 Flamingo 	#f2cdcd 	rgb(242, 205, 205) 	hsl(0, 59%, 88%)
