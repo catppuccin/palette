@@ -23,6 +23,7 @@
     - [Sass](#sass)
     - [Tailwind CSS](https://github.com/catppuccin/tailwindcss) (separate repository)
     - [Rust](#rust)
+    - [Python](#python)
 - Design
     - [Affinity](#affinity)
     - [Aseprite / LibreSprite](#aseprite)
@@ -89,6 +90,17 @@ cargo add catppuccin
 
 More information and examples can be found on [crates.io](https://crates.io/crates/catppuccin), [docs.rs](https://docs.rs/catppuccin/latest/catppuccin/),
 and in the [`rust`](https://github.com/catppuccin/palette/tree/main/rust) folder.
+
+### Python
+
+Install the package with `pip` or the dependency management tool of your choice:
+
+```bash
+pip install catppuccin
+```
+
+Documentation and examples can be found in the
+[`python`](https://github.com/catppuccin/palette/tree/main/python) folder.
 
 ### Affinity
 
