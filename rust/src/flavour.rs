@@ -167,6 +167,38 @@ mod tests {
     use indoc::indoc;
 
     #[test]
+    fn verify_colour_methods() {
+        // We only need to test one flavour, as we just need to make sure the methods exists
+        // Because if the correct method exists it is guaurenteed to access to correctly named field
+        let _rosewater = Flavour::Latte.rosewater();
+        let _flamingo = Flavour::Latte.flamingo();
+        let _pink = Flavour::Latte.pink();
+        let _mauve = Flavour::Latte.mauve();
+        let _red = Flavour::Latte.red();
+        let _maroon = Flavour::Latte.maroon();
+        let _peach = Flavour::Latte.peach();
+        let _yellow = Flavour::Latte.yellow();
+        let _green = Flavour::Latte.green();
+        let _teal = Flavour::Latte.teal();
+        let _sky = Flavour::Latte.sky();
+        let _sapphire = Flavour::Latte.sapphire();
+        let _blue = Flavour::Latte.blue();
+        let _lavender = Flavour::Latte.lavender();
+        let _text = Flavour::Latte.text();
+        let _subtext1 = Flavour::Latte.subtext1();
+        let _subtext0 = Flavour::Latte.subtext0();
+        let _overlay2 = Flavour::Latte.overlay2();
+        let _overlay1 = Flavour::Latte.overlay1();
+        let _overlay0 = Flavour::Latte.overlay0();
+        let _surface2 = Flavour::Latte.surface2();
+        let _surface1 = Flavour::Latte.surface1();
+        let _surface0 = Flavour::Latte.surface0();
+        let _base = Flavour::Latte.base();
+        let _mantle = Flavour::Latte.mantle();
+        let _crust = Flavour::Latte.crust();
+    }
+
+    #[test]
     fn validate_latte_colours() {
         validate_colours(
             Flavour::Latte.colours(),
