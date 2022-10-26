@@ -69,7 +69,7 @@ impl IntoIterator for FlavourColours {
     }
 }
 
-/// Given a colour table taken from the main catppuccin readme, validate each
+/// Given a colour table taken from the main Catppuccin readme, validate each
 /// colour in the given flavour implementation.
 /// Copy the table in question from the following URL:
 /// https://github.com/catppuccin/catppuccin#-palettes
