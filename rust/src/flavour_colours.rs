@@ -2,7 +2,7 @@ use crate::Colour;
 
 /// Contains the colour options for a flavour of Catppuccin.
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct Palette {
+pub struct FlavourColours {
     pub rosewater: Colour,
     pub flamingo: Colour,
     pub pink: Colour,
@@ -31,7 +31,7 @@ pub struct Palette {
     pub crust: Colour,
 }
 
-impl Palette {
+impl FlavourColours {
     /// Returns an iterator over the colours in the flavour.
     pub fn into_iter(&self) -> std::array::IntoIter<&Colour, 26> {
         [
@@ -71,7 +71,7 @@ impl Palette {
 /// Copy the table in question from the following URL:
 /// https://github.com/catppuccin/catppuccin#-palettes
 #[cfg(test)]
-pub(crate) fn validate_colours(flavour: Palette, colours: &str) {
+pub(crate) fn validate_colours(flavour_colours: FlavourColours, colours: &str) {
     fn from_hex(hex: &str) -> Colour {
         let hex = hex.strip_prefix('#').unwrap_or(hex);
         let hex = i32::from_str_radix(hex, 16).expect(&format!(
@@ -96,30 +96,30 @@ pub(crate) fn validate_colours(flavour: Palette, colours: &str) {
             .expect("ran out of colours, check paste format")
     };
 
-    assert_eq!(next_colour(), flavour.rosewater);
-    assert_eq!(next_colour(), flavour.flamingo);
-    assert_eq!(next_colour(), flavour.pink);
-    assert_eq!(next_colour(), flavour.mauve);
-    assert_eq!(next_colour(), flavour.red);
-    assert_eq!(next_colour(), flavour.maroon);
-    assert_eq!(next_colour(), flavour.peach);
-    assert_eq!(next_colour(), flavour.yellow);
-    assert_eq!(next_colour(), flavour.green);
-    assert_eq!(next_colour(), flavour.teal);
-    assert_eq!(next_colour(), flavour.sky);
-    assert_eq!(next_colour(), flavour.sapphire);
-    assert_eq!(next_colour(), flavour.blue);
-    assert_eq!(next_colour(), flavour.lavender);
-    assert_eq!(next_colour(), flavour.text);
-    assert_eq!(next_colour(), flavour.subtext1);
-    assert_eq!(next_colour(), flavour.subtext0);
-    assert_eq!(next_colour(), flavour.overlay2);
-    assert_eq!(next_colour(), flavour.overlay1);
-    assert_eq!(next_colour(), flavour.overlay0);
-    assert_eq!(next_colour(), flavour.surface2);
-    assert_eq!(next_colour(), flavour.surface1);
-    assert_eq!(next_colour(), flavour.surface0);
-    assert_eq!(next_colour(), flavour.base);
-    assert_eq!(next_colour(), flavour.mantle);
-    assert_eq!(next_colour(), flavour.crust);
+    assert_eq!(next_colour(), flavour_colours.rosewater);
+    assert_eq!(next_colour(), flavour_colours.flamingo);
+    assert_eq!(next_colour(), flavour_colours.pink);
+    assert_eq!(next_colour(), flavour_colours.mauve);
+    assert_eq!(next_colour(), flavour_colours.red);
+    assert_eq!(next_colour(), flavour_colours.maroon);
+    assert_eq!(next_colour(), flavour_colours.peach);
+    assert_eq!(next_colour(), flavour_colours.yellow);
+    assert_eq!(next_colour(), flavour_colours.green);
+    assert_eq!(next_colour(), flavour_colours.teal);
+    assert_eq!(next_colour(), flavour_colours.sky);
+    assert_eq!(next_colour(), flavour_colours.sapphire);
+    assert_eq!(next_colour(), flavour_colours.blue);
+    assert_eq!(next_colour(), flavour_colours.lavender);
+    assert_eq!(next_colour(), flavour_colours.text);
+    assert_eq!(next_colour(), flavour_colours.subtext1);
+    assert_eq!(next_colour(), flavour_colours.subtext0);
+    assert_eq!(next_colour(), flavour_colours.overlay2);
+    assert_eq!(next_colour(), flavour_colours.overlay1);
+    assert_eq!(next_colour(), flavour_colours.overlay0);
+    assert_eq!(next_colour(), flavour_colours.surface2);
+    assert_eq!(next_colour(), flavour_colours.surface1);
+    assert_eq!(next_colour(), flavour_colours.surface0);
+    assert_eq!(next_colour(), flavour_colours.base);
+    assert_eq!(next_colour(), flavour_colours.mantle);
+    assert_eq!(next_colour(), flavour_colours.crust);
 }

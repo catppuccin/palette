@@ -13,7 +13,7 @@ impl Colour {
     /// ```
     /// use catppuccin::Flavour;
     ///
-    /// let hex = Flavour::Mocha.palette().teal.hex();
+    /// let hex = Flavour::Mocha.colours().teal.hex();
     /// assert_eq!(hex, "94E2D5");
     /// ```
     pub fn hex(&self) -> String {
