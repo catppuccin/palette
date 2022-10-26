@@ -58,8 +58,8 @@ poetry install
 
 ### Code Standards
 
-Before committing changes, it is recommended to run the follow tools to ensure
-consistency in the codebase.
+Before committing changes, it is recommended to run the following tools to
+ensure consistency in the codebase.
 
 ```bash
 isort .
