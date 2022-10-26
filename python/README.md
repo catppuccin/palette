@@ -38,15 +38,25 @@ mantle: #292c3c
 crust: #232634
 ```
 
-## Development
+## Contribution
 
-Install dependencies with [poetry](https://python-poetry.org):
+If you are looking to contribute, please read through our
+[CONTRIBUTING.md](https://github.com/catppuccin/.github/blob/main/CONTRIBUTING.md)
+first!
+
+### Setup
+
+This project is maintained with [Poetry](https://python-poetry.org). If you
+don't have Poetry yet, you can install it using the [installation
+instructions](https://python-poetry.org/docs/#installation).
+
+Install the project's dependencies:
 
 ```bash
 poetry install
 ```
 
-## Code Standards
+### Code Standards
 
 Before committing changes, it is recommended to run the follow tools to ensure
 consistency in the codebase.
@@ -59,5 +69,7 @@ mypy .
 pytest --cov
 ```
 
-These tools are all installed as part of the `dev` dependency group.
+These tools are all installed as part of the `dev` dependency group with
+Poetry. You can use `poetry shell` to automatically put these tools in your
+path.
 
