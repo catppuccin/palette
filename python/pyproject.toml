@@ -1,0 +1,24 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "catppuccin"
+version = "1.0.0"
+description = "🐍 Soothing pastel theme for Python."
+authors = ["backwardspy <backwardspy@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.7.2"
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^2.15.5"
+mypy = "^0.982"
+black = "^22.10.0"
+isort = "^5.10.1"
+pytest = "^7.2.0"
+pytest-cov = "^4.0.0"
+
+[too.isort]
+profile = "black"
