@@ -82,32 +82,32 @@ mod tests {
         for flavour in Flavour::into_iter() {
             let colours = flavour.colours();
             let mut colours_iter = colours.into_iter();
-            assert_eq!(colours_iter.next(), Some(&colours.rosewater));
-            assert_eq!(colours_iter.next(), Some(&colours.flamingo));
-            assert_eq!(colours_iter.next(), Some(&colours.pink));
-            assert_eq!(colours_iter.next(), Some(&colours.mauve));
-            assert_eq!(colours_iter.next(), Some(&colours.red));
-            assert_eq!(colours_iter.next(), Some(&colours.maroon));
-            assert_eq!(colours_iter.next(), Some(&colours.peach));
-            assert_eq!(colours_iter.next(), Some(&colours.yellow));
-            assert_eq!(colours_iter.next(), Some(&colours.green));
-            assert_eq!(colours_iter.next(), Some(&colours.teal));
-            assert_eq!(colours_iter.next(), Some(&colours.sky));
-            assert_eq!(colours_iter.next(), Some(&colours.sapphire));
-            assert_eq!(colours_iter.next(), Some(&colours.blue));
-            assert_eq!(colours_iter.next(), Some(&colours.lavender));
-            assert_eq!(colours_iter.next(), Some(&colours.text));
-            assert_eq!(colours_iter.next(), Some(&colours.subtext1));
-            assert_eq!(colours_iter.next(), Some(&colours.subtext0));
-            assert_eq!(colours_iter.next(), Some(&colours.overlay2));
-            assert_eq!(colours_iter.next(), Some(&colours.overlay1));
-            assert_eq!(colours_iter.next(), Some(&colours.overlay0));
-            assert_eq!(colours_iter.next(), Some(&colours.surface2));
-            assert_eq!(colours_iter.next(), Some(&colours.surface1));
-            assert_eq!(colours_iter.next(), Some(&colours.surface0));
-            assert_eq!(colours_iter.next(), Some(&colours.base));
-            assert_eq!(colours_iter.next(), Some(&colours.mantle));
-            assert_eq!(colours_iter.next(), Some(&colours.crust));
+            assert_eq!(colours_iter.next(), Some(colours.rosewater));
+            assert_eq!(colours_iter.next(), Some(colours.flamingo));
+            assert_eq!(colours_iter.next(), Some(colours.pink));
+            assert_eq!(colours_iter.next(), Some(colours.mauve));
+            assert_eq!(colours_iter.next(), Some(colours.red));
+            assert_eq!(colours_iter.next(), Some(colours.maroon));
+            assert_eq!(colours_iter.next(), Some(colours.peach));
+            assert_eq!(colours_iter.next(), Some(colours.yellow));
+            assert_eq!(colours_iter.next(), Some(colours.green));
+            assert_eq!(colours_iter.next(), Some(colours.teal));
+            assert_eq!(colours_iter.next(), Some(colours.sky));
+            assert_eq!(colours_iter.next(), Some(colours.sapphire));
+            assert_eq!(colours_iter.next(), Some(colours.blue));
+            assert_eq!(colours_iter.next(), Some(colours.lavender));
+            assert_eq!(colours_iter.next(), Some(colours.text));
+            assert_eq!(colours_iter.next(), Some(colours.subtext1));
+            assert_eq!(colours_iter.next(), Some(colours.subtext0));
+            assert_eq!(colours_iter.next(), Some(colours.overlay2));
+            assert_eq!(colours_iter.next(), Some(colours.overlay1));
+            assert_eq!(colours_iter.next(), Some(colours.overlay0));
+            assert_eq!(colours_iter.next(), Some(colours.surface2));
+            assert_eq!(colours_iter.next(), Some(colours.surface1));
+            assert_eq!(colours_iter.next(), Some(colours.surface0));
+            assert_eq!(colours_iter.next(), Some(colours.base));
+            assert_eq!(colours_iter.next(), Some(colours.mantle));
+            assert_eq!(colours_iter.next(), Some(colours.crust));
         }
     }
 }
