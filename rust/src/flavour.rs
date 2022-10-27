@@ -169,7 +169,7 @@ mod tests {
     #[test]
     fn verify_colour_methods() {
         // We only need to test one flavour, as we just need to make sure the methods exists
-        // Because if the correct method exists it is guaurenteed to access to correctly named field
+        // Because if the correct method exists it is guaranteed to access to the correctly named field
         let _rosewater = Flavour::Latte.rosewater();
         let _flamingo = Flavour::Latte.flamingo();
         let _pink = Flavour::Latte.pink();
