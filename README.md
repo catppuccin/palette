@@ -61,7 +61,7 @@ Import the palettes:
 
 ```css
 /* directly from the file */
-@import "@catppuccin/palette/style"
+@import "@catppuccin/palette/style";
 /* or using unpkg.com */
 @import url('https://unpkg.com/@catppuccin/palette@0.1.4/css/catppuccin.css');
 ```
