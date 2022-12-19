@@ -39,6 +39,7 @@ switch (format) {
 				append("\t--ctp-" + palette + "-" + label + ": " + variants[palette][label]["hex"] + ";\n")
 				append("\t--ctp-" + palette + "-" + label + "-rgb" + ": " + variants[palette][label]["rgb"] + ";\n")
 				append("\t--ctp-" + palette + "-" + label + "-hsl" + ": " + variants[palette][label]["hsl"] + ";\n")
+				append("\t--ctp-" + palette + "-" + label + "-raw" + ": " + variants[palette][label]["raw"] + ";\n")
 			}
 		}
 		append("}")
