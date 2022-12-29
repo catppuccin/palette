@@ -23,6 +23,8 @@
     - [Sass](#sass)
     - [Tailwind CSS](https://github.com/catppuccin/tailwindcss) (separate repository)
     - [Rust](https://github.com/catppuccin/rust) (separate repository)
+    - [Python](https://github.com/catppuccin/python) (separate repository)
+    - [Go](https://github.com/catppuccin/go) (separate repository)
 - Design
     - [Affinity](#affinity)
     - [Aseprite / LibreSprite](#aseprite)
