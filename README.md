@@ -28,7 +28,7 @@
     - [Java](https://github.com/catppuccin/java) (separate repository)
 - Design
     - [Affinity](#affinity)
-    - [Aseprite / LibreSprite](#aseprite)
+    - [Aseprite / LibreSprite](#aseprite--libresprite)
     - [Gimp](#gimp)
     - [Inkscape](#inkscape)
     - [Krita](#krita)
