@@ -4,12 +4,14 @@ There are two ways of using these Sass files:
 
 ## Import one-by-one
 
-The easiest way to import a single flavour, is to use one of these 4 files:\
+The easiest way to import a single flavor, is to use one of these 4 files:\
 `_latte.scss`, `_frappe.scss`, `_macchiato.scss`, `_mocha.scss`
 
 Input:
 ```scss
 @import "mocha";
+// sass is also part of the npm package:
+// @use "~@catppuccin/palette/scss/catppuccin/mocha";
 
 .my-mocha-class {
     background: $base;
@@ -30,7 +32,7 @@ Output:
 Another way to create all four flavours, in a single file, from a single file,
 is to use `_catppuccin.scss`.
 
-**NB**: Due to websafe colours being predefined in CSS, colours like `red`, `green`, `blue` will **not** be generated with this method, **when they are not** explicitly cast as a string. To ensure proper generation, wrap your values with `'`. 
+**NB**: Due to websafe colors being predefined in CSS, colors like `red`, `green`, `blue` will **not** be generated with this method, **when they are not** explicitly cast as a string. To ensure proper generation, wrap your values with `'`. 
 
 In short:\
 ❌ Don't do this:
@@ -42,10 +44,12 @@ Input:
 
 ```scss
 @use "catppuccin";
+// sass is also part of the npm package:
+// @use "~@catppuccin/palette/scss/catppuccin";
 
 @each $flavour, $colour in catppuccin.$palette {
     .my-#{flavour}-class {
-        // you need surround the catppuccin colour names with quotes
+        // you need surround the catppuccin color names with quotes
         background: map-get($colour, 'base');
         color: map-get($colour, 'blue');
     }

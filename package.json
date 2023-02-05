@@ -1,51 +1,61 @@
 {
-	"name": "@catppuccin/palette",
-	"version": "0.1.5",
-	"description": "Soothing pastel themes for the high-spirited!",
-	"main": "dist/index.js",
-	"module": "dist/index.mjs",
-	"exports": {
-		".": {
-			"require": "./dist/index.cjs",
-			"import": "./dist/index.mjs"
-		},
-		"./style": "./css/catppuccin.css"
-	},
-	"scripts": {
-		"test": "ava",
-		"build": "node esbuild.js",
-		"prepublishOnly": "npm run build"
-	},
-	"files": [
-		"css/",
-		"dist/index.cjs",
-		"dist/index.mjs",
-		"index.d.ts"
-	],
-	"types": "index.d.ts",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/catppuccin/palette.git"
-	},
-	"keywords": [
-		"pastel-colors",
-		"catppuccin",
-		"colors",
-		"theme",
-		"palette",
-		"soothing"
-	],
-	"publishConfig": {
-		"access": "public"
-	},
-	"author": "Catppuccin Org",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/catppuccin/palette/issues"
-	},
-	"homepage": "https://github.com/catppuccin/palette#readme",
-	"devDependencies": {
-		"ava": "^4.2.0",
-		"esbuild": "^0.14.42"
-	}
+  "name": "@catppuccin/palette",
+  "version": "0.1.6",
+  "description": "Soothing pastel themes for the high-spirited!",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./style": "./css/catppuccin.css"
+  },
+  "scripts": {
+    "test": "ava",
+    "build": "node esbuild.js",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "css/*",
+    "dist/*",
+    "scss/*.scss",
+    "index.d.ts"
+  ],
+  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catppuccin/palette.git"
+  },
+  "keywords": [
+    "pastel-colors",
+    "catppuccin",
+    "colors",
+    "theme",
+    "palette",
+    "soothing"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Catppuccin Org",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/catppuccin/palette/issues"
+  },
+  "homepage": "https://github.com/catppuccin/palette#readme",
+  "funding": [
+    {
+      "type": "opencollective",
+      "url": "https://opencollective.com/catppuccin"
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/catppuccin"
+    }
+  ],
+  "devDependencies": {
+    "ava": "^4.2.0",
+    "esbuild": "^0.14.42"
+  }
 }
