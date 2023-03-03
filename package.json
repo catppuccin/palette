@@ -9,7 +9,8 @@
       "require": "./dist/index.cjs",
       "import": "./dist/index.mjs"
     },
-    "./style": "./css/catppuccin.css"
+    "./style": "./css/catppuccin.css",
+    "./scss/*": "./scss/*"
   },
   "scripts": {
     "test": "ava",
