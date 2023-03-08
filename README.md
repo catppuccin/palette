@@ -21,6 +21,7 @@
     - [Node Package](#node-package)
     - [CSS](#css)
     - [Sass](#sass)
+    - [Nix](#nix-flake)
     - [Tailwind CSS](https://github.com/catppuccin/tailwindcss) (separate repository)
     - [Rust](https://github.com/catppuccin/rust) (separate repository)
     - [Python](https://github.com/catppuccin/python) (separate repository)
@@ -130,6 +131,21 @@ cp -r clr/* ~/Library/Colors
 2. Open the `sip/` folder
 3. Open the `.palette` files, and Sip will import the palettes
 
+### Nix Flake
+
+1. Add "github:catppuccin/palette" to your flake inputs
+2. Use the attributes described below
+
+#### Flake Outputs
+
+- `flavours :: [string]`: A list of the Catppuccin flavours
+- `accents :: [string]`: A list of all of Catppuccin's accent colours
+- `colours :: [string]`: A list of all of Catppuccin's colours
+- `${flavour}.${colour}.hex :: string`: The hex code for a given flavour and colour
+- `${flavour}.${colour}.red :: int`: The red RGB value for a given flavour and colour
+- `${flavour}.${colour}.green :: int`: The green RGB value for a given flavour and colour
+- `${flavour}.${colour}.blue :: int`: The blue RGB value for a given flavour and colour
+
 ## 💝 Thanks to
 
 - [Gingeh](https://github.com/gingeh)
@@ -137,6 +153,7 @@ cp -r clr/* ~/Library/Colors
 - [Andreas Grafen](https://github.com/andreasgrafen)
 - [Pocco81](https://github.com/Pocco81)
 - [winston](https://github.com/nekowinston)
+- [Stonks3141](https://github.com/Stonks3141)
 
 &nbsp;
 
