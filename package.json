@@ -10,7 +10,8 @@
       "import": "./dist/index.mjs"
     },
     "./style": "./css/catppuccin.css",
-    "./scss/*": "./scss/*"
+    "./scss/*": "./scss/*",
+    "./less/*": "./less/*"
   },
   "scripts": {
     "test": "ava",
@@ -22,6 +23,7 @@
     "css/*",
     "dist/*",
     "scss/*.scss",
+    "less/*.less",
     "index.d.ts"
   ],
   "types": "index.d.ts",
