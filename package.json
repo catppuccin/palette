@@ -15,7 +15,9 @@
   },
   "scripts": {
     "test": "ava",
-    "build": "node esbuild.js",
+    "build:npm": "node esbuild.js",
+    "build:json": "jq -f porcelain.jq palette.json > palette-porcelain.json",
+    "build": "npm run build:npm && npm run build:json",
     "prepublishOnly": "npm run build",
     "release": "standard-version"
   },
