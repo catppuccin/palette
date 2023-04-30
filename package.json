@@ -14,8 +14,7 @@
     "./less/*": "./less/*"
   },
   "scripts": {
-    "test": "ava",
-    "build:npm": "node esbuild.js",
+    "build:npm": "tsup",
     "build:json": "jq -f porcelain.jq palette.json > palette-porcelain.json",
     "build": "npm run build:npm && npm run build:json",
     "prepublishOnly": "npm run build",
