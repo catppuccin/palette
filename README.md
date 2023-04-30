@@ -33,7 +33,7 @@
     - [Gimp](#gimp)
     - [Inkscape](#inkscape)
     - [Krita](#krita)
-- Colour pickers
+- Color pickers
     - [macOS Color Picker](#macos-color-picker)
     - [Sip](#sip)
 - Reference
