@@ -62,6 +62,7 @@
   "devDependencies": {
     "ava": "^4.2.0",
     "esbuild": "^0.14.42",
+    "procreate-swatches": "^0.1.1",
     "standard-version": "^9.5.0",
     "ts-node": "^10.9.1",
     "tsup": "^6.7.0",
