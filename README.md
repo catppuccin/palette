@@ -81,7 +81,7 @@ body {
 
 ### Sass
 
-The usage instructions for Sass are documented [here](https://github.com/catppuccin/palette/tree/main/scss), in the `scss` folder.
+The usage instructions for Sass are documented [here](https://github.com/catppuccin/palette/tree/main/docs/Sass.md), in the `docs` folder.
 
 ### Affinity
 
