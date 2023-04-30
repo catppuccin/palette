@@ -11,10 +11,6 @@ const root = path.resolve(
   "..",
   "dist"
 );
-const dateString = new Date()
-  .toISOString()
-  .replace(/T/, " ")
-  .replace(/\..+/, "");
 
 const generateGimp = (name, palette) => {
   const n = Object.keys(palette).length;
@@ -34,7 +30,20 @@ const generateGimp = (name, palette) => {
   return head + body;
 };
 
+const generateProcreate = async (name, palette) => {
+  const rgbValues = Object.values(palette).map((color) => [
+    [color.rgb.r, color.rgb.g, color.rgb.b],
+    "rgb",
+  ]);
+  return await createSwatchesFile(name, rgbValues);
+};
+
 const generateSip = (name, palette) => {
+  const dateString = new Date()
+    .toISOString()
+    .replace(/T/, " ")
+    .replace(/\..+/, "");
+
   const data = {
     cloud: true,
     updatedAt: dateString,
@@ -66,30 +75,23 @@ const generateSip = (name, palette) => {
   return JSON.stringify(data, null, 2);
 };
 
-const generateProcreate = async (name, palette) => {
-  const rgbValues = Object.values(palette).map((colour) => [
-    [colour.rgb.r, colour.rgb.g, colour.rgb.b],
-    "rgb",
-  ]);
-  return await createSwatchesFile(name, rgbValues);
-};
-
 Object.entries(variants).map(async ([name, palette]) => {
-  name = `Catppuccin ${name.charAt(0).toUpperCase() + name.slice(1)}`;
+  // formatted "pretty" name, Catppuccin <Flavor>
+  const pname = `Catppuccin ${name.charAt(0).toUpperCase() + name.slice(1)}`;
 
-  ["gimp", "sip", "procreate"].map((folder) =>
+  ["gimp", "procreate", "sip"].map((folder) =>
     fs.mkdirSync(path.join(root, folder), { recursive: true })
   );
   fs.writeFileSync(
-    path.resolve(root, `sip/${name}.palette`),
-    generateSip(name, palette)
+    path.resolve(root, `gimp/${pname}.gpl`),
+    generateGimp(pname, palette)
   );
   fs.writeFileSync(
-    path.resolve(root, `gimp/${name}.gpl`),
-    generateGimp(name, palette)
+    path.resolve(root, `procreate/${pname}.swatches`),
+    await generateProcreate(pname, palette)
   );
   fs.writeFileSync(
-    path.resolve(root, `procreate/${name}.swatches`),
-    await generateProcreate(name, palette)
+    path.resolve(root, `sip/${pname}.palette`),
+    generateSip(pname, palette)
   );
 });
