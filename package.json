@@ -66,6 +66,7 @@
     "standard-version": "^9.5.0",
     "ts-node": "^10.9.1",
     "tsup": "^6.7.0",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "canvas": "^2.11.2"
   }
 }

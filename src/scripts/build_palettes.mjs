@@ -1,4 +1,5 @@
 import fs from "fs";
+import { createCanvas } from "canvas";
 import crypto from "crypto";
 import { variants } from "@catppuccin/palette";
 import url from "url";
@@ -75,11 +76,27 @@ const generateSip = (name, palette) => {
   return JSON.stringify(data, null, 2);
 };
 
+const generatePng = (name, palette) => {
+  const colors = Object.entries(palette).map(([key, value]) => value.hex);
+  const size = 25;
+  const width = size * colors.length;
+  const canvas = createCanvas(width, size * 2);
+  const ctx = canvas.getContext("2d");
+
+  for (let x = 0; x < width; x += size) {
+    const index = (x / size) % colors.length;
+    ctx.fillStyle = `#${colors[index]}`;
+    ctx.fillRect(x, 0, size, size * 2);
+  }
+
+  return canvas.toBuffer("image/png");
+};
+
 Object.entries(variants).map(async ([name, palette]) => {
   // formatted "pretty" name, Catppuccin <Flavor>
   const pname = `Catppuccin ${name.charAt(0).toUpperCase() + name.slice(1)}`;
 
-  ["gimp", "procreate", "sip"].map((folder) =>
+  ["gimp", "procreate", "sip", "png"].map((folder) =>
     fs.mkdirSync(path.join(root, folder), { recursive: true })
   );
   fs.writeFileSync(
@@ -93,5 +110,9 @@ Object.entries(variants).map(async ([name, palette]) => {
   fs.writeFileSync(
     path.resolve(root, `sip/${pname}.palette`),
     generateSip(pname, palette)
+  );
+  fs.writeFileSync(
+    path.resolve(root, `png/${pname}.png`),
+    generatePng(pname, palette)
   );
 });
