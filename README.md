@@ -33,6 +33,7 @@
     - [Gimp](#gimp)
     - [Inkscape](#inkscape)
     - [Krita](#krita)
+    - [Lookup Tables](/lut/README.md)
 - Color pickers
     - [macOS Color Picker](#macos-color-picker)
     - [Sip](#sip)
