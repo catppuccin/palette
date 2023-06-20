@@ -27,6 +27,7 @@
     - [Go](https://github.com/catppuccin/go) (separate repository)
     - [Java](https://github.com/catppuccin/java) (separate repository)
     - [Nim](https://github.com/catppuccin/nim) (separate repository)
+    - [Lua](https://github.com/catppuccin/lua) (separate repository)
 - Design
     - [Affinity](#affinity)
     - [Aseprite / LibreSprite](#aseprite--libresprite)
