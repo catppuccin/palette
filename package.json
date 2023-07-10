@@ -1,6 +1,6 @@
 {
   "name": "@catppuccin/palette",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "description": "Soothing pastel themes for the high-spirited!",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

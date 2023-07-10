@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/catppuccin/palette/compare/v0.1.8...v0.2.0) (2023-07-10)
+
+
+### Features
+
+* add `nim` library ([26fe0a4](https://github.com/catppuccin/palette/commit/26fe0a4789d730371b84e2b525b8943751491ac8))
+
+
+### Bug Fixes
+
+* **npm:** export types for ESM ([#52](https://github.com/catppuccin/palette/issues/52)) ([162abfc](https://github.com/catppuccin/palette/commit/162abfceb5b02e1df992ac34ab449e3762eafb67))
+
 ### [0.1.8](https://github.com/catppuccin/palette/compare/v0.1.7...v0.1.8) (2023-04-02)
 
 
