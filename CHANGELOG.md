@@ -22,7 +22,7 @@ All notable changes to this project will be documented in this file. See [standa
 * add LESS palette ([094ebb6](https://github.com/catppuccin/palette/commit/094ebb62a5229ec0ac77bdaf17d427c16c90d8e0))
 * add machine-readable palette ([#45](https://github.com/catppuccin/palette/issues/45)) ([df35c12](https://github.com/catppuccin/palette/commit/df35c12c2fc6d2f7a68315a71fe85327199b883c))
 * **less:** add accents mixins ([#47](https://github.com/catppuccin/palette/issues/47)) ([baa0469](https://github.com/catppuccin/palette/commit/baa0469b86b4319b26b1f584827924e562924003))
-* **npm:** incluse LESS in package ([e78e016](https://github.com/catppuccin/palette/commit/e78e016e01d0144ad3b594357e230bb0eccf3c60))
+* **npm:** include LESS in package ([e78e016](https://github.com/catppuccin/palette/commit/e78e016e01d0144ad3b594357e230bb0eccf3c60))
 
 ### [0.1.7](https://github.com/catppuccin/palette/compare/v0.1.6...v0.1.7) (2023-03-03)
 
