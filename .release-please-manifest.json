@@ -1,0 +1,18 @@
+{
+  "packages": {
+    ".": {
+      "release-type": "generic",
+      "extra-files": [
+        {
+          "type": "json",
+          "path": "deno.json",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "./dist/npm": {
+      "release-type": "node",
+      "package-name": "@catppuccin/palette"
+    }
+  }
+}

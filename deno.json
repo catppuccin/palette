@@ -3,5 +3,6 @@
     "npm": "deno run -A ./scripts/build_npm.ts",
     "palette": "deno run -A ./scripts/gen_palette.ts",
     "thirdparty": "deno run -A ./scripts/build_thirdparty.ts"
-  }
+  },
+  "version": "1.0.0"
 }

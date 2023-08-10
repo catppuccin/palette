@@ -2,7 +2,11 @@
 import { createSwatchesFile, fs, path } from "./deps.ts";
 import { Color, ColorFormats, CtpColors, flavors } from "../mod.ts";
 
-const ROOT = path.resolve(new URL(".", import.meta.url).pathname, "../dist/");
+const ROOT = path.resolve(
+  new URL(".", import.meta.url).pathname,
+  "../dist/palettes",
+);
+fs.emptyDirSync(ROOT);
 
 const generateGimp = (name: string, palette: CtpColors) => {
   const n = Object.keys(palette).length;
