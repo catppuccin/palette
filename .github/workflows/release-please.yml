@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: google-github-actions/release-please-action@v3
         with:
-          command: manifest
+          release-type: simple
 
       - name: tag major and minor versions
         if: ${{ steps.release.outputs.release_created }}

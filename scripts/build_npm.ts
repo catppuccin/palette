@@ -45,9 +45,8 @@ await dnt.build({
     },
   },
   postBuild() {
-    ["LICENSE", "README.md"].forEach((file) => {
-      fs.copySync(`./${file}`, `${outDir}/${file}`);
-    });
+    fs.copySync(`./LICENSE`, `${outDir}/LICENSE`);
+    fs.copySync(`./docs/node.md`, `${outDir}/README.md`);
     builders.compileCss(outDir);
     builders.compileLess(outDir);
     builders.compileScss(outDir);
