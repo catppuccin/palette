@@ -1,6 +1,5 @@
 #!/usr/bin/env -S deno run -A
 import { dnt, fs } from "./deps.ts";
-import denoJson from "../deno.json" assert { type: "json" };
 import * as builders from "./builders/mod.ts";
 
 const outDir = "./dist/npm";
@@ -15,7 +14,7 @@ await dnt.build({
   test: false,
   package: {
     name: "@catppuccin/palette",
-    version: denoJson.version,
+    version: Deno.readTextFileSync("./version.txt").trim(),
     description: "Soothing pastel themes for the high-spirited!",
     author: "Catppuccin Org",
     license: "MIT",
