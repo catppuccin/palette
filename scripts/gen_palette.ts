@@ -1,5 +1,5 @@
 #!/usr/bin/env -S deno run -A
-import { colormath, path } from "./deps.ts";
+import { convert } from "./deps.ts";
 
 const definitions = {
   latte: {
@@ -116,13 +116,13 @@ const definitions = {
   },
 };
 
-const createColor = (
-  flavor: keyof typeof definitions,
-  color: keyof typeof definitions["latte"],
-) => {
+type Flavor = keyof typeof definitions;
+type Color = keyof typeof definitions[Flavor];
+
+const createColor = (flavor: Flavor, color: Color) => {
   const value = definitions[flavor][color];
-  const rgb = colormath.hex.toRgb(`#${value}`);
-  const hsl = colormath.rgb.toHsl(rgb);
+  const rgb = convert.hex.rgb(value);
+  const hsl = convert.hex.hsl.raw(value).map((v) => Number(v.toFixed(3)));
 
   return {
     hex: `#${value}`,
@@ -142,14 +142,11 @@ const createColor = (
 const colors = {
   ...Object.entries(definitions.latte).map(([colorName, _]) => {
     return {
-      [colorName as keyof typeof definitions["latte"]]: Object.keys(definitions)
+      [colorName as Color]: Object.keys(definitions)
         .map(
           (flavor) => {
             return {
-              [flavor]: createColor(
-                flavor as keyof typeof definitions,
-                colorName as keyof typeof definitions["latte"],
-              ),
+              [flavor]: createColor(flavor as Flavor, colorName as Color),
             };
           },
         ).reduce((acc, cur) => ({ ...acc, ...cur }), {}),
@@ -160,13 +157,10 @@ const colors = {
 const flavors = {
   ...Object.entries(definitions).map(([flavorName, colors]) => {
     return {
-      [flavorName as keyof typeof definitions]: Object.keys(colors).map(
+      [flavorName as Flavor]: Object.keys(colors).map(
         (name) => {
           return {
-            [name]: createColor(
-              flavorName as keyof typeof definitions,
-              name as keyof typeof definitions["latte"],
-            ),
+            [name]: createColor(flavorName as Flavor, name as Color),
           };
         },
       ).reduce((acc, cur) => ({ ...acc, ...cur }), {}),
@@ -174,12 +168,7 @@ const flavors = {
   }).reduce((acc, cur) => ({ ...acc, ...cur }), {}),
 };
 
-const ROOT = new URL(".", import.meta.url).pathname;
 Deno.writeTextFileSync(
-  path.resolve(ROOT, "../palette.json"),
-  JSON.stringify(
-    { colors, flavors },
-    null,
-    2,
-  ),
+  "./palette.json",
+  JSON.stringify({ colors, flavors }, null, 2),
 );

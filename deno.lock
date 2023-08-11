@@ -79,8 +79,6 @@
     "https://deno.land/std@0.196.0/path/win32.ts": "4fca292f8d116fd6d62f243b8a61bd3d6835a9f0ede762ba5c01afe7c3c0aa12",
     "https://deno.land/x/code_block_writer@12.0.0/mod.ts": "2c3448060e47c9d08604c8f40dee34343f553f33edcdfebbf648442be33205e5",
     "https://deno.land/x/code_block_writer@12.0.0/utils/string_utils.ts": "60cb4ec8bd335bf241ef785ccec51e809d576ff8e8d29da43d2273b69ce2a6ff",
-    "https://deno.land/x/colormath@1.2.4/dist/index.mjs": "fcd8f81ae59b1fbb1309b8066c45d0f441e7fe5480909bb8e86f48a4d01eccf3",
-    "https://deno.land/x/colormath@1.2.4/mod.ts": "e4a907c4ba243175061519ce839d99c5029325f49287117ea30bf45b37c0893a",
     "https://deno.land/x/deno_cache@0.4.1/auth_tokens.ts": "5fee7e9155e78cedf3f6ff3efacffdb76ac1a76c86978658d9066d4fb0f7326e",
     "https://deno.land/x/deno_cache@0.4.1/cache.ts": "51f72f4299411193d780faac8c09d4e8cbee951f541121ef75fcc0e94e64c195",
     "https://deno.land/x/deno_cache@0.4.1/deno_dir.ts": "f2a9044ce8c7fe1109004cda6be96bf98b08f478ce77e7a07f866eff1bdd933f",
@@ -123,7 +121,8 @@
   },
   "npm": {
     "specifiers": {
-      "procreate-swatches": "procreate-swatches@0.1.1",
+      "@types/color-convert": "@types/color-convert@2.0.0",
+      "color-convert@2.0.1": "color-convert@2.0.1",
       "procreate-swatches@0.1.1": "procreate-swatches@0.1.1"
     },
     "packages": {
@@ -136,6 +135,26 @@
         "dependencies": {
           "jszip": "jszip@3.10.1"
         }
+      },
+      "@types/color-convert@2.0.0": {
+        "integrity": "sha512-m7GG7IKKGuJUXvkZ1qqG3ChccdIM/qBBo913z+Xft0nKCX4hAU/IxKwZBU4cpRZ7GS5kV4vOblUkILtSShCPXQ==",
+        "dependencies": {
+          "@types/color-name": "@types/color-name@1.1.1"
+        }
+      },
+      "@types/color-name@1.1.1": {
+        "integrity": "sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==",
+        "dependencies": {}
+      },
+      "color-convert@2.0.1": {
+        "integrity": "sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==",
+        "dependencies": {
+          "color-name": "color-name@1.1.4"
+        }
+      },
+      "color-name@1.1.4": {
+        "integrity": "sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==",
+        "dependencies": {}
       },
       "core-util-is@1.0.3": {
         "integrity": "sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==",
