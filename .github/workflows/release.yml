@@ -1,0 +1,42 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "lts/*"
+
+      - name: Build NPM package
+        run: deno task npm
+
+      - name: Publish NPM package
+        working-directory: dist/npm
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Build tar files
+        run: tar cf catppuccin.tar --directory=dist/palettes/ .
+
+      - name: Attach files to release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            catppuccin.tar
