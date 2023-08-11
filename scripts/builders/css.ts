@@ -1,8 +1,8 @@
 import { fs } from "../deps.ts";
-import { ColorFormats, flavors } from "../../mod.ts";
+import { flavors } from "../../mod.ts";
 
 const template = Object.entries(flavors).map(([flavorName, palette]) => {
-  const colors = Object.entries<ColorFormats>(palette)
+  const colors = Object.entries(palette)
     .map(([colorName, value]) => {
       const baseName = `--ctp-${flavorName}-${colorName}`;
       return [

@@ -1,10 +1,10 @@
 import { fs } from "../deps.ts";
-import { ColorFormats, flavors } from "../../mod.ts";
+import { flavors } from "../../mod.ts";
 
 const combined = `@catppuccin: {
 ${
   Object.entries(flavors).map(([flavorName, palette]) => {
-    const color = Object.entries<ColorFormats>(palette)
+    const color = Object.entries(palette)
       .map(([key, value]) => {
         return `    ${key}: ${value.hex}`;
       }).join(";\n");
@@ -14,7 +14,7 @@ ${
 };`;
 
 const mixins = Object.entries(flavors).map(([flavorName, palette]) => {
-  const color = Object.entries<ColorFormats>(palette)
+  const color = Object.entries(palette)
     .map(([key, value]) => {
       return `  ${key}: ${value.hex}`;
     }).join(";\n");
@@ -28,7 +28,7 @@ export const compileLess = (outDir: string) => {
   Object.entries(flavors).map(([flavorName, palette]) => {
     Deno.writeTextFileSync(
       `${outDir}/less/_${flavorName}.less`,
-      Object.entries<ColorFormats>(palette)
+      Object.entries(palette)
         .map(([key, value]) => {
           return `@${key}: ${value.hex};`;
         }).join("\n"),
