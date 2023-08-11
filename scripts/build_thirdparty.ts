@@ -4,6 +4,7 @@ import { flavors } from "../mod.ts";
 import {
   generateAse,
   generateGimp,
+  generatePng,
   generateProcreate,
   generateSip,
 } from "./builders/mod.ts";
@@ -15,10 +16,9 @@ const ROOT = path.resolve(
 fs.emptyDirSync(ROOT);
 
 Object.entries(flavors).map(async ([name, palette]) => {
-  // formatted "pretty" name, Catppuccin <Flavor>
-  const pname = `Catppuccin ${name.charAt(0).toUpperCase() + name.slice(1)}`;
+  const pname = name.charAt(0).toUpperCase() + name.slice(1);
 
-  ["ase", "gimp", "procreate", "sip"].map((folder) =>
+  ["ase", "gimp", "procreate", "png", "sip"].map((folder) =>
     fs.ensureDirSync(path.join(ROOT, folder))
   );
 
@@ -29,6 +29,10 @@ Object.entries(flavors).map(async ([name, palette]) => {
   Deno.writeTextFileSync(
     path.resolve(ROOT, `gimp/${pname}.gpl`),
     generateGimp(pname, palette),
+  );
+  Deno.writeFileSync(
+    path.resolve(ROOT, `png/${pname}.png`),
+    generatePng(pname, palette),
   );
   Deno.writeTextFileSync(
     path.resolve(ROOT, `procreate/${pname}.swatches`),
