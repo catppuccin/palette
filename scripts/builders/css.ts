@@ -1,5 +1,5 @@
-import { fs } from "../deps.ts";
-import { flavors } from "../../mod.ts";
+import { flavors } from "catppuccin/mod.ts";
+import { fs } from "scripts/deps.ts";
 
 const template = Object.entries(flavors).map(([flavorName, palette]) => {
   const colors = Object.entries(palette)

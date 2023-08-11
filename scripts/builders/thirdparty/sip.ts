@@ -1,4 +1,4 @@
-import { Color, ColorFormats } from "../../../mod.ts";
+import { Color, ColorFormats } from "catppuccin/mod.ts";
 
 export const generateSip = (
   name: string,

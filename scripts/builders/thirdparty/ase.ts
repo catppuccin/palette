@@ -1,5 +1,5 @@
-import { Color, ColorFormats } from "../../../mod.ts";
-import { aseutils } from "../../deps.ts";
+import { Color, ColorFormats } from "catppuccin/mod.ts";
+import { aseutils } from "scripts/deps.ts";
 
 export const generateAse = (
   _name: string,

@@ -1,6 +1,6 @@
 #!/usr/bin/env -S deno run -A
-import { fs, path } from "./deps.ts";
-import { flavors } from "../mod.ts";
+import { fs, path } from "scripts/deps.ts";
+import { flavors } from "catppuccin/mod.ts";
 import {
   generateAse,
   generateGimp,

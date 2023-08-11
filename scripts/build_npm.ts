@@ -1,5 +1,5 @@
 #!/usr/bin/env -S deno run -A
-import { dnt, fs } from "./deps.ts";
+import { dnt, fs } from "scripts/deps.ts";
 import * as builders from "./builders/mod.ts";
 
 const outDir = "./dist/npm";
@@ -38,7 +38,7 @@ await dnt.build({
       },
     ],
     exports: {
-      "./css": "./css/catppuccin.css",
+      "./css": "./css/*",
       "./less/*": "./less/*",
       "./scss/*": "./scss/*",
     },

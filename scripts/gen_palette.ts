@@ -1,5 +1,5 @@
 #!/usr/bin/env -S deno run -A
-import { convert } from "./deps.ts";
+import { convert } from "scripts/deps.ts";
 
 const definitions = {
   latte: {

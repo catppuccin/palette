@@ -1,5 +1,5 @@
-import { Color, ColorFormats } from "../../../mod.ts";
-import { createCanvas } from "../../deps.ts";
+import { Color, ColorFormats } from "catppuccin/mod.ts";
+import { createCanvas } from "scripts/deps.ts";
 
 export const generatePng = (
   _name: string,

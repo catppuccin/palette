@@ -1,5 +1,15 @@
 {
-  "lock": "./deno.lock",
+  "imports": {
+    "catppuccin/": "./",
+    "scripts/": "./scripts/"
+  },
+  "fmt": {
+    "include": ["**/*.ts"]
+  },
+  "lint": {
+    "include": ["."],
+    "exclude": ["dist/"]
+  },
   "tasks": {
     "npm": "deno run -A ./scripts/build_npm.ts",
     "palette": "deno run -A ./scripts/gen_palette.ts",

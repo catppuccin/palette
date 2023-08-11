@@ -1,5 +1,5 @@
-import { CtpColors } from "../../../mod.ts";
-import { createSwatchesFile } from "../../deps.ts";
+import { CtpColors } from "catppuccin/mod.ts";
+import { createSwatchesFile } from "scripts/deps.ts";
 
 export const generateProcreate = async (
   name: string,
