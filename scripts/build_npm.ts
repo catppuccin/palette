@@ -1,12 +1,13 @@
-#!/usr/bin/env -S deno run -A
-import { dnt, fs } from "scripts/deps.ts";
+import { copy, emptyDir } from "std/fs/mod.ts";
+import { build } from "dnt";
+
+import denoJson from "@/deno.json" assert { type: "json" };
 import * as builders from "./builders/mod.ts";
-import denoJson from "catppuccin/deno.json" assert { type: "json" };
 
 const outDir = "./dist/npm";
 
-await dnt.emptyDir(outDir);
-await dnt.build({
+await emptyDir(outDir);
+await build({
   entryPoints: ["./mod.ts"],
   outDir,
   // no need for the Deno shim
@@ -45,11 +46,11 @@ await dnt.build({
       "./scss/*": "./scss/*",
     },
   },
-  postBuild() {
-    fs.copySync(`./LICENSE`, `${outDir}/LICENSE`);
-    fs.copySync(`./docs/node.md`, `${outDir}/README.md`);
-    builders.compileCss(outDir);
-    builders.compileLess(outDir);
-    builders.compileScss(outDir);
+  async postBuild() {
+    await copy(`./LICENSE`, `${outDir}/LICENSE`);
+    await copy(`./docs/node.md`, `${outDir}/README.md`);
+    await builders.compileCss(outDir);
+    await builders.compileLess(outDir);
+    await builders.compileScss(outDir);
   },
-});
+}).then(() => Deno.exit());

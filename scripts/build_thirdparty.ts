@@ -1,6 +1,7 @@
-#!/usr/bin/env -S deno run -A
-import { fs, path } from "scripts/deps.ts";
-import { flavors } from "catppuccin/mod.ts";
+import { emptyDir, ensureDir } from "std/fs/mod.ts";
+import { join } from "std/path/mod.ts";
+
+import { flavors } from "@/mod.ts";
 import {
   generateAse,
   generateGimp,
@@ -9,37 +10,38 @@ import {
   generateSip,
 } from "./builders/mod.ts";
 
-const ROOT = path.resolve(
-  new URL(".", import.meta.url).pathname,
-  "../dist/palettes",
-);
-fs.emptyDirSync(ROOT);
+const ROOT = new URL("../dist/palettes", import.meta.url).pathname;
+await emptyDir(ROOT);
 
-Object.entries(flavors).map(async ([name, palette]) => {
-  const pname = name.charAt(0).toUpperCase() + name.slice(1);
-
+await Promise.all(
   ["ase", "gimp", "procreate", "png", "sip"].map((folder) =>
-    fs.ensureDirSync(path.join(ROOT, folder))
-  );
+    ensureDir(join(ROOT, folder))
+  ),
+);
 
-  Deno.writeFileSync(
-    path.resolve(ROOT, `ase/${pname}.ase`),
-    generateAse(pname, palette),
-  );
-  Deno.writeTextFileSync(
-    path.resolve(ROOT, `gimp/${pname}.gpl`),
-    generateGimp(pname, palette),
-  );
-  Deno.writeFileSync(
-    path.resolve(ROOT, `png/${pname}.png`),
-    generatePng(pname, palette),
-  );
-  Deno.writeTextFileSync(
-    path.resolve(ROOT, `procreate/${pname}.swatches`),
-    await generateProcreate(pname, palette),
-  );
-  Deno.writeTextFileSync(
-    path.resolve(ROOT, `sip/${pname}.palette`),
-    generateSip(pname, palette),
-  );
-});
+Promise.all(
+  Object.entries(flavors).flatMap(async ([name, palette]) => {
+    const fname = name.charAt(0).toUpperCase() + name.slice(1);
+
+    await Deno.writeFile(
+      join(ROOT, `ase/${fname}.ase`),
+      generateAse(fname, palette),
+    );
+    await Deno.writeFile(
+      join(ROOT, `png/${fname}.png`),
+      generatePng(fname, palette),
+    );
+    await Deno.writeFile(
+      join(ROOT, `procreate/${fname}.swatches`),
+      await generateProcreate(fname, palette),
+    );
+    await Deno.writeTextFile(
+      join(ROOT, `gimp/${fname}.gpl`),
+      generateGimp(fname, palette),
+    );
+    await Deno.writeTextFile(
+      join(ROOT, `sip/${fname}.palette`),
+      generateSip(fname, palette),
+    );
+  }),
+).then(() => Deno.exit());

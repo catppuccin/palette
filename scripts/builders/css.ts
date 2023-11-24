@@ -1,20 +1,27 @@
-import { flavors } from "catppuccin/mod.ts";
-import { fs } from "scripts/deps.ts";
+import { sprintf } from "std/fmt/printf.ts";
+import { ensureDir } from "std/fs/mod.ts";
 
-const template = Object.entries(flavors).map(([flavorName, palette]) => {
-  const colors = Object.entries(palette)
-    .map(([colorName, value]) => {
-      const baseName = `--ctp-${flavorName}-${colorName}`;
-      return [
-        `${baseName}-hex: ${value.hex}`,
-        `${baseName}-hsl: ${Object.values(value.hsl).join(" ")}`,
-        `${baseName}-rgb: ${Object.values(value.rgb).join(" ")}`,
-      ].map((e) => `  ${e}`).join(";\n");
-    }).join(";\n");
-  return `:root {\n${colors}\n}`;
-}).join("\n\n");
+import { flavorEntries } from "@/mod.ts";
 
-export const compileCss = (outDir: string) => {
-  fs.ensureDirSync(`${outDir}/css`);
-  Deno.writeTextFileSync(`${outDir}/css/catppuccin.css`, template);
+const template = flavorEntries
+  .map(([flavorName, palette]) => {
+    const colors = Object.entries(palette)
+      .map(([colorName, { hex, rgb, hsl: { h, s, l } }]) => {
+        const name = `--ctp-${flavorName}-${colorName}`;
+
+        return [
+          sprintf("  %s: %s;", name, hex),
+          sprintf("  %s-rgb: %d %d %d;", name, ...Object.values(rgb)),
+          sprintf("  %s-hsl: %.3f %.3f%% %.3f%%;", name, h, s * 100, l * 100),
+        ].join("\n");
+      })
+      .join(";\n");
+    return `:root {\n${colors}\n}`;
+  })
+  .join("\n\n");
+
+export const compileCss = async (outDir: string) => {
+  await ensureDir(`${outDir}/css`);
+
+  Deno.writeTextFile(`${outDir}/css/catppuccin.css`, template);
 };

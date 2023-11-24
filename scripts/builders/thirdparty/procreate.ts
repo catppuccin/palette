@@ -1,13 +1,11 @@
-import { CtpColors } from "catppuccin/mod.ts";
-import { createSwatchesFile } from "scripts/deps.ts";
+//@deno-types="@/types/procreate-swatches.d.ts";
+import { createSwatchesFile } from "procreate-swatches";
 
-export const generateProcreate = async (
-  name: string,
-  palette: CtpColors,
-) => {
-  const rgbValues = Object.values(palette).map((color) => [
-    Object.values(color.rgb),
-    "rgb",
-  ]);
-  return await createSwatchesFile(name, rgbValues);
+import type { CtpColors } from "@/mod.ts";
+
+export const generateProcreate = (name: string, palette: CtpColors) => {
+  return createSwatchesFile(
+    name,
+    Object.values(palette).map((color) => [Object.values(color.rgb), "rgb"])
+  );
 };

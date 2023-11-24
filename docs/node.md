@@ -26,14 +26,6 @@ import { colors, flavors } from "@catppuccin/palette"
 console.log(colors.red.latte.hex); // #d20f39
 console.log(flavors.macchiato.green.rgb); // { r: 166, g: 218, b: 149 }
 console.log(flavors.mocha.blue.hsl); // { h: 217.2, s: 28.5, l: 75.9 }
-
-// iterate over all flavors
-Object.entries(flavors).map(([flavorName, palette]) => {
-  // and each of their colors
-  Object.entries(palette).map(([colorName, color]) => {
-    console.log(`${flavorName}'s ${colorName} is: ${color.hex}`);
-  });
-});
 ```
 
 &nbsp;

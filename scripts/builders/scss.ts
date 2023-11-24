@@ -1,32 +1,35 @@
-import { flavors } from "catppuccin/mod.ts";
-import { fs } from "scripts/deps.ts";
+import { ensureDir } from "std/fs/ensure_dir.ts";
+
+import { flavorEntries } from "@/mod.ts";
 
 const combined = `$palette: (
-${
-  Object.entries(flavors).map(([flavorName, palette]) => {
+${flavorEntries
+  .map(([flavorName, palette]) => {
     const color = Object.entries(palette)
       .map(([key, value]) => {
         return `    "${key}": ${value.hex}`;
-      }).join(",\n");
+      })
+      .join(",\n");
     return `  "${flavorName}": (\n${color}\n  )`;
-  }).join(",\n")
-}
+  })
+  .join(",\n")}
 );`;
 
-export const compileScss = (outDir: string) => {
-  fs.ensureDirSync(`${outDir}/scss`);
+export const compileScss = async (outDir: string) => {
+  await ensureDir(`${outDir}/scss`);
 
   // write each flavor to its own file
-  Object.entries(flavors).map(([flavorName, palette]) => {
-    Deno.writeTextFileSync(
+  flavorEntries.map(([flavorName, palette]) => {
+    Deno.writeTextFile(
       `${outDir}/scss/_${flavorName}.scss`,
       Object.entries(palette)
         .map(([key, value]) => {
           return `$${key}: ${value.hex};`;
-        }).join("\n"),
+        })
+        .join("\n")
     );
   });
 
   // and a combined map of all flavors
-  Deno.writeTextFileSync(`${outDir}/scss/_catppuccin.scss`, combined);
+  Deno.writeTextFile(`${outDir}/scss/_catppuccin.scss`, combined);
 };

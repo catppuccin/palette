@@ -1,8 +1,8 @@
-import { Color, ColorFormats } from "catppuccin/mod.ts";
+import type { Color, ColorFormat } from "@/mod.ts";
 
 export const generateSip = (
   name: string,
-  palette: Color<ColorFormats>,
+  palette: Color<ColorFormat>,
 ): string => {
   const dateString = new Date()
     .toISOString()
@@ -10,14 +10,14 @@ export const generateSip = (
     .replace(/\..+/, "");
 
   const data = {
-    cloud: true,
-    updatedAt: dateString,
+    // cloud: true,
+    // updatedAt: dateString,
     sip: {
       version: "2.6",
       build: "260",
     },
     id: crypto.randomUUID().toUpperCase(),
-    readOnly: false,
+    readOnly: true,
     createdAt: dateString,
     dock: false,
     name: name,
@@ -37,5 +37,6 @@ export const generateSip = (
     }),
     lock: true,
   };
+
   return JSON.stringify(data, null, 2);
 };

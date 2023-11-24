@@ -1,16 +1,17 @@
 import definitions from "./palette.json" assert { type: "json" };
 
-export type ColorFormats = {
+export type ColorFormat = {
   /**
    * String-formatted hex value
    * @example "#babbf1"
    */
   hex: string;
+
   /**
    * Formatted rgb value
-   *  @property { number } r - red
-   *  @property { number } g - green
-   *  @property { number } b - blue
+   * @property { number } r - red
+   * @property { number } g - green
+   * @property { number } b - blue
    * @example { r: 186, g: 187, b: 241}
    */
   rgb: {
@@ -18,11 +19,12 @@ export type ColorFormats = {
     g: number;
     b: number;
   };
+
   /**
    * Formatted hsl value
-   *  @property { number } h - hue
-   *  @property { number } s - saturation
-   *  @property { number } l - lightness
+   * @property { number } h - hue
+   * @property { number } s - saturation
+   * @property { number } l - lightness
    * @example { h: 238.9, s: 12.1, l: 83.5 }
    */
   hsl: {
@@ -30,9 +32,14 @@ export type ColorFormats = {
     s: number;
     l: number;
   };
+
+  /**
+   * Indicates whether the color is intended to be used as an accent color.
+   */
+  accent: boolean;
 };
 
-export type Flavor<T> = {
+type Flavor<T> = {
   /**
    * Light variant
    */
@@ -80,8 +87,22 @@ export type Color<T> = {
   crust: T;
 };
 
-export type CtpColors = Color<ColorFormats>;
-export type CtpFlavors = Flavor<ColorFormats>;
+const typedKeys = Object.keys as <T extends object>(obj: T) => Array<keyof T>;
 
-export const flavors: Flavor<CtpColors> = definitions.flavors;
-export const colors: Color<CtpFlavors> = definitions.colors;
+export const flavorNames = typedKeys(definitions);
+
+export type CtpFlavorName = (typeof flavorNames)[number];
+
+export type CtpColors = Color<ColorFormat>;
+export type CtpFlavors = Flavor<ColorFormat>;
+
+type Entries<T> = {
+  [K in keyof T]: [K, T[K]];
+}[keyof T][];
+
+const entriesFromObject = <T extends object>(object: T): Entries<T> => {
+  return Object.entries(object) as Entries<T>;
+};
+
+export const flavorEntries = entriesFromObject(definitions);
+export const flavors: Flavor<CtpColors> = definitions;

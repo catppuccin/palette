@@ -1,41 +1,47 @@
-import { flavors } from "catppuccin/mod.ts";
-import { fs } from "scripts/deps.ts";
+import { ensureDir } from "std/fs/mod.ts";
+
+import { flavorEntries } from "@/mod.ts";
 
 const combined = `@catppuccin: {
-${
-  Object.entries(flavors).map(([flavorName, palette]) => {
+${flavorEntries
+  .map(([flavorName, palette]) => {
     const color = Object.entries(palette)
       .map(([key, value]) => {
         return `    ${key}: ${value.hex}`;
-      }).join(";\n");
+      })
+      .join(";\n");
     return `  @${flavorName}: {\n${color}\n  }`;
-  }).join("\n")
-}
+  })
+  .join("\n")}
 };`;
 
-const mixins = Object.entries(flavors).map(([flavorName, palette]) => {
-  const color = Object.entries(palette)
-    .map(([key, value]) => {
-      return `  ${key}: ${value.hex}`;
-    }).join(";\n");
-  return `#catppuccin(@flavour) when (@flavour = ${flavorName}) {\n${color}\n}`;
-}).join("\n");
+const mixins = flavorEntries
+  .map(([flavorName, palette]) => {
+    const color = Object.entries(palette)
+      .map(([key, value]) => {
+        return `  ${key}: ${value.hex}`;
+      })
+      .join(";\n");
+    return `#catppuccin(@flavour) when (@flavour = ${flavorName}) {\n${color}\n}`;
+  })
+  .join("\n");
 
-export const compileLess = (outDir: string) => {
-  fs.ensureDirSync(`${outDir}/less`);
+export const compileLess = async (outDir: string) => {
+  await ensureDir(`${outDir}/less`);
 
   // write each flavor to its own file
-  Object.entries(flavors).map(([flavorName, palette]) => {
-    Deno.writeTextFileSync(
+  flavorEntries.map(([flavorName, palette]) => {
+    Deno.writeTextFile(
       `${outDir}/less/_${flavorName}.less`,
       Object.entries(palette)
         .map(([key, value]) => {
           return `@${key}: ${value.hex};`;
-        }).join("\n"),
+        })
+        .join("\n")
     );
   });
 
   // and a combined map of all flavors
-  Deno.writeTextFileSync(`${outDir}/less/catppuccin.less`, combined);
-  Deno.writeTextFileSync(`${outDir}/less/catppuccin-mixins.less`, mixins);
+  Deno.writeTextFile(`${outDir}/less/catppuccin.less`, combined);
+  Deno.writeTextFile(`${outDir}/less/catppuccin-mixins.less`, mixins);
 };
