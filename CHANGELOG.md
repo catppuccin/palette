@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.1](https://github.com/catppuccin/palette/compare/v0.2.0...v0.2.1) (2023-11-25)
+
+
+### Bug Fixes
+
+* **gimp:** palette syntax ([#56](https://github.com/catppuccin/palette/issues/56)) ([403e0ef](https://github.com/catppuccin/palette/commit/403e0effd3b1ba12e751e0d20e7704f1bc55e28e))
+
 ## [0.2.0](https://github.com/catppuccin/palette/compare/v0.1.8...v0.2.0) (2023-07-10)
 
 
