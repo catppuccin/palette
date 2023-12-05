@@ -2,7 +2,7 @@ import type { CtpColors } from "@/mod.ts";
 
 const header = (name: string, count: number) =>
   `GIMP Palette
-#Palette Name: ${name}
+Name: ${name}
 #Colors: ${count}
 `;
 
