@@ -21,5 +21,5 @@ export const generateAse = (
     groups: [],
   };
 
-  return Uint8Array.from(aseutils.encode(data));
+  return new Uint8Array(aseutils.encode(data));
 };
