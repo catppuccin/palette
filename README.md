@@ -27,6 +27,7 @@
   - [Rust](https://github.com/catppuccin/rust) (separate repository)
   - [Sass](docs/sass.md)
   - [Tailwind CSS](https://github.com/catppuccin/tailwindcss) (separate repository)
+  - [V](https://github.com/catppuccin/v) (separate repository)
 - Design
   - [Affinity][ase]
   - [Aseprite][ase]
