@@ -1,12 +1,14 @@
-import { flavors, flavorEntries } from "@/mod.ts";
+import { assertEquals } from "std/assert/mod.ts";
 
-console.log(flavors.macchiato.green.rgb);
-// -> { r: 166, g: 218, b: 149 }
+import { flavorEntries } from "@/mod.ts";
+import palette from "@/palette.json" assert { type: "json" };
 
-console.log(flavors.mocha.blue.hsl);
-// -> { h: 217.168, s: 91.87, l: 75.882 }
-
-// get typesafe iterator, unlike Object.entries
-flavorEntries.map(([flavorName, palette]) => {
-  console.log("red", flavorName, palette.red.hex);
+Deno.test("flavorEntries", () => {
+  flavorEntries
+    .map(([flavorName, flavor]) =>
+      flavor.colorEntries
+        .map(([colorName, color]) =>
+          assertEquals(palette[flavorName].colors[colorName].hex, color.hex)
+        )
+    );
 });
