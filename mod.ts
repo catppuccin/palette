@@ -5,18 +5,21 @@ type Entries<T> = {
   [K in keyof T]: [K, T[K]];
 }[keyof T][];
 
-export const entriesFromObject = <T extends object>(obj: T): Entries<T> => {
-  return Object.entries(obj) as Entries<T>;
-};
+export const entriesFromObject = <T extends object>(obj: T): Entries<T> =>
+  Object.entries(obj) as Entries<T>;
 
-export type CtpColors = Colors<ColorFormat>;
+export type { ColorFormat, Colors, Flavors } from "./types/mod.ts";
 
-export type CtpFlavors = Flavors<{
+export type CatppuccinColors = Colors<ColorFormat>;
+
+export type CatppuccinFlavor = {
   readonly name: string;
   readonly dark: boolean;
-  readonly colors: CtpColors;
-  readonly colorEntries: Entries<CtpColors>;
-}>;
+  readonly colors: CatppuccinColors;
+  readonly colorEntries: Entries<CatppuccinColors>;
+};
+
+export type CatppuccinFlavors = Flavors<CatppuccinFlavor>;
 
 export const flavors = entriesFromObject(definitions)
   .reduce((acc, [flavorName, flavor]) => {
@@ -25,6 +28,6 @@ export const flavors = entriesFromObject(definitions)
       colorEntries: entriesFromObject(flavor.colors),
     };
     return acc;
-  }, {} as CtpFlavors);
+  }, {} as CatppuccinFlavors);
 
 export const flavorEntries = entriesFromObject(flavors);

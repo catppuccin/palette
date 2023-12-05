@@ -2,10 +2,10 @@ import { join } from "std/path/join.ts";
 import tinycolor from "tinycolor2";
 
 import {
-  type CtpColors,
-  CtpFlavors,
+  type CatppuccinColors,
+  type CatppuccinFlavor,
   entriesFromObject,
-  Flavors,
+  type Flavors,
 } from "@/mod.ts";
 
 const definitions = {
@@ -173,15 +173,11 @@ const formatted = entriesFromObject(definitions)
           };
           return acc;
         },
-        {} as CtpColors,
+        {} as CatppuccinColors,
       ),
     };
     return acc;
-  }, {} as Flavors<{
-    name: string;
-    dark: boolean;
-    colors: CtpColors;
-  }>);
+  }, {} as Flavors<Omit<CatppuccinFlavor, "colorEntries">>);
 
 const __dirname = new URL(".", import.meta.url).pathname;
 

@@ -1,8 +1,8 @@
-import type { Color, ColorFormat } from "@/mod.ts";
+import type { CatppuccinColors } from "@/mod.ts";
 
 export const generateSip = (
   name: string,
-  palette: Color<ColorFormat>,
+  palette: CatppuccinColors,
 ): string => {
   const dateString = new Date()
     .toISOString()

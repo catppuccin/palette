@@ -1,10 +1,10 @@
 import * as aseutils from "ase-utils";
 
-import type { Color, ColorFormat } from "@/mod.ts";
+import type { CatppuccinColors } from "@/mod.ts";
 
 export const generateAse = (
   _name: string,
-  palette: Color<ColorFormat>
+  palette: CatppuccinColors,
 ): Uint8Array => {
   const data = {
     version: "1.0",

@@ -1,10 +1,10 @@
 import { createCanvas } from "canvas";
 
-import type { Color, ColorFormat } from "@/mod.ts";
+import type { CatppuccinColors } from "@/mod.ts";
 
 export const generatePng = (
   _name: string,
-  palette: Color<ColorFormat>
+  palette: CatppuccinColors,
 ): Uint8Array => {
   const colors = Object.values(palette).map((el) => el.hex);
 

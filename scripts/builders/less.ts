@@ -3,21 +3,23 @@ import { ensureDir } from "std/fs/mod.ts";
 import { flavorEntries } from "@/mod.ts";
 
 const combined = `@catppuccin: {
-${flavorEntries
-  .map(([flavorName, palette]) => {
-    const color = Object.entries(palette)
-      .map(([key, value]) => {
-        return `    ${key}: ${value.hex}`;
-      })
-      .join(";\n");
-    return `  @${flavorName}: {\n${color}\n  }`;
-  })
-  .join("\n")}
+${
+  flavorEntries
+    .map(([flavorName, palette]) => {
+      const color = Object.entries(palette.colors)
+        .map(([key, value]) => {
+          return `    ${key}: ${value.hex}`;
+        })
+        .join(";\n");
+      return `  @${flavorName}: {\n${color}\n  }`;
+    })
+    .join("\n")
+}
 };`;
 
 const mixins = flavorEntries
-  .map(([flavorName, palette]) => {
-    const color = Object.entries(palette)
+  .map(([flavorName, { colorEntries }]) => {
+    const color = colorEntries
       .map(([key, value]) => {
         return `  ${key}: ${value.hex}`;
       })
@@ -33,11 +35,11 @@ export const compileLess = async (outDir: string) => {
   flavorEntries.map(([flavorName, palette]) => {
     Deno.writeTextFile(
       `${outDir}/less/_${flavorName}.less`,
-      Object.entries(palette)
+      Object.entries(palette.colors)
         .map(([key, value]) => {
           return `@${key}: ${value.hex};`;
         })
-        .join("\n")
+        .join("\n"),
     );
   });
 

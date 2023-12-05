@@ -4,8 +4,8 @@ import { ensureDir } from "std/fs/mod.ts";
 import { flavorEntries } from "@/mod.ts";
 
 const template = flavorEntries
-  .map(([flavorName, palette]) => {
-    const colors = Object.entries(palette)
+  .map(([flavorName, { colorEntries }]) => {
+    const colors = colorEntries
       .map(([colorName, { hex, rgb, hsl: { h, s, l } }]) => {
         const name = `--ctp-${flavorName}-${colorName}`;
 

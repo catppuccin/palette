@@ -1,4 +1,4 @@
-import type { CtpColors } from "@/mod.ts";
+import type { CatppuccinColors } from "@/mod.ts";
 
 const header = (name: string, count: number) =>
   `GIMP Palette
@@ -6,7 +6,7 @@ Name: ${name}
 #Colors: ${count}
 `;
 
-export const generateGimp = (name: string, palette: CtpColors) => {
+export const generateGimp = (name: string, palette: CatppuccinColors) => {
   const n = Object.keys(palette).length;
   const head = header(name, n);
 
