@@ -10,11 +10,9 @@ await emptyDir(outDir);
 await build({
   entryPoints: ["./mod.ts"],
   outDir,
-  // no need for the Deno shim
-  shims: { deno: false },
-  // disable testing since the generation is done via JSON
-  test: false,
-  declaration: "separate",
+  shims: { deno: true },
+  importMap: "./import_map.json",
+  // declaration: "separate",
   package: {
     name: "@catppuccin/palette",
     version: denoJson.version,
@@ -41,7 +39,7 @@ await build({
       },
     ],
     exports: {
-      "./css": "./css/*",
+      "./css/*": "./css/*",
       "./less/*": "./less/*",
       "./scss/*": "./scss/*",
     },

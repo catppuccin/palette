@@ -1,0 +1,19 @@
+{
+  "imports": {
+    "@/": "./",
+    "scripts/": "./scripts/",
+    "std/": "https://deno.land/std@0.207.0/",
+    "canvas": "https://deno.land/x/canvas@v1.4.1/mod.ts",
+    "dnt": "https://deno.land/x/dnt@0.39.0/mod.ts",
+    "ase-utils": "https://esm.sh/v135/*ase-utils@0.1.1",
+    "procreate-swatches": "https://esm.sh/v135/*procreate-swatches@0.1.1",
+    "tinycolor2": "https://esm.sh/v135/tinycolor2@1.6.0"
+  },
+  "scopes": {
+    "https://esm.sh/v135/": {
+      "@szydlovski/color-convert": "https://esm.sh/v135/@szydlovski/color-convert@0.1.3",
+      "@szydlovski/zip": "https://esm.sh/v135/@szydlovski/zip@0.1.2",
+      "bytebuffer": "https://esm.sh/v135/bytebuffer@3.5.4"
+    }
+  }
+}
