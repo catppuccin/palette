@@ -1,8 +1,12 @@
 {
   "importMap": "./import_map.json",
-  "exclude": ["dist"],
+  "exclude": [
+    "dist"
+  ],
   "fmt": {
-    "exclude": ["*.md"]
+    "exclude": [
+      "*.md"
+    ]
   },
   "tasks": {
     "build:npm": "deno run -A ./scripts/build_npm.ts",
