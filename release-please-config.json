@@ -5,7 +5,7 @@
       "release-type": "simple",
       "extra-files": [
         {
-          "path": "./deno.json",
+          "path": "deno.json",
           "type": "json",
           "jsonpath": "$.version"
         }
