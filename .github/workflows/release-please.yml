@@ -53,6 +53,8 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Upload the palette files
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           tar czf catppuccin.tar.gz --directory=dist/palettes/ .
           gh release upload ${{ needs.release-please.outputs.tag_name || inputs.force_release_version }} catppuccin.tar --clobber
