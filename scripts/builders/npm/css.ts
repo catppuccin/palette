@@ -15,7 +15,7 @@ const template = flavorEntries
           sprintf("  %s-hsl: %.3f %.3f%% %.3f%%;", name, h, s * 100, l * 100),
         ].join("\n");
       })
-      .join(";\n");
+      .join("\n");
     return `:root {\n${colors}\n}`;
   })
   .join("\n\n");

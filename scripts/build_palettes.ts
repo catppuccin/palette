@@ -44,4 +44,4 @@ Promise.all(
       generateSip(fname, colors),
     );
   }),
-).then(() => Deno.exit());
+).then(Deno.exit());

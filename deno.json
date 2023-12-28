@@ -1,19 +1,14 @@
 {
   "importMap": "./import_map.json",
+  "exclude": ["dist"],
   "fmt": {
-    "include": ["**/*.ts"]
-  },
-  "lint": {
-    "include": ["."],
-    "exclude": ["dist/"]
+    "exclude": ["*.md"]
   },
   "tasks": {
-    "esm:add": "deno run -A https://esm.sh/v135 add",
-    "esm:update": "deno run -A https://esm.sh/v135 update",
-    "esm:remove": "deno run -A https://esm.sh/v135 remove",
-    "npm": "deno run -A ./scripts/build_npm.ts",
-    "palette": "deno run -A ./scripts/gen_palette.ts",
-    "thirdparty": "deno run -A ./scripts/build_thirdparty.ts"
+    "build:npm": "deno run -A ./scripts/build_npm.ts",
+    "build:palettes": "deno run -A ./scripts/build_palettes.ts",
+    "build": "deno task build:npm && deno task build:palettes",
+    "generate": "deno run -A ./scripts/gen_palette.ts"
   },
   "version": "1.0.0"
 }

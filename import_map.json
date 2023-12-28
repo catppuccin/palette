@@ -2,7 +2,7 @@
   "imports": {
     "@/": "./",
     "scripts/": "./scripts/",
-    "std/": "https://deno.land/std@0.207.0/",
+    "std/": "https://deno.land/std@0.210.0/",
     "canvas": "https://deno.land/x/canvas@v1.4.1/mod.ts",
     "dnt": "https://deno.land/x/dnt@0.39.0/mod.ts",
     "ase-utils": "https://esm.sh/v135/*ase-utils@0.1.1",

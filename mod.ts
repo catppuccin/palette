@@ -1,4 +1,4 @@
-import definitions from "@/palette.json" assert { type: "json" };
+import definitions from "@/palette.json" with { type: "json" };
 import type { ColorFormat, Colors, Flavors } from "./types/mod.ts";
 
 type Entries<T> = {

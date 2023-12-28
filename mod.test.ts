@@ -1,4 +1,4 @@
-import { assertEquals } from "std/assert/mod.ts";
+import { assertEquals } from "std/assert/assert_equals.ts";
 
 import { flavorEntries } from "@/mod.ts";
 import palette from "@/palette.json" assert { type: "json" };
