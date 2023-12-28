@@ -4,9 +4,17 @@ import tinycolor from "tinycolor2";
 import {
   type CatppuccinColors,
   type CatppuccinFlavor,
-  entriesFromObject,
   type Flavors,
-} from "@/mod.ts";
+} from "@catppuccin/palette";
+
+type Entries<T> = {
+  [K in keyof T]: [K, T[K]];
+}[keyof T][];
+
+const entriesFromObject = <T extends object>(obj: T): Entries<T> =>
+  Object.entries(obj) as Entries<T>;
+
+type Writeable<T> = { -readonly [P in keyof T]: T[P] };
 
 const definitions = {
   latte: {
@@ -173,7 +181,7 @@ const formatted = entriesFromObject(definitions)
           };
           return acc;
         },
-        {} as CatppuccinColors,
+        {} as Writeable<CatppuccinColors>,
       ),
     };
     return acc;
