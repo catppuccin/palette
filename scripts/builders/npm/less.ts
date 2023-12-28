@@ -1,6 +1,6 @@
 import { ensureDir } from "std/fs/mod.ts";
 
-import { flavorEntries } from "@/mod.ts";
+import { flavorEntries } from "@catppuccin/palette";
 
 const combined = `@catppuccin: {
 ${

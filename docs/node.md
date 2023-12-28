@@ -21,7 +21,7 @@ npm install @catppuccin/palette
 Example: `test.js`
 
 ```js
-import { colors, flavors } from "@catppuccin/palette"
+import { colors, flavors } from "@catppuccin/palette";
 
 console.log(colors.red.latte.hex); // #d20f39
 console.log(flavors.macchiato.green.rgb); // { r: 166, g: 218, b: 149 }

@@ -1,6 +1,6 @@
 import { createCanvas } from "canvas";
 
-import type { CatppuccinColors } from "@/mod.ts";
+import type { CatppuccinColors } from "@catppuccin/palette";
 
 export const generatePng = (
   _name: string,

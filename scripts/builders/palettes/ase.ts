@@ -1,6 +1,6 @@
 import * as aseutils from "ase-utils";
 
-import type { CatppuccinColors } from "@/mod.ts";
+import type { CatppuccinColors } from "@catppuccin/palette";
 
 export const generateAse = (
   _name: string,

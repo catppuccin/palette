@@ -1,4 +1,4 @@
-import type { CatppuccinColors } from "@/mod.ts";
+import type { CatppuccinColors } from "@catppuccin/palette";
 
 const header = (name: string, count: number) =>
   `GIMP Palette

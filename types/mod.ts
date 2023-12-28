@@ -1,25 +1,16 @@
-export type Flavor = "latte" | "frappe" | "macchiato" | "mocha";
+export type Entries<T> = {
+  [K in keyof T]: [K, T[K]];
+}[keyof T][];
 
-export type Flavors<T> = {
-  /**
-   * Light variant
-   */
-  latte: T;
-  /**
-   * Low-saturation, low-contrast dark variant
-   */
-  frappe: T;
-  /**
-   * Mid-saturation, mid-contrast dark variant
-   */
-  macchiato: T;
-  /**
-   * High-saturation, High-contrast dark variant
-   */
-  mocha: T;
-};
+/**
+ * All flavor names of Catppuccin
+ */
+export type FlavorName = "latte" | "frappe" | "macchiato" | "mocha";
 
-export type Color =
+/**
+ * All color names of Catppuccin
+ */
+export type ColorName =
   | "rosewater"
   | "flamingo"
   | "pink"
@@ -47,23 +38,83 @@ export type Color =
   | "mantle"
   | "crust";
 
-export type Colors<T> = Record<Color, T>;
+/**
+ * Generic to map type T to all Catppuccin color names
+ */
+export type Colors<T> = Record<ColorName, T>;
 
-export type ColorFormat = {
+/**
+ * A flavor of Catppuccin
+ */
+export type CatppuccinFlavor = Readonly<{
+  /**
+   * Name of the flavor
+   */
+  name: string;
+
+  /**
+   * Whether the flavor is a dark theme
+   */
+  dark: boolean;
+
+  /**
+   * An object containing all the colors of the flavor
+   */
+  colors: CatppuccinColors;
+
+  /**
+   * A typed Object.entries iterable of the colors of the flavor
+   */
+  colorEntries: Entries<CatppuccinColors>;
+}>;
+
+/**
+ * All colors of Catppuccin
+ */
+export type CatppuccinColors = Readonly<Colors<ColorFormat>>;
+
+/**
+ * All flavors of Catppuccin
+ */
+export type CatppuccinFlavors = Flavors<CatppuccinFlavor>;
+
+export type Flavors<T> = {
+  /**
+   * Light variant
+   */
+  latte: T;
+
+  /**
+   * Low-saturation, low-contrast dark variant
+   */
+  frappe: T;
+
+  /**
+   * Mid-saturation, mid-contrast dark variant
+   */
+  macchiato: T;
+
+  /**
+   * High-saturation, High-contrast dark variant
+   */
+  mocha: T;
+};
+
+export type ColorFormat = Readonly<{
   /**
    * String-formatted hex value
    * @example "#babbf1"
    */
-  readonly hex: string;
+  hex: string;
 
   /**
    * Formatted rgb value
-   * @property { number } r - red
-   * @property { number } g - green
-   * @property { number } b - blue
+   * @property { number } r - red, 0-255
+   * @property { number } g - green, 0-255
+   * @property { number } b - blue, 0-255
    * @example { r: 186, g: 187, b: 241}
    */
-  readonly rgb: {
+  rgb: {
     r: number;
     g: number;
     b: number;
@@ -71,12 +122,12 @@ export type ColorFormat = {
 
   /**
    * Formatted hsl value
-   * @property { number } h - hue
-   * @property { number } s - saturation
-   * @property { number } l - lightness
+   * @property { number } h - hue, 0-360
+   * @property { number } s - saturation, 0-100
+   * @property { number } l - lightness, 0-100
    * @example { h: 238.9, s: 12.1, l: 83.5 }
    */
-  readonly hsl: {
+  hsl: {
     h: number;
     s: number;
     l: number;
@@ -85,5 +136,5 @@ export type ColorFormat = {
   /**
    * Indicates whether the color is intended to be used as an accent color.
    */
-  readonly accent: boolean;
-};
+  accent: boolean;
+}>;

@@ -1,7 +1,7 @@
 import { sprintf } from "std/fmt/printf.ts";
 import { ensureDir } from "std/fs/mod.ts";
 
-import { flavorEntries } from "@/mod.ts";
+import { flavorEntries } from "@catppuccin/palette";
 
 const template = flavorEntries
   .map(([flavorName, { colorEntries }]) => {

@@ -1,26 +1,22 @@
 import definitions from "@/palette.json" with { type: "json" };
-import type { ColorFormat, Colors, Flavors } from "./types/mod.ts";
+import type { CatppuccinFlavors, Entries } from "./types/mod.ts";
 
-type Entries<T> = {
-  [K in keyof T]: [K, T[K]];
-}[keyof T][];
-
-export const entriesFromObject = <T extends object>(obj: T): Entries<T> =>
+const entriesFromObject = <T extends object>(obj: T): Entries<T> =>
   Object.entries(obj) as Entries<T>;
 
-export type { ColorFormat, Colors, Flavors } from "./types/mod.ts";
+export type {
+  CatppuccinColors,
+  CatppuccinFlavor,
+  CatppuccinFlavors,
+  ColorFormat,
+  ColorName,
+  Colors,
+  Flavors,
+} from "./types/mod.ts";
 
-export type CatppuccinColors = Colors<ColorFormat>;
-
-export type CatppuccinFlavor = {
-  readonly name: string;
-  readonly dark: boolean;
-  readonly colors: CatppuccinColors;
-  readonly colorEntries: Entries<CatppuccinColors>;
-};
-
-export type CatppuccinFlavors = Flavors<CatppuccinFlavor>;
-
+/**
+ * All flavors of Catppuccin
+ */
 export const flavors = entriesFromObject(definitions)
   .reduce((acc, [flavorName, flavor]) => {
     acc[flavorName] = {
@@ -30,4 +26,7 @@ export const flavors = entriesFromObject(definitions)
     return acc;
   }, {} as CatppuccinFlavors);
 
+/**
+ * A typed Object.entries iterable of all Catppuccin flavors
+ */
 export const flavorEntries = entriesFromObject(flavors);

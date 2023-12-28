@@ -16,18 +16,19 @@
 
 ## Available formats
 
-- Development
+- Web development library
   - [CSS](docs/css.md)
-  - [Go](https://github.com/catppuccin/go) (separate repository)
-  - [Java](https://github.com/catppuccin/java) (separate repository)
-  - [Lua](https://github.com/catppuccin/lua) (separate repository)
-  - [Nim](https://github.com/catppuccin/nim) (separate repository)
-  - [Node/Deno](docs/node.md)
-  - [Python](https://github.com/catppuccin/python) (separate repository)
-  - [Rust](https://github.com/catppuccin/rust) (separate repository)
+  - [Node & Deno](docs/node.md)
   - [Sass](docs/sass.md)
-  - [Tailwind CSS](https://github.com/catppuccin/tailwindcss) (separate repository)
-  - [V](https://github.com/catppuccin/v) (separate repository)
+- Ports of this library
+  - [Go](https://github.com/catppuccin/go)
+  - [Java](https://github.com/catppuccin/java)
+  - [Lua](https://github.com/catppuccin/lua)
+  - [Nim](https://github.com/catppuccin/nim)
+  - [Python](https://github.com/catppuccin/python)
+  - [Rust](https://github.com/catppuccin/rust)
+  - [Tailwind CSS](https://github.com/catppuccin/tailwindcss)
+  - [V](https://github.com/catppuccin/v)
 - Design
   - [Affinity][ase]
   - [Aseprite][ase]
@@ -40,13 +41,13 @@
 
 ## Usage
 
-
 ### Adobe, Affinity, Sip
 
-Please use the files in the `ase` directory in [the Release](#todo).
+Please use the files in the `ase` directory in [the Release](https://github.com/catppuccin/palette/releases/latest).
 
 ### Aseprite, Gimp, Inkscape, Krita
-Please use the files in the `gimp` directory in [the Release](#todo).
+
+Please use the files in the `gimp` directory in [the Release](https://github.com/catppuccin/palette/releases/latest).
 
 &nbsp;
 
