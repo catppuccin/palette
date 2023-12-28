@@ -10,15 +10,68 @@
     <a href="https://github.com/catppuccin/palette/contributors"><img src="https://img.shields.io/github/contributors/catppuccin/palette?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
 </p>
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/sample.png"/>
-</p>
+## Usage
 
-## Available formats
+### Node
 
-- Web development library
+Get the [NPM package](https://www.npmjs.org/package/@catppuccin/palette):
+
+```console
+npm install @catppuccin/palette
+```
+
+```ts
+import { flavors, flavorEntries } from "@catppuccin/palette";
+import chalk from "chalk";
+
+// an object containing all catppuccin flavors
+console.log(flavors);
+
+// typed helper when iterating flavors
+flavorEntries.map(([_, flavor]) => {
+  console.log(`${flavor.name} is a ${flavor.dark ? "dark" : "light"} theme.`);
+  console.log(`It has ${flavor.colorEntries.length} colors:`);
+
+  // same for the colors
+  flavor.colorEntries.map(([colorName, { hex, rgb, accent }]) => {
+    console.log(
+      chalk.bgRgb(rgb.r, rgb.b, rgb.g)(` ${hex} `),
+      colorName,
+      accent
+    );
+  });
+  console.log("\n");
+});
+```
+
+### Deno
+
+The library gets published to [`deno.land/x/catppuccin`](https://deno.land/x/catppuccin).
+
+```ts
+import { flavors, flavorEntries } from "https://deno.land/x/catppuccin/mod.ts";
+import { bgRgb24 } from "https://deno.land/std/fmt/colors.ts";
+
+// an object containing all catppuccin flavors
+console.log(flavors);
+
+// typed helper when iterating flavors
+flavorEntries.map(([_, flavor]) => {
+  console.log(`${flavor.name} is a ${flavor.dark ? "dark" : "light"} theme.`);
+  console.log(`It has ${flavor.colorEntries.length} colors:`);
+
+  // same for the colors
+  flavor.colorEntries.map(([colorName, { hex, rgb, accent }]) => {
+    console.log(bgRgb24(`  ${hex}  `, { ...rgb }), colorName, accent);
+  });
+  console.log("\n");
+});
+```
+
+## Other available formats
+
+- Web development
   - [CSS](docs/css.md)
-  - [Node & Deno](docs/node.md)
   - [Sass](docs/sass.md)
 - Ports of this library
   - [Go](https://github.com/catppuccin/go)
@@ -29,31 +82,19 @@
   - [Rust](https://github.com/catppuccin/rust)
   - [Tailwind CSS](https://github.com/catppuccin/tailwindcss)
   - [V](https://github.com/catppuccin/v)
-- Design
-  - [Affinity][ase]
-  - [Aseprite][ase]
-  - [Gimp][gimp]
-  - [Inkscape][gimp]
-  - [Krita][gimp]
-  - [LibreSprite][gimp]
-- Color pickers
-  - [Sip][ase]
 
-## Usage
+## Graphics editors
 
-### Adobe, Affinity, Sip
+Please use the respective files in [the latest GitHub Release](https://github.com/catppuccin/palette/releases/latest):
 
-Please use the files in the `ase` directory in [the Release](https://github.com/catppuccin/palette/releases/latest).
-
-### Aseprite, Gimp, Inkscape, Krita
-
-Please use the files in the `gimp` directory in [the Release](https://github.com/catppuccin/palette/releases/latest).
+| Programs                         | Directory    |
+| -------------------------------- | ------------ |
+| Adobe Suite, Affinity Suite, Sip | `ase/`       |
+| Aseprite, Gimp, Inkscape, Krita  | `gimp/`      |
+| Procreate                        | `procreate/` |
 
 &nbsp;
 
 <p align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" /></p>
 <p align="center">Copyright &copy; 2021-present <a href="https://github.com/catppuccin" target="_blank">Catppuccin Org</a>
 <p align="center"><a href="https://github.com/catppuccin/catppuccin/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/></a></p>
-
-[ase]: #adobe%2C-affinity%2C-sip
-[gimp]: #aseprite%2C-gimp%2C-inkscape%2C-krita

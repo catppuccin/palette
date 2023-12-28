@@ -1,8 +1,10 @@
 {
   "imports": {
     "@/": "./",
+    "https://deno.land/x/catppuccin/mod.ts": "./mod.ts",
     "@catppuccin/palette": "./mod.ts",
     "scripts/": "./scripts/",
+    "chalk": "npm:chalk@5",
     "std/": "https://deno.land/std@0.210.0/",
     "canvas": "https://deno.land/x/canvas@v1.4.1/mod.ts",
     "dnt": "https://deno.land/x/dnt@0.39.0/mod.ts",

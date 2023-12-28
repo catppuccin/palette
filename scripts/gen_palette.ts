@@ -167,7 +167,7 @@ const accents = [
 const formatted = entriesFromObject(definitions)
   .reduce((acc, [flavorName, flavor]) => {
     acc[flavorName] = {
-      name: flavorName,
+      name: flavor.name,
       dark: flavor.dark,
       colors: entriesFromObject(flavor.colors).reduce(
         (acc, [colorName, color]) => {

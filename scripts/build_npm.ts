@@ -46,7 +46,7 @@ await build({
   },
   async postBuild() {
     await copy(`./LICENSE`, `${outDir}/LICENSE`);
-    await copy(`./docs/node.md`, `${outDir}/README.md`);
+    await copy(`./README.md`, `${outDir}/README.md`);
     await builders.compileCss(outDir);
     await builders.compileLess(outDir);
     await builders.compileScss(outDir);

@@ -114,27 +114,39 @@ export type ColorFormat = Readonly<{
 
   /**
    * Formatted rgb value
-   * @property { number } r - red, 0-255
-   * @property { number } g - green, 0-255
-   * @property { number } b - blue, 0-255
    * @example { r: 186, g: 187, b: 241}
    */
   rgb: {
+    /**
+     * Red, 0-255
+     */
     r: number;
+    /**
+     * Green, 0-255
+     */
     g: number;
+    /**
+     * Blue, 0-255
+     */
     b: number;
   };
 
   /**
    * Formatted hsl value
-   * @property { number } h - hue, 0-360
-   * @property { number } s - saturation, 0-100
-   * @property { number } l - lightness, 0-100
    * @example { h: 238.9, s: 12.1, l: 83.5 }
    */
   hsl: {
+    /**
+     * Hue, 0-360
+     */
     h: number;
+    /**
+     * Saturation, 0-100
+     */
     s: number;
+    /**
+     * Lightness, 0-100
+     */
     l: number;
   };
 
@@ -157,6 +169,6 @@ export const flavors = entriesFromObject(definitions)
   }, {} as CatppuccinFlavors);
 
 /**
- * A typed Object.entries iterable of all Catppuccin flavors
+ * A typed `Object.entries()` iterable of all Catppuccin flavors
  */
 export const flavorEntries = entriesFromObject(flavors);

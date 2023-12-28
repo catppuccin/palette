@@ -1,7 +1,7 @@
 import { emptyDir, ensureDir } from "std/fs/mod.ts";
 import { join } from "std/path/mod.ts";
 
-import { flavors } from "@/mod.ts";
+import { flavors } from "@catppuccin/palette";
 import {
   generateAse,
   generateGimp,
