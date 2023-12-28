@@ -1,0 +1,14 @@
+{
+  "importMap": "./import_map.json",
+  "exclude": ["dist"],
+  "fmt": {
+    "exclude": ["*.md"]
+  },
+  "tasks": {
+    "build:npm": "deno run -A ./scripts/build_npm.ts",
+    "build:palettes": "deno run -A ./scripts/build_palettes.ts",
+    "build": "deno task build:npm & deno task build:palettes",
+    "generate": "deno run -A ./scripts/gen_palette.ts"
+  },
+  "version": "1.0.0"
+}

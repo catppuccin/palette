@@ -1,7 +1,6 @@
 <h3 align="center">
 	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png" width="100" alt="Logo"/><br/>
-	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
-	Catppuccin Palettes
+	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/> Catppuccin Palettes
 	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
 </h3>
 
@@ -11,135 +10,88 @@
     <a href="https://github.com/catppuccin/palette/contributors"><img src="https://img.shields.io/github/contributors/catppuccin/palette?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
 </p>
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/sample.png"/>
-</p>
-
-## Available formats
-
-- Development
-    - [Node Package](#node-package)
-    - [CSS](#css)
-    - [Sass](#sass)
-    - [Tailwind CSS](https://github.com/catppuccin/tailwindcss) (separate repository)
-    - [Rust](https://github.com/catppuccin/rust) (separate repository)
-    - [Python](https://github.com/catppuccin/python) (separate repository)
-    - [Go](https://github.com/catppuccin/go) (separate repository)
-    - [Java](https://github.com/catppuccin/java) (separate repository)
-    - [Nim](https://github.com/catppuccin/nim) (separate repository)
-    - [Lua](https://github.com/catppuccin/lua) (separate repository)
-    - [V](https://github.com/catppuccin/v) (separate repository)
-- Design
-    - [Affinity](#affinity)
-    - [Aseprite / LibreSprite](#aseprite--libresprite)
-    - [Gimp](#gimp)
-    - [Inkscape](#inkscape)
-    - [Krita](#krita)
-- Colour pickers
-    - [macOS Color Picker](#macos-color-picker)
-    - [Sip](#sip)
-- Reference
-    - [PNG](#png)
-
 ## Usage
 
-### Node Package
+### Node
 
-```bash
-# npm
+Get the [NPM package](https://www.npmjs.org/package/@catppuccin/palette):
+
+```console
 npm install @catppuccin/palette
-# yarn
-yarn add @catppuccin/palette
 ```
 
-Example: `test.js`
+```ts
+import { flavors, flavorEntries } from "@catppuccin/palette";
+import chalk from "chalk";
 
-```js
-import {variants, labels} from '@catppuccin/palette'
+// an object containing all catppuccin flavors
+console.log(flavors);
 
-console.log(variants.latte.lavender.hex) // #7287FD
-console.log(labels.base.macchiato.hex) // #24273A
+// typed helper when iterating flavors
+flavorEntries.map(([_, flavor]) => {
+  console.log(`${flavor.name} is a ${flavor.dark ? "dark" : "light"} theme.`);
+  console.log(`It has ${flavor.colorEntries.length} colors:`);
+
+  // same for the colors
+  flavor.colorEntries.map(([colorName, { hex, rgb, accent }]) => {
+    console.log(
+      chalk.bgRgb(rgb.r, rgb.b, rgb.g)(` ${hex} `),
+      colorName,
+      accent
+    );
+  });
+  console.log("\n");
+});
 ```
 
-### CSS
+### Deno
 
-Import the palettes:
+The library gets published to [`deno.land/x/catppuccin`](https://deno.land/x/catppuccin).
 
-```css
-/* directly from the file */
-@import "@catppuccin/palette/style";
-/* or using unpkg.com */
-@import url('https://unpkg.com/@catppuccin/palette/css/catppuccin.css');
+```ts
+import { flavors, flavorEntries } from "https://deno.land/x/catppuccin/mod.ts";
+import { bgRgb24 } from "https://deno.land/std/fmt/colors.ts";
+
+// an object containing all catppuccin flavors
+console.log(flavors);
+
+// typed helper when iterating flavors
+flavorEntries.map(([_, flavor]) => {
+  console.log(`${flavor.name} is a ${flavor.dark ? "dark" : "light"} theme.`);
+  console.log(`It has ${flavor.colorEntries.length} colors:`);
+
+  // same for the colors
+  flavor.colorEntries.map(([colorName, { hex, rgb, accent }]) => {
+    console.log(bgRgb24(`  ${hex}  `, { ...rgb }), colorName, accent);
+  });
+  console.log("\n");
+});
 ```
 
-Then use them:
+## Other available formats
 
-```css
-body {
-	color: var(--ctp-mocha-text);
-	background: var(--ctp-frappe-base);
-}
-```
+- Web development
+  - [CSS](docs/css.md)
+  - [Sass](docs/sass.md)
+- Ports of this library
+  - [Go](https://github.com/catppuccin/go)
+  - [Java](https://github.com/catppuccin/java)
+  - [Lua](https://github.com/catppuccin/lua)
+  - [Nim](https://github.com/catppuccin/nim)
+  - [Python](https://github.com/catppuccin/python)
+  - [Rust](https://github.com/catppuccin/rust)
+  - [Tailwind CSS](https://github.com/catppuccin/tailwindcss)
+  - [V](https://github.com/catppuccin/v)
 
-### Sass
+## Graphics editors
 
-The usage instructions for Sass are documented [here](https://github.com/catppuccin/palette/tree/main/scss), in the `scss` folder.
+Please use the respective files in [the latest GitHub Release](https://github.com/catppuccin/palette/releases/latest):
 
-### Affinity
-
-1. Clone this repository locally
-2. Open a file in the `afpalette` folder. If you have multiple Affinity products
-   installed, you can choose to import it as a System palette
-
-### Aseprite / LibreSprite
-
-1. Clone this repository locally
-2. Open Palette Options
-3. Select "Load Palette" from the menu
-4. Open a file in `gpl/` in the dialog that appears
-
-### Gimp
-
-1. Clone this repository locally
-2. Navigate to Edit > Preferences > Folders > Palettes in GIMP
-3. Select the folder with the 'x' and press "Show file location in the file manager" (the rightmost button)
-4. Copy the files in `gpl/` to this folder
-
-### Inkscape
-
-1. Clone this repository locally
-2. Navigate to Edit > Preferences > System > User palettes in Inkscape
-3. Press the "Open" button next to the folder path
-4. Copy the files in `gpl/` to this folder
-
-### Krita
-
-1. Clone this repository locally
-2. Navigate to Settings > Dockers > Palette in Krita
-3. Open the "Choose Palette" button in the bottom left corner of Palette docker
-4. Select "Import a new palette from file"
-5. Open a file in `gpl/` in the dialog that appears
-
-### macOS Color Picker
-1. Clone this repository locally
-2. `cd` into the repo directory
-3. Run the following command in terminal, to copy the files into the library:
-```bash
-cp -r clr/* ~/Library/Colors
-```
-
-### Sip
-1. Clone this repository locally
-2. Open the `sip/` folder
-3. Open the `.palette` files, and Sip will import the palettes
-
-## 💝 Thanks to
-
-- [Gingeh](https://github.com/gingeh)
-- [TheExistingOne](https://github.com/TheExistingOne)
-- [Andreas Grafen](https://github.com/andreasgrafen)
-- [Pocco81](https://github.com/Pocco81)
-- [winston](https://github.com/nekowinston)
+| Programs                         | Directory    |
+| -------------------------------- | ------------ |
+| Adobe Suite, Affinity Suite, Sip | `ase/`       |
+| Aseprite, Gimp, Inkscape, Krita  | `gimp/`      |
+| Procreate                        | `procreate/` |
 
 &nbsp;
 
