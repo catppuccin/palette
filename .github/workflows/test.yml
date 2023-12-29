@@ -15,6 +15,10 @@ jobs:
 
       - uses: nekowinston/setup-deno@v1
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+
       - name: Check
         run: deno check **/*.ts
 
@@ -23,3 +27,6 @@ jobs:
 
       - name: Test
         run: deno test --doc
+
+      - name: Test Deno dnt
+        run: deno task build:npm
