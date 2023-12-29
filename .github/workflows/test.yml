@@ -1,0 +1,25 @@
+name: Lint & Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  main:
+    name: Lint and test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: nekowinston/setup-deno@v1
+
+      - name: Check
+        run: deno check **/*.ts
+
+      - name: Lint
+        run: deno lint --compact
+
+      - name: Test
+        run: deno test --doc
