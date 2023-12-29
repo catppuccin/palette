@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.1](https://github.com/catppuccin/palette/compare/v1.0.0...v1.0.1) (2023-12-29)
+
+
+### Bug Fixes
+
+* deno types ([#59](https://github.com/catppuccin/palette/issues/59)) ([59ed5dd](https://github.com/catppuccin/palette/commit/59ed5dd9061fbbbd7faa52988afab0f821720882))
+
+
+### Build system & distribution
+
+* distribute palette as zip file as well ([#60](https://github.com/catppuccin/palette/issues/60)) ([1ce383c](https://github.com/catppuccin/palette/commit/1ce383c2c545d6ca4d2e62ab614fe2cf7234bf66))
+
 ## [1.0.0](https://github.com/catppuccin/palette/compare/v0.2.0...v1.0.0) (2023-12-28)
 
 
