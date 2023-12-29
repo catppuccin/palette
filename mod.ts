@@ -1,4 +1,4 @@
-import definitions from "@/palette.json" with { type: "json" };
+import definitions from "./palette.json" with { type: "json" };
 
 type Entries<T> = {
   [K in keyof T]: [K, T[K]];
