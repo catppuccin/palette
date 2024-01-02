@@ -13,9 +13,9 @@ const entriesFromObject = <T extends object>(obj: T): Entries<T> =>
 export type FlavorName = "latte" | "frappe" | "macchiato" | "mocha";
 
 /**
- * All color names of Catppuccin
+ * Accent colors of Catppuccin.
  */
-export type ColorName =
+export type AccentNames =
   | "rosewater"
   | "flamingo"
   | "pink"
@@ -29,7 +29,13 @@ export type ColorName =
   | "sky"
   | "sapphire"
   | "blue"
-  | "lavender"
+  | "lavender";
+
+/**
+ * Monochromatic colors of Catppuccin,
+ * from `text` to `crust`
+ */
+export type MonochromaticNames =
   | "text"
   | "subtext1"
   | "subtext0"
@@ -42,6 +48,11 @@ export type ColorName =
   | "base"
   | "mantle"
   | "crust";
+
+/**
+ * All color names of Catppuccin
+ */
+export type ColorName = AccentNames | MonochromaticNames;
 
 /**
  * Generic to map type T to all Catppuccin color names
