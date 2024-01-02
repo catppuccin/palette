@@ -56,6 +56,9 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          tar czf catppuccin.tar.gz --directory=dist/palettes/ .
-          pushd dist/palettes; zip -r "$GITHUB_WORKSPACE/catppuccin.zip" *; popd
-          gh release upload ${{ needs.release-please.outputs.tag_name || inputs.force_release_version }} catppuccin.zip catppuccin.tar --clobber
+          echo "Creating tarball"
+          tar cvzf catppuccin.tar.gz --directory=dist/palettes/ . || exit 1
+          echo "Creating zip"
+          pushd dist/palettes && zip -r "$GITHUB_WORKSPACE/catppuccin.zip" ./* && popd || exit 1
+          echo "Uploading release assets"
+          gh release upload ${{ needs.release-please.outputs.tag_name || inputs.force_release_version }} catppuccin.zip catppuccin.tar.gz --clobber
