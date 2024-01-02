@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.3](https://github.com/catppuccin/palette/compare/v1.0.2...v1.0.3) (2024-01-02)
+
+
+### Bug Fixes
+
+* **types:** use singular for color name types ([#67](https://github.com/catppuccin/palette/issues/67)) ([7c73188](https://github.com/catppuccin/palette/commit/7c73188ac7a9ce1415520669be35db50008b9c1c))
+
 ## [1.0.2](https://github.com/catppuccin/palette/compare/v1.0.1...v1.0.2) (2024-01-02)
 
 
