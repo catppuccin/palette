@@ -14,5 +14,5 @@
     "build": "deno task build:npm & deno task build:palettes",
     "generate": "deno run -A ./scripts/gen_palette.ts"
   },
-  "version": "1.0.2"
+  "version": "1.0.3"
 }
