@@ -15,7 +15,7 @@ export type FlavorName = "latte" | "frappe" | "macchiato" | "mocha";
 /**
  * Accent colors of Catppuccin.
  */
-export type AccentNames =
+export type AccentName =
   | "rosewater"
   | "flamingo"
   | "pink"
@@ -35,7 +35,7 @@ export type AccentNames =
  * Monochromatic colors of Catppuccin,
  * from `text` to `crust`
  */
-export type MonochromaticNames =
+export type MonochromaticName =
   | "text"
   | "subtext1"
   | "subtext0"
@@ -52,7 +52,7 @@ export type MonochromaticNames =
 /**
  * All color names of Catppuccin
  */
-export type ColorName = AccentNames | MonochromaticNames;
+export type ColorName = AccentName | MonochromaticName;
 
 /**
  * Generic to map type T to all Catppuccin color names
