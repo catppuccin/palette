@@ -72,7 +72,7 @@ flavorEntries.map(([_, flavor]) => {
 
 - Web development
   - [CSS](docs/css.md)
-  - [Sass](docs/sass.md)
+  - [Sass](docs/Sass.md)
 - Ports of this library
   - [Go](https://github.com/catppuccin/go)
   - [Java](https://github.com/catppuccin/java)
