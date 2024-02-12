@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/catppuccin/palette/compare/v1.0.3...v1.1.0) (2024-02-12)
+
+
+### Features
+
+* add color names and spec order ([#72](https://github.com/catppuccin/palette/issues/72)) ([caefe28](https://github.com/catppuccin/palette/commit/caefe283b1b4e4efe92651346200e0f21b7d25bc))
+
+
+### Documentation
+
+* fix Sass link/filename case ([#69](https://github.com/catppuccin/palette/issues/69)) ([823bd01](https://github.com/catppuccin/palette/commit/823bd0179d491facf8ca368451dddb713926bc0e))
+
 ## [1.0.3](https://github.com/catppuccin/palette/compare/v1.0.2...v1.0.3) (2024-01-02)
 
 
