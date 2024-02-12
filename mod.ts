@@ -118,6 +118,16 @@ export type Flavors<T> = {
 
 export type ColorFormat = Readonly<{
   /**
+   * Name of the color
+   */
+  name: string;
+
+  /**
+   * Order of the color in the palette spec
+   */
+  order: number;
+
+  /**
    * String-formatted hex value
    * @example "#babbf1"
    */

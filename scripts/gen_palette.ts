@@ -16,6 +16,35 @@ const entriesFromObject = <T extends object>(obj: T): Entries<T> =>
 
 type Writeable<T> = { -readonly [P in keyof T]: T[P] };
 
+const prettyNames = [
+  "Rosewater",
+  "Flamingo",
+  "Pink",
+  "Mauve",
+  "Red",
+  "Maroon",
+  "Peach",
+  "Yellow",
+  "Green",
+  "Teal",
+  "Sky",
+  "Sapphire",
+  "Blue",
+  "Lavender",
+  "Text",
+  "Subtext 1",
+  "Subtext 0",
+  "Overlay 2",
+  "Overlay 1",
+  "Overlay 0",
+  "Surface 2",
+  "Surface 1",
+  "Surface 0",
+  "Base",
+  "Mantle",
+  "Crust",
+] as const;
+
 const definitions = {
   latte: {
     name: "Latte",
@@ -170,10 +199,12 @@ const formatted = entriesFromObject(definitions)
       name: flavor.name,
       dark: flavor.dark,
       colors: entriesFromObject(flavor.colors).reduce(
-        (acc, [colorName, color]) => {
+        (acc, [colorName, color], currentIndex) => {
           const { r, g, b } = tinycolor(color).toRgb();
           const { h, s, l } = tinycolor(color).toHsl();
           acc[colorName] = {
+            name: prettyNames[currentIndex],
+            order: currentIndex,
             hex: color,
             rgb: { r, g, b },
             hsl: { h, s, l },
