@@ -1,7 +1,7 @@
 import { assertEquals } from "std/assert/assert_equals.ts";
 
 import { flavorEntries, flavors } from "@catppuccin/palette";
-import palette from "@/palette.json" assert { type: "json" };
+import palette from "@/palette.json" with { type: "json" };
 
 Deno.test("flavorEntries", () => {
   flavorEntries
