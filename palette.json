@@ -4,6 +4,8 @@
     "dark": false,
     "colors": {
       "rosewater": {
+        "name": "Rosewater",
+        "order": 0,
         "hex": "#dc8a78",
         "rgb": {
           "r": 220,
@@ -18,6 +20,8 @@
         "accent": true
       },
       "flamingo": {
+        "name": "Flamingo",
+        "order": 1,
         "hex": "#dd7878",
         "rgb": {
           "r": 221,
@@ -32,6 +36,8 @@
         "accent": true
       },
       "pink": {
+        "name": "Pink",
+        "order": 2,
         "hex": "#ea76cb",
         "rgb": {
           "r": 234,
@@ -46,6 +52,8 @@
         "accent": true
       },
       "mauve": {
+        "name": "Mauve",
+        "order": 3,
         "hex": "#8839ef",
         "rgb": {
           "r": 136,
@@ -60,6 +68,8 @@
         "accent": true
       },
       "red": {
+        "name": "Red",
+        "order": 4,
         "hex": "#d20f39",
         "rgb": {
           "r": 210,
@@ -74,6 +84,8 @@
         "accent": true
       },
       "maroon": {
+        "name": "Maroon",
+        "order": 5,
         "hex": "#e64553",
         "rgb": {
           "r": 230,
@@ -88,6 +100,8 @@
         "accent": true
       },
       "peach": {
+        "name": "Peach",
+        "order": 6,
         "hex": "#fe640b",
         "rgb": {
           "r": 254,
@@ -102,6 +116,8 @@
         "accent": true
       },
       "yellow": {
+        "name": "Yellow",
+        "order": 7,
         "hex": "#df8e1d",
         "rgb": {
           "r": 223,
@@ -116,6 +132,8 @@
         "accent": true
       },
       "green": {
+        "name": "Green",
+        "order": 8,
         "hex": "#40a02b",
         "rgb": {
           "r": 64,
@@ -130,6 +148,8 @@
         "accent": true
       },
       "teal": {
+        "name": "Teal",
+        "order": 9,
         "hex": "#179299",
         "rgb": {
           "r": 23,
@@ -144,6 +164,8 @@
         "accent": true
       },
       "sky": {
+        "name": "Sky",
+        "order": 10,
         "hex": "#04a5e5",
         "rgb": {
           "r": 4,
@@ -158,6 +180,8 @@
         "accent": true
       },
       "sapphire": {
+        "name": "Sapphire",
+        "order": 11,
         "hex": "#209fb5",
         "rgb": {
           "r": 32,
@@ -172,6 +196,8 @@
         "accent": true
       },
       "blue": {
+        "name": "Blue",
+        "order": 12,
         "hex": "#1e66f5",
         "rgb": {
           "r": 30,
@@ -186,6 +212,8 @@
         "accent": true
       },
       "lavender": {
+        "name": "Lavender",
+        "order": 13,
         "hex": "#7287fd",
         "rgb": {
           "r": 114,
@@ -200,6 +228,8 @@
         "accent": true
       },
       "text": {
+        "name": "Text",
+        "order": 14,
         "hex": "#4c4f69",
         "rgb": {
           "r": 76,
@@ -214,6 +244,8 @@
         "accent": false
       },
       "subtext1": {
+        "name": "Subtext 1",
+        "order": 15,
         "hex": "#5c5f77",
         "rgb": {
           "r": 92,
@@ -228,6 +260,8 @@
         "accent": false
       },
       "subtext0": {
+        "name": "Subtext 0",
+        "order": 16,
         "hex": "#6c6f85",
         "rgb": {
           "r": 108,
@@ -242,6 +276,8 @@
         "accent": false
       },
       "overlay2": {
+        "name": "Overlay 2",
+        "order": 17,
         "hex": "#7c7f93",
         "rgb": {
           "r": 124,
@@ -256,6 +292,8 @@
         "accent": false
       },
       "overlay1": {
+        "name": "Overlay 1",
+        "order": 18,
         "hex": "#8c8fa1",
         "rgb": {
           "r": 140,
@@ -270,6 +308,8 @@
         "accent": false
       },
       "overlay0": {
+        "name": "Overlay 0",
+        "order": 19,
         "hex": "#9ca0b0",
         "rgb": {
           "r": 156,
@@ -284,6 +324,8 @@
         "accent": false
       },
       "surface2": {
+        "name": "Surface 2",
+        "order": 20,
         "hex": "#acb0be",
         "rgb": {
           "r": 172,
@@ -298,6 +340,8 @@
         "accent": false
       },
       "surface1": {
+        "name": "Surface 1",
+        "order": 21,
         "hex": "#bcc0cc",
         "rgb": {
           "r": 188,
@@ -312,6 +356,8 @@
         "accent": false
       },
       "surface0": {
+        "name": "Surface 0",
+        "order": 22,
         "hex": "#ccd0da",
         "rgb": {
           "r": 204,
@@ -326,6 +372,8 @@
         "accent": false
       },
       "base": {
+        "name": "Base",
+        "order": 23,
         "hex": "#eff1f5",
         "rgb": {
           "r": 239,
@@ -340,6 +388,8 @@
         "accent": false
       },
       "mantle": {
+        "name": "Mantle",
+        "order": 24,
         "hex": "#e6e9ef",
         "rgb": {
           "r": 230,
@@ -354,6 +404,8 @@
         "accent": false
       },
       "crust": {
+        "name": "Crust",
+        "order": 25,
         "hex": "#dce0e8",
         "rgb": {
           "r": 220,
@@ -374,6 +426,8 @@
     "dark": true,
     "colors": {
       "rosewater": {
+        "name": "Rosewater",
+        "order": 0,
         "hex": "#f2d5cf",
         "rgb": {
           "r": 242,
@@ -388,6 +442,8 @@
         "accent": true
       },
       "flamingo": {
+        "name": "Flamingo",
+        "order": 1,
         "hex": "#eebebe",
         "rgb": {
           "r": 238,
@@ -402,6 +458,8 @@
         "accent": true
       },
       "pink": {
+        "name": "Pink",
+        "order": 2,
         "hex": "#f4b8e4",
         "rgb": {
           "r": 244,
@@ -416,6 +474,8 @@
         "accent": true
       },
       "mauve": {
+        "name": "Mauve",
+        "order": 3,
         "hex": "#ca9ee6",
         "rgb": {
           "r": 202,
@@ -430,6 +490,8 @@
         "accent": true
       },
       "red": {
+        "name": "Red",
+        "order": 4,
         "hex": "#e78284",
         "rgb": {
           "r": 231,
@@ -444,6 +506,8 @@
         "accent": true
       },
       "maroon": {
+        "name": "Maroon",
+        "order": 5,
         "hex": "#ea999c",
         "rgb": {
           "r": 234,
@@ -458,6 +522,8 @@
         "accent": true
       },
       "peach": {
+        "name": "Peach",
+        "order": 6,
         "hex": "#ef9f76",
         "rgb": {
           "r": 239,
@@ -472,6 +538,8 @@
         "accent": true
       },
       "yellow": {
+        "name": "Yellow",
+        "order": 7,
         "hex": "#e5c890",
         "rgb": {
           "r": 229,
@@ -486,6 +554,8 @@
         "accent": true
       },
       "green": {
+        "name": "Green",
+        "order": 8,
         "hex": "#a6d189",
         "rgb": {
           "r": 166,
@@ -500,6 +570,8 @@
         "accent": true
       },
       "teal": {
+        "name": "Teal",
+        "order": 9,
         "hex": "#81c8be",
         "rgb": {
           "r": 129,
@@ -514,6 +586,8 @@
         "accent": true
       },
       "sky": {
+        "name": "Sky",
+        "order": 10,
         "hex": "#99d1db",
         "rgb": {
           "r": 153,
@@ -528,6 +602,8 @@
         "accent": true
       },
       "sapphire": {
+        "name": "Sapphire",
+        "order": 11,
         "hex": "#85c1dc",
         "rgb": {
           "r": 133,
@@ -542,6 +618,8 @@
         "accent": true
       },
       "blue": {
+        "name": "Blue",
+        "order": 12,
         "hex": "#8caaee",
         "rgb": {
           "r": 140,
@@ -556,6 +634,8 @@
         "accent": true
       },
       "lavender": {
+        "name": "Lavender",
+        "order": 13,
         "hex": "#babbf1",
         "rgb": {
           "r": 186,
@@ -570,6 +650,8 @@
         "accent": true
       },
       "text": {
+        "name": "Text",
+        "order": 14,
         "hex": "#c6d0f5",
         "rgb": {
           "r": 198,
@@ -584,6 +666,8 @@
         "accent": false
       },
       "subtext1": {
+        "name": "Subtext 1",
+        "order": 15,
         "hex": "#b5bfe2",
         "rgb": {
           "r": 181,
@@ -598,6 +682,8 @@
         "accent": false
       },
       "subtext0": {
+        "name": "Subtext 0",
+        "order": 16,
         "hex": "#a5adce",
         "rgb": {
           "r": 165,
@@ -612,6 +698,8 @@
         "accent": false
       },
       "overlay2": {
+        "name": "Overlay 2",
+        "order": 17,
         "hex": "#949cbb",
         "rgb": {
           "r": 148,
@@ -626,6 +714,8 @@
         "accent": false
       },
       "overlay1": {
+        "name": "Overlay 1",
+        "order": 18,
         "hex": "#838ba7",
         "rgb": {
           "r": 131,
@@ -640,6 +730,8 @@
         "accent": false
       },
       "overlay0": {
+        "name": "Overlay 0",
+        "order": 19,
         "hex": "#737994",
         "rgb": {
           "r": 115,
@@ -654,6 +746,8 @@
         "accent": false
       },
       "surface2": {
+        "name": "Surface 2",
+        "order": 20,
         "hex": "#626880",
         "rgb": {
           "r": 98,
@@ -668,6 +762,8 @@
         "accent": false
       },
       "surface1": {
+        "name": "Surface 1",
+        "order": 21,
         "hex": "#51576d",
         "rgb": {
           "r": 81,
@@ -682,6 +778,8 @@
         "accent": false
       },
       "surface0": {
+        "name": "Surface 0",
+        "order": 22,
         "hex": "#414559",
         "rgb": {
           "r": 65,
@@ -696,6 +794,8 @@
         "accent": false
       },
       "base": {
+        "name": "Base",
+        "order": 23,
         "hex": "#303446",
         "rgb": {
           "r": 48,
@@ -710,6 +810,8 @@
         "accent": false
       },
       "mantle": {
+        "name": "Mantle",
+        "order": 24,
         "hex": "#292c3c",
         "rgb": {
           "r": 41,
@@ -724,6 +826,8 @@
         "accent": false
       },
       "crust": {
+        "name": "Crust",
+        "order": 25,
         "hex": "#232634",
         "rgb": {
           "r": 35,
@@ -744,6 +848,8 @@
     "dark": true,
     "colors": {
       "rosewater": {
+        "name": "Rosewater",
+        "order": 0,
         "hex": "#f4dbd6",
         "rgb": {
           "r": 244,
@@ -758,6 +864,8 @@
         "accent": true
       },
       "flamingo": {
+        "name": "Flamingo",
+        "order": 1,
         "hex": "#f0c6c6",
         "rgb": {
           "r": 240,
@@ -772,6 +880,8 @@
         "accent": true
       },
       "pink": {
+        "name": "Pink",
+        "order": 2,
         "hex": "#f5bde6",
         "rgb": {
           "r": 245,
@@ -786,6 +896,8 @@
         "accent": true
       },
       "mauve": {
+        "name": "Mauve",
+        "order": 3,
         "hex": "#c6a0f6",
         "rgb": {
           "r": 198,
@@ -800,6 +912,8 @@
         "accent": true
       },
       "red": {
+        "name": "Red",
+        "order": 4,
         "hex": "#ed8796",
         "rgb": {
           "r": 237,
@@ -814,6 +928,8 @@
         "accent": true
       },
       "maroon": {
+        "name": "Maroon",
+        "order": 5,
         "hex": "#ee99a0",
         "rgb": {
           "r": 238,
@@ -828,6 +944,8 @@
         "accent": true
       },
       "peach": {
+        "name": "Peach",
+        "order": 6,
         "hex": "#f5a97f",
         "rgb": {
           "r": 245,
@@ -842,6 +960,8 @@
         "accent": true
       },
       "yellow": {
+        "name": "Yellow",
+        "order": 7,
         "hex": "#eed49f",
         "rgb": {
           "r": 238,
@@ -856,6 +976,8 @@
         "accent": true
       },
       "green": {
+        "name": "Green",
+        "order": 8,
         "hex": "#a6da95",
         "rgb": {
           "r": 166,
@@ -870,6 +992,8 @@
         "accent": true
       },
       "teal": {
+        "name": "Teal",
+        "order": 9,
         "hex": "#8bd5ca",
         "rgb": {
           "r": 139,
@@ -884,6 +1008,8 @@
         "accent": true
       },
       "sky": {
+        "name": "Sky",
+        "order": 10,
         "hex": "#91d7e3",
         "rgb": {
           "r": 145,
@@ -898,6 +1024,8 @@
         "accent": true
       },
       "sapphire": {
+        "name": "Sapphire",
+        "order": 11,
         "hex": "#7dc4e4",
         "rgb": {
           "r": 125,
@@ -912,6 +1040,8 @@
         "accent": true
       },
       "blue": {
+        "name": "Blue",
+        "order": 12,
         "hex": "#8aadf4",
         "rgb": {
           "r": 138,
@@ -926,6 +1056,8 @@
         "accent": true
       },
       "lavender": {
+        "name": "Lavender",
+        "order": 13,
         "hex": "#b7bdf8",
         "rgb": {
           "r": 183,
@@ -940,6 +1072,8 @@
         "accent": true
       },
       "text": {
+        "name": "Text",
+        "order": 14,
         "hex": "#cad3f5",
         "rgb": {
           "r": 202,
@@ -954,6 +1088,8 @@
         "accent": false
       },
       "subtext1": {
+        "name": "Subtext 1",
+        "order": 15,
         "hex": "#b8c0e0",
         "rgb": {
           "r": 184,
@@ -968,6 +1104,8 @@
         "accent": false
       },
       "subtext0": {
+        "name": "Subtext 0",
+        "order": 16,
         "hex": "#a5adcb",
         "rgb": {
           "r": 165,
@@ -982,6 +1120,8 @@
         "accent": false
       },
       "overlay2": {
+        "name": "Overlay 2",
+        "order": 17,
         "hex": "#939ab7",
         "rgb": {
           "r": 147,
@@ -996,6 +1136,8 @@
         "accent": false
       },
       "overlay1": {
+        "name": "Overlay 1",
+        "order": 18,
         "hex": "#8087a2",
         "rgb": {
           "r": 128,
@@ -1010,6 +1152,8 @@
         "accent": false
       },
       "overlay0": {
+        "name": "Overlay 0",
+        "order": 19,
         "hex": "#6e738d",
         "rgb": {
           "r": 110,
@@ -1024,6 +1168,8 @@
         "accent": false
       },
       "surface2": {
+        "name": "Surface 2",
+        "order": 20,
         "hex": "#5b6078",
         "rgb": {
           "r": 91,
@@ -1038,6 +1184,8 @@
         "accent": false
       },
       "surface1": {
+        "name": "Surface 1",
+        "order": 21,
         "hex": "#494d64",
         "rgb": {
           "r": 73,
@@ -1052,6 +1200,8 @@
         "accent": false
       },
       "surface0": {
+        "name": "Surface 0",
+        "order": 22,
         "hex": "#363a4f",
         "rgb": {
           "r": 54,
@@ -1066,6 +1216,8 @@
         "accent": false
       },
       "base": {
+        "name": "Base",
+        "order": 23,
         "hex": "#24273a",
         "rgb": {
           "r": 36,
@@ -1080,6 +1232,8 @@
         "accent": false
       },
       "mantle": {
+        "name": "Mantle",
+        "order": 24,
         "hex": "#1e2030",
         "rgb": {
           "r": 30,
@@ -1094,6 +1248,8 @@
         "accent": false
       },
       "crust": {
+        "name": "Crust",
+        "order": 25,
         "hex": "#181926",
         "rgb": {
           "r": 24,
@@ -1114,6 +1270,8 @@
     "dark": true,
     "colors": {
       "rosewater": {
+        "name": "Rosewater",
+        "order": 0,
         "hex": "#f5e0dc",
         "rgb": {
           "r": 245,
@@ -1128,6 +1286,8 @@
         "accent": true
       },
       "flamingo": {
+        "name": "Flamingo",
+        "order": 1,
         "hex": "#f2cdcd",
         "rgb": {
           "r": 242,
@@ -1142,6 +1302,8 @@
         "accent": true
       },
       "pink": {
+        "name": "Pink",
+        "order": 2,
         "hex": "#f5c2e7",
         "rgb": {
           "r": 245,
@@ -1156,6 +1318,8 @@
         "accent": true
       },
       "mauve": {
+        "name": "Mauve",
+        "order": 3,
         "hex": "#cba6f7",
         "rgb": {
           "r": 203,
@@ -1170,6 +1334,8 @@
         "accent": true
       },
       "red": {
+        "name": "Red",
+        "order": 4,
         "hex": "#f38ba8",
         "rgb": {
           "r": 243,
@@ -1184,6 +1350,8 @@
         "accent": true
       },
       "maroon": {
+        "name": "Maroon",
+        "order": 5,
         "hex": "#eba0ac",
         "rgb": {
           "r": 235,
@@ -1198,6 +1366,8 @@
         "accent": true
       },
       "peach": {
+        "name": "Peach",
+        "order": 6,
         "hex": "#fab387",
         "rgb": {
           "r": 250,
@@ -1212,6 +1382,8 @@
         "accent": true
       },
       "yellow": {
+        "name": "Yellow",
+        "order": 7,
         "hex": "#f9e2af",
         "rgb": {
           "r": 249,
@@ -1226,6 +1398,8 @@
         "accent": true
       },
       "green": {
+        "name": "Green",
+        "order": 8,
         "hex": "#a6e3a1",
         "rgb": {
           "r": 166,
@@ -1240,6 +1414,8 @@
         "accent": true
       },
       "teal": {
+        "name": "Teal",
+        "order": 9,
         "hex": "#94e2d5",
         "rgb": {
           "r": 148,
@@ -1254,6 +1430,8 @@
         "accent": true
       },
       "sky": {
+        "name": "Sky",
+        "order": 10,
         "hex": "#89dceb",
         "rgb": {
           "r": 137,
@@ -1268,6 +1446,8 @@
         "accent": true
       },
       "sapphire": {
+        "name": "Sapphire",
+        "order": 11,
         "hex": "#74c7ec",
         "rgb": {
           "r": 116,
@@ -1282,6 +1462,8 @@
         "accent": true
       },
       "blue": {
+        "name": "Blue",
+        "order": 12,
         "hex": "#89b4fa",
         "rgb": {
           "r": 137,
@@ -1296,6 +1478,8 @@
         "accent": true
       },
       "lavender": {
+        "name": "Lavender",
+        "order": 13,
         "hex": "#b4befe",
         "rgb": {
           "r": 180,
@@ -1310,6 +1494,8 @@
         "accent": true
       },
       "text": {
+        "name": "Text",
+        "order": 14,
         "hex": "#cdd6f4",
         "rgb": {
           "r": 205,
@@ -1324,6 +1510,8 @@
         "accent": false
       },
       "subtext1": {
+        "name": "Subtext 1",
+        "order": 15,
         "hex": "#bac2de",
         "rgb": {
           "r": 186,
@@ -1338,6 +1526,8 @@
         "accent": false
       },
       "subtext0": {
+        "name": "Subtext 0",
+        "order": 16,
         "hex": "#a6adc8",
         "rgb": {
           "r": 166,
@@ -1352,6 +1542,8 @@
         "accent": false
       },
       "overlay2": {
+        "name": "Overlay 2",
+        "order": 17,
         "hex": "#9399b2",
         "rgb": {
           "r": 147,
@@ -1366,6 +1558,8 @@
         "accent": false
       },
       "overlay1": {
+        "name": "Overlay 1",
+        "order": 18,
         "hex": "#7f849c",
         "rgb": {
           "r": 127,
@@ -1380,6 +1574,8 @@
         "accent": false
       },
       "overlay0": {
+        "name": "Overlay 0",
+        "order": 19,
         "hex": "#6c7086",
         "rgb": {
           "r": 108,
@@ -1394,6 +1590,8 @@
         "accent": false
       },
       "surface2": {
+        "name": "Surface 2",
+        "order": 20,
         "hex": "#585b70",
         "rgb": {
           "r": 88,
@@ -1408,6 +1606,8 @@
         "accent": false
       },
       "surface1": {
+        "name": "Surface 1",
+        "order": 21,
         "hex": "#45475a",
         "rgb": {
           "r": 69,
@@ -1422,6 +1622,8 @@
         "accent": false
       },
       "surface0": {
+        "name": "Surface 0",
+        "order": 22,
         "hex": "#313244",
         "rgb": {
           "r": 49,
@@ -1436,6 +1638,8 @@
         "accent": false
       },
       "base": {
+        "name": "Base",
+        "order": 23,
         "hex": "#1e1e2e",
         "rgb": {
           "r": 30,
@@ -1450,6 +1654,8 @@
         "accent": false
       },
       "mantle": {
+        "name": "Mantle",
+        "order": 24,
         "hex": "#181825",
         "rgb": {
           "r": 24,
@@ -1464,6 +1670,8 @@
         "accent": false
       },
       "crust": {
+        "name": "Crust",
+        "order": 25,
         "hex": "#11111b",
         "rgb": {
           "r": 17,
