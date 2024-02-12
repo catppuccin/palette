@@ -1,7 +1,7 @@
 import { copy, emptyDir } from "std/fs/mod.ts";
 import { build } from "dnt";
 
-import denoJson from "@/deno.json" assert { type: "json" };
+import denoJson from "@/deno.json" with { type: "json" };
 import * as builders from "./builders/mod.ts";
 
 const outDir = "./dist/npm";

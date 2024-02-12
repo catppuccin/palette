@@ -69,6 +69,11 @@ export type CatppuccinFlavor = Readonly<{
   name: string;
 
   /**
+   * Order of the flavor in the palette spec
+   */
+  order: number;
+
+  /**
    * Whether the flavor is a dark theme
    */
   dark: boolean;
@@ -117,6 +122,16 @@ export type Flavors<T> = {
 };
 
 export type ColorFormat = Readonly<{
+  /**
+   * Name of the color
+   */
+  name: string;
+
+  /**
+   * Order of the color in the palette spec
+   */
+  order: number;
+
   /**
    * String-formatted hex value
    * @example "#babbf1"
