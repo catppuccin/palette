@@ -1,6 +1,7 @@
 {
   "latte": {
     "name": "Latte",
+    "order": 0,
     "dark": false,
     "colors": {
       "rosewater": {
@@ -423,6 +424,7 @@
   },
   "frappe": {
     "name": "Frappé",
+    "order": 1,
     "dark": true,
     "colors": {
       "rosewater": {
@@ -845,6 +847,7 @@
   },
   "macchiato": {
     "name": "Macchiato",
+    "order": 2,
     "dark": true,
     "colors": {
       "rosewater": {
@@ -1267,6 +1270,7 @@
   },
   "mocha": {
     "name": "Mocha",
+    "order": 3,
     "dark": true,
     "colors": {
       "rosewater": {
