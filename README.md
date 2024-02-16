@@ -76,6 +76,7 @@ flavorEntries.map(([_, flavor]) => {
 - Ports of this library
   - [Go](https://github.com/catppuccin/go)
   - [Java](https://github.com/catppuccin/java)
+  - [LaTeX](https://github.com/catppuccin/latex)
   - [Lua](https://github.com/catppuccin/lua)
   - [Nim](https://github.com/catppuccin/nim)
   - [Python](https://github.com/catppuccin/python)
