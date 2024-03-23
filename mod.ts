@@ -185,7 +185,7 @@ export type ColorFormat = Readonly<{
 /**
  * All flavors of Catppuccin
  */
-export const flavors = entriesFromObject(definitions)
+export const flavors: CatppuccinFlavors = entriesFromObject(definitions)
   .reduce((acc, [flavorName, flavor]) => {
     acc[flavorName] = {
       ...flavor,
@@ -197,4 +197,6 @@ export const flavors = entriesFromObject(definitions)
 /**
  * A typed `Object.entries()` iterable of all Catppuccin flavors
  */
-export const flavorEntries = entriesFromObject(flavors);
+export const flavorEntries: Entries<CatppuccinFlavors> = entriesFromObject(
+  flavors,
+);
