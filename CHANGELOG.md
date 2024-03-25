@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.1](https://github.com/catppuccin/palette/compare/v1.1.0...v1.1.1) (2024-03-25)
+
+
+### Documentation
+
+* **css:** fix incorrect var ([#75](https://github.com/catppuccin/palette/issues/75)) ([10eb998](https://github.com/catppuccin/palette/commit/10eb998cd69dad4e2d5c0f3b0bdc81e294de8cb9))
+* **README:** add `catppuccin/flutter` ([563cdbc](https://github.com/catppuccin/palette/commit/563cdbccc813ae6716ef8242391e6f9dca8d7596))
+
+
+### Build system & distribution
+
+* publish to JSR ([7e613fe](https://github.com/catppuccin/palette/commit/7e613fee080f44baba7f7d2710d4bdf3fac90b3c))
+
 ## [1.1.0](https://github.com/catppuccin/palette/compare/v1.0.3...v1.1.0) (2024-02-12)
 
 
