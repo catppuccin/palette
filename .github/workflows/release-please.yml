@@ -50,7 +50,7 @@ jobs:
         working-directory: dist/npm
         run: npm publish --provenance --access public
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_DEPLOY_TOKEN}}
 
       - name: Publish to JSR
         run: deno publish
