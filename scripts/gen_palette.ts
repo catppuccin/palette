@@ -1,10 +1,10 @@
 import { join } from "std/path/join.ts";
 import tinycolor from "tinycolor2";
 
-import {
-  type CatppuccinColors,
-  type CatppuccinFlavor,
-  type Flavors,
+import type {
+  CatppuccinColors,
+  CatppuccinFlavor,
+  Flavors,
 } from "@catppuccin/palette";
 
 type Entries<T> = {
