@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/catppuccin/palette/compare/v1.1.1...v1.2.0) (2024-05-17)
+
+
+### Features
+
+* add emoji for each flavor ([#81](https://github.com/catppuccin/palette/issues/81)) ([0abf33d](https://github.com/catppuccin/palette/commit/0abf33dc577dbfcedd610ace27762fa3446e6010))
+
 ## [1.1.1](https://github.com/catppuccin/palette/compare/v1.1.0...v1.1.1) (2024-03-25)
 
 
