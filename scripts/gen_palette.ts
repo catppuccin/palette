@@ -1,10 +1,10 @@
 import { join } from "std/path/join.ts";
 import tinycolor from "tinycolor2";
 
-import {
-  type CatppuccinColors,
-  type CatppuccinFlavor,
-  type Flavors,
+import type {
+  CatppuccinColors,
+  CatppuccinFlavor,
+  Flavors,
 } from "@catppuccin/palette";
 
 type Entries<T> = {
@@ -48,6 +48,7 @@ const prettyNames = [
 const definitions = {
   latte: {
     name: "Latte",
+    emoji: "🌻",
     dark: false,
     colors: {
       rosewater: "#dc8a78",
@@ -80,6 +81,7 @@ const definitions = {
   },
   frappe: {
     name: "Frappé",
+    emoji: "🪴",
     dark: true,
     colors: {
       rosewater: "#f2d5cf",
@@ -112,6 +114,7 @@ const definitions = {
   },
   macchiato: {
     name: "Macchiato",
+    emoji: "🌺",
     dark: true,
     colors: {
       rosewater: "#f4dbd6",
@@ -144,6 +147,7 @@ const definitions = {
   },
   mocha: {
     name: "Mocha",
+    emoji: "🌿",
     dark: true,
     colors: {
       rosewater: "#f5e0dc",
@@ -197,6 +201,7 @@ const formatted = entriesFromObject(definitions)
   .reduce((acc, [flavorName, flavor], currentIndex) => {
     acc[flavorName] = {
       name: flavor.name,
+      emoji: flavor.emoji,
       order: currentIndex,
       dark: flavor.dark,
       colors: entriesFromObject(flavor.colors).reduce(

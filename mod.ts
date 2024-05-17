@@ -69,6 +69,11 @@ export type CatppuccinFlavor = Readonly<{
   name: string;
 
   /**
+   * Emoji associated with the flavor. Requires Unicode 13.0 (2020) or later to render
+   */
+  emoji: string;
+
+  /**
    * Order of the flavor in the palette spec
    */
   order: number;

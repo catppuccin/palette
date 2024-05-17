@@ -1,6 +1,7 @@
 {
   "latte": {
     "name": "Latte",
+    "emoji": "🌻",
     "order": 0,
     "dark": false,
     "colors": {
@@ -424,6 +425,7 @@
   },
   "frappe": {
     "name": "Frappé",
+    "emoji": "🪴",
     "order": 1,
     "dark": true,
     "colors": {
@@ -847,6 +849,7 @@
   },
   "macchiato": {
     "name": "Macchiato",
+    "emoji": "🌺",
     "order": 2,
     "dark": true,
     "colors": {
@@ -1270,6 +1273,7 @@
   },
   "mocha": {
     "name": "Mocha",
+    "emoji": "🌿",
     "order": 3,
     "dark": true,
     "colors": {
