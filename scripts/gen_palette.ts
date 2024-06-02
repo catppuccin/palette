@@ -226,7 +226,15 @@ const formatted = entriesFromObject(definitions)
 
 const __dirname = new URL(".", import.meta.url).pathname;
 
+const packageVersion =
+  JSON.parse(Deno.readTextFileSync(join(__dirname, "../deno.json"))).version;
+
+const result = {
+  version: packageVersion,
+  ...formatted,
+};
+
 Deno.writeTextFileSync(
   join(__dirname, "../palette.json"),
-  JSON.stringify(formatted, null, 2),
+  JSON.stringify(result, null, 2),
 );
