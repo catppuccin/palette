@@ -74,6 +74,7 @@ flavorEntries.map(([_, flavor]) => {
   - [CSS](docs/css.md)
   - [Sass](docs/sass.md)
 - Ports of this library
+  - [Elixir](https://github.com/catppuccin/elixir)
   - [Flutter](https://github.com/catppuccin/flutter)
   - [Gleam](https://github.com/catppuccin/gleam)
   - [Go](https://github.com/catppuccin/go)
