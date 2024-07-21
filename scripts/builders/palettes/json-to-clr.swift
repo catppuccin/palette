@@ -8,7 +8,7 @@ struct ColorProperties: Decodable {
 
 typealias ColorList = [String: ColorProperties]
 
-func hex2rgba(_ color: String) -> (r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
+func hexToRGBA(_ color: String) -> (r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
   var hexColor = color
   if hexColor.hasPrefix("#") {
     hexColor.remove(at: hexColor.startIndex)
@@ -50,7 +50,7 @@ func convertJSONToCLR(inputFilePath: String, outputFilePath: String) {
 
   for (name, properties) in sortedColors {
     let hex = properties.hex
-    let color = hex2rgba(hex)
+    let color = hexToRGBA(hex)
     nsColorList.setColor(
       NSColor(calibratedRed: color.r, green: color.g, blue: color.b, alpha: color.a), forKey: name)
   }
@@ -65,7 +65,7 @@ func convertJSONToCLR(inputFilePath: String, outputFilePath: String) {
 }
 
 if CommandLine.argc != 3 {
-  print("Usage: swift ./json-to-clr.swift <INPUT> <OUTPUT>")
+  print("Not enough arguments provided")
   exit(1)
 }
 
