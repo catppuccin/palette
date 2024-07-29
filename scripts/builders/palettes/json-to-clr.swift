@@ -50,11 +50,8 @@ func convertJSONToCLR(inputFilePath: String, outputFilePath: String) {
 }
 
 if CommandLine.argc != 3 {
-  print("Not enough arguments provided")
+  print("\(CommandLine.arguments[0]): Not enough arguments provided (expected input and output filenames)")
   exit(1)
 }
 
-let inputFilePath = CommandLine.arguments[1]
-let outputFilePath = CommandLine.arguments[2]
-
-convertJSONToCLR(inputFilePath: inputFilePath, outputFilePath: outputFilePath)
+convertJSONToCLR(inputFilePath: CommandLine.arguments[1], outputFilePath: CommandLine.arguments[2])
