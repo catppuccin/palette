@@ -8,14 +8,13 @@ struct ColorProperties: Decodable {
 
 typealias ColorList = [String: ColorProperties]
 
-func hexToRGBA(_ color: String) -> (r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
-  var hexColor = String(color.dropFirst()) + "ff"
+func hexToRGBA(_ color: String) -> (r: CGFloat, g: CGFloat, b: CGFloat) {
+  var hexColor = String(color.dropFirst())
 
   let r = CGFloat(Int(hexColor.prefix(2), radix: 16) ?? 0) / 255
   let g = CGFloat(Int(hexColor.dropFirst(2).prefix(2), radix: 16) ?? 0) / 255
   let b = CGFloat(Int(hexColor.dropFirst(4).prefix(2), radix: 16) ?? 0) / 255
-  let a = CGFloat(Int(hexColor.dropFirst(6).prefix(2), radix: 16) ?? 0) / 255
-  return (r, g, b, a)
+  return (r, g, b)
 }
 
 func convertJSONToCLR(inputFilePath: String, outputFilePath: String) {
@@ -38,7 +37,7 @@ func convertJSONToCLR(inputFilePath: String, outputFilePath: String) {
     let hex = properties.hex
     let color = hexToRGBA(hex)
     nsColorList.setColor(
-      NSColor(calibratedRed: color.r, green: color.g, blue: color.b, alpha: color.a), forKey: name)
+      NSColor(red: color.r, green: color.g, blue: color.b, alpha: 1), forKey: name)
   }
 
   let clrFilePath = URL(fileURLWithPath: outputFilePath)
