@@ -11,8 +11,8 @@ const template = flavorEntries
 
         return [
           sprintf("  %s: %s;", name, hex),
-          sprintf("  %s-rgb: %d %d %d;", name, ...Object.values(rgb)),
-          sprintf("  %s-hsl: %.3f %.3f%% %.3f%%;", name, h, s * 100, l * 100),
+          sprintf("  %s-rgb: %d, %d, %d;", name, ...Object.values(rgb)),
+          sprintf("  %s-hsl: %.3f, %.3f%%, %.3f%%;", name, h, s * 100, l * 100),
         ].join("\n");
       })
       .join("\n");
