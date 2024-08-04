@@ -26,8 +26,8 @@ Then use them:
 ```css
 .my-div {
   color:        var(--ctp-mocha-text);
-  background:   rgba(var(--ctp-macchiato-base-rgb) 0.9);
-  border-color: hsla(var(--ctp-frappe-red-hsl) 0.75);
+  background:   rgba(var(--ctp-macchiato-base-rgb), 0.9);
+  border-color: hsla(var(--ctp-frappe-red-hsl), 0.75);
 }
 ```
 
