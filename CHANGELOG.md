@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.1](https://github.com/catppuccin/palette/compare/v1.2.0...v1.2.1) (2024-08-05)
+
+
+### Documentation
+
+* **CSS.md:** Add `/` to `rgba`/`hsla` usage ([#90](https://github.com/catppuccin/palette/issues/90)) ([628a04a](https://github.com/catppuccin/palette/commit/628a04a0ee16cf9727ee9dc53e3efa425dd57e20))
+* **README:** add catppuccin/elixir ([7f17f46](https://github.com/catppuccin/palette/commit/7f17f46c5d3d86f4c8d17fef07d97459744e1157))
+* **README:** add catppuccin/gleam ([#84](https://github.com/catppuccin/palette/issues/84)) ([f36dfe2](https://github.com/catppuccin/palette/commit/f36dfe2d92fd51f685117a684250405ca1c2a899))
+* **README:** mention JSR ([#88](https://github.com/catppuccin/palette/issues/88)) ([1bfde0a](https://github.com/catppuccin/palette/commit/1bfde0ad8b41fd95d1d22b275ed1dc4ea0def1cb))
+
 ## [1.2.0](https://github.com/catppuccin/palette/compare/v1.1.1...v1.2.0) (2024-05-17)
 
 
