@@ -14,7 +14,7 @@
 
 ### Node
 
-Get the [NPM package](https://www.npmjs.org/package/@catppuccin/palette):
+The library is available on [npm](https://www.npmjs.org/package/@catppuccin/palette):
 
 ```console
 npm install @catppuccin/palette
@@ -46,7 +46,7 @@ flavorEntries.map(([_, flavor]) => {
 
 ### Deno
 
-The library gets published to [`deno.land/x/catppuccin`](https://deno.land/x/catppuccin).
+The library is available through [JSR](https://jsr.io/@catppuccin/palette) and [`deno.land/x/catppuccin`](https://deno.land/x/catppuccin):
 
 ```ts
 import { flavors, flavorEntries } from "https://deno.land/x/catppuccin/mod.ts";
