@@ -7,3 +7,4 @@ export { generateGimp } from "./palettes/gimp.ts";
 export { generatePng } from "./palettes/png.ts";
 export { generateProcreate } from "./palettes/procreate.ts";
 export { generateSip } from "./palettes/sip.ts";
+export { generateClrJson } from "./palettes/clr.ts";
