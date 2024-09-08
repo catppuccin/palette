@@ -36,3 +36,9 @@ jobs:
         run: deno task build
         env:
           COMPILE_APPLE_COLOR_LIST: 1
+
+      - name: Upload Built Palette Formats
+        uses: actions/upload-artifact@v4
+        with:
+          name: "Catppuccin Palette Formats"
+          path: dist/palettes
