@@ -22,41 +22,41 @@ await Promise.all(
 
 Promise.all(
   Object.entries(flavors).flatMap(async ([identifier, { name, colors }]) => {
-    const fname = identifier.charAt(0).toUpperCase() + identifier.slice(1);
+    const safeName = identifier.charAt(0).toUpperCase() + identifier.slice(1);
 
     await Deno.writeFile(
-      join(ROOT, `ase/${fname}.ase`),
-      generateAse(fname, colors),
+      join(ROOT, `ase/Catppuccin ${safeName}.ase`),
+      generateAse(safeName, colors),
     );
     await Deno.writeFile(
-      join(ROOT, `png/${fname}.png`),
-      generatePng(fname, colors),
+      join(ROOT, `png/Catppuccin ${safeName}.png`),
+      generatePng(safeName, colors),
     );
     await Deno.writeFile(
-      join(ROOT, `procreate/${fname}.swatches`),
-      await generateProcreate(fname, colors),
+      join(ROOT, `procreate/Catppuccin ${safeName}.swatches`),
+      await generateProcreate(safeName, colors),
     );
     await Deno.writeTextFile(
-      join(ROOT, `gimp/${fname}.gpl`),
-      generateGimp(fname, colors),
+      join(ROOT, `gimp/Catppuccin ${safeName}.gpl`),
+      generateGimp(safeName, colors),
     );
     await Deno.writeTextFile(
-      join(ROOT, `sip/${fname}.palette`),
-      generateSip(fname, colors),
+      join(ROOT, `sip/Catppuccin ${safeName}.palette`),
+      generateSip(safeName, colors),
     );
 
     if (Deno.env.get("COMPILE_APPLE_COLOR_LIST") === "1") {
-      const clrJson = join(ROOT, `clr/${fname}.json`);
+      const clrJson = join(ROOT, `clr/${name}.json`);
       await Deno.writeTextFile(
         clrJson,
-        generateClrJson(fname, colors),
+        generateClrJson(safeName, colors),
       );
 
       const cmd = new Deno.Command("swift", {
         args: [
           join(import.meta.dirname!, "./builders/palettes/json-to-clr.swift"),
           clrJson,
-          join(ROOT, `clr/${name}.clr`),
+          join(ROOT, `clr/Catppuccin ${name}.clr`),
         ],
       });
       const { code, stderr, stdout } = await cmd.output();
