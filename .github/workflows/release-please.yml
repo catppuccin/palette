@@ -49,6 +49,8 @@ jobs:
 
       - name: Build
         run: deno task build
+        env:
+          COMPILE_APPLE_COLOR_LIST: 1
 
       - name: Publish NPM package
         working-directory: dist/npm

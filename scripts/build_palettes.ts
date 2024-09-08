@@ -45,25 +45,29 @@ Promise.all(
       generateSip(fname, colors),
     );
 
-    const clrJson = join(ROOT, `clr/${fname}.json`);
-    await Deno.writeTextFile(
-      clrJson,
-      generateClrJson(fname, colors),
-    );
-    const cmd = new Deno.Command("swift", {
-      args: [
-        join(import.meta.dirname!, "./builders/palettes/json-to-clr.swift"),
+    if (Deno.env.get("COMPILE_APPLE_COLOR_LIST") === "1") {
+      const clrJson = join(ROOT, `clr/${fname}.json`);
+      await Deno.writeTextFile(
         clrJson,
-        join(ROOT, `clr/Catppuccin ${name}.clr`),
-      ],
-    });
-    const { code, stderr, stdout } = await cmd.output();
-    const td = new TextDecoder();
-    if (code === 0) {
-      console.log(td.decode(stdout).trim());
-    } else {
-      throw new Error(td.decode(stderr));
+        generateClrJson(fname, colors),
+      );
+
+      const cmd = new Deno.Command("swift", {
+        args: [
+          join(import.meta.dirname!, "./builders/palettes/json-to-clr.swift"),
+          clrJson,
+          join(ROOT, `clr/${name}.clr`),
+        ],
+      });
+      const { code, stderr, stdout } = await cmd.output();
+      const td = new TextDecoder();
+      if (code === 0) {
+        console.log(td.decode(stdout).trim());
+      } else {
+        throw new Error(td.decode(stderr));
+      }
+
+      await Deno.remove(clrJson);
     }
-    await Deno.remove(clrJson);
   }),
 ).then(() => Deno.exit(0));
