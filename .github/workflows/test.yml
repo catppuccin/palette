@@ -32,7 +32,7 @@ jobs:
       - name: Test
         run: deno test --doc
 
-      - name: Test Deno dnt
+      - name: Build
         run: deno task build
         env:
           COMPILE_APPLE_COLOR_LIST: 1
