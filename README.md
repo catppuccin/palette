@@ -95,6 +95,7 @@ Please use the respective files in [the latest GitHub Release](https://github.co
 | Adobe Suite, Affinity Suite, Sip | `ase/`       |
 | Aseprite, Gimp, Inkscape, Krita  | `gimp/`      |
 | Procreate                        | `procreate/` |
+| Apple Color List (.clr)          | `clr/`       |
 
 &nbsp;
 

@@ -30,7 +30,7 @@ jobs:
       tag_name: ${{ steps.release.outputs.tag_name }}
 
   release:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     needs: release-please
     if: ${{ needs.release-please.outputs.release_created || github.event.inputs.force_release }}
     steps:
@@ -43,8 +43,14 @@ jobs:
           node-version: "lts/*"
           registry-url: "https://registry.npmjs.org"
 
+      - uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: "5"
+
       - name: Build
         run: deno task build
+        env:
+          COMPILE_APPLE_COLOR_LIST: 1
 
       - name: Publish NPM package
         working-directory: dist/npm
