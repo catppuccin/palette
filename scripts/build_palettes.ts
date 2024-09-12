@@ -46,7 +46,7 @@ Promise.all(
     );
 
     if (Deno.env.get("COMPILE_APPLE_COLOR_LIST") === "1") {
-      const clrJson = join(ROOT, `clr/${name}.json`);
+      const clrJson = join(ROOT, `clr/${safeName}.json`);
       await Deno.writeTextFile(
         clrJson,
         generateClrJson(safeName, colors),
