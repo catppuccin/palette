@@ -8,12 +8,16 @@ on:
 jobs:
   main:
     name: Lint and test
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
       - uses: actions/checkout@v4
 
       - uses: nekowinston/setup-deno@v1
+
+      - uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: "5"
 
       - uses: actions/setup-node@v4
         with:
@@ -28,5 +32,13 @@ jobs:
       - name: Test
         run: deno test --doc
 
-      - name: Test Deno dnt
-        run: deno task build:npm
+      - name: Build
+        run: deno task build
+        env:
+          COMPILE_APPLE_COLOR_LIST: 1
+
+      - name: Upload Built Palette Formats
+        uses: actions/upload-artifact@v4
+        with:
+          name: "Catppuccin Palette Formats"
+          path: dist/palettes

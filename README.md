@@ -14,7 +14,7 @@
 
 ### Node
 
-Get the [NPM package](https://www.npmjs.org/package/@catppuccin/palette):
+The library is available on [npm](https://www.npmjs.org/package/@catppuccin/palette):
 
 ```console
 npm install @catppuccin/palette
@@ -46,7 +46,7 @@ flavorEntries.map(([_, flavor]) => {
 
 ### Deno
 
-The library gets published to [`deno.land/x/catppuccin`](https://deno.land/x/catppuccin).
+The library is available through [JSR](https://jsr.io/@catppuccin/palette) and [`deno.land/x/catppuccin`](https://deno.land/x/catppuccin):
 
 ```ts
 import { flavors, flavorEntries } from "https://deno.land/x/catppuccin/mod.ts";
@@ -74,7 +74,9 @@ flavorEntries.map(([_, flavor]) => {
   - [CSS](docs/css.md)
   - [Sass](docs/sass.md)
 - Ports of this library
+  - [Elixir](https://github.com/catppuccin/elixir)
   - [Flutter](https://github.com/catppuccin/flutter)
+  - [Gleam](https://github.com/catppuccin/gleam)
   - [Go](https://github.com/catppuccin/go)
   - [Java](https://github.com/catppuccin/java)
   - [Lua](https://github.com/catppuccin/lua)
@@ -93,6 +95,7 @@ Please use the respective files in [the latest GitHub Release](https://github.co
 | Adobe Suite, Affinity Suite, Sip | `ase/`       |
 | Aseprite, Gimp, Inkscape, Krita  | `gimp/`      |
 | Procreate                        | `procreate/` |
+| Apple Color List (.clr)          | `clr/`       |
 
 &nbsp;
 
