@@ -187,12 +187,17 @@ export type ColorFormat = Readonly<{
   accent: boolean;
 }>;
 
-const { version: jsonVersion, ...jsonFlavors } = definitions;
+const jsonFlavors = {
+  "latte": definitions.latte,
+  "frappe": definitions.frappe,
+  "macchiato": definitions.macchiato,
+  "mocha": definitions.mocha,
+};
 
 /**
  * The version of the Catppuccin palette
  */
-export const version = jsonVersion;
+export const version = definitions.version;
 
 /**
  * All flavors of Catppuccin
