@@ -1,6 +1,8 @@
 import { join } from "std/path/join.ts";
 import tinycolor from "tinycolor2";
 
+import meta from "../deno.json" with { type: "json" };
+
 import type {
   CatppuccinColors,
   CatppuccinFlavor,
@@ -226,7 +228,12 @@ const formatted = entriesFromObject(definitions)
 
 const __dirname = new URL(".", import.meta.url).pathname;
 
+const result = {
+  version: meta.version,
+  ...formatted,
+};
+
 Deno.writeTextFileSync(
   join(__dirname, "../palette.json"),
-  JSON.stringify(formatted, null, 2),
+  JSON.stringify(result, null, 2),
 );

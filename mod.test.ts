@@ -1,6 +1,6 @@
 import { assertEquals } from "std/assert/assert_equals.ts";
 
-import { flavorEntries, flavors } from "@catppuccin/palette";
+import { flavorEntries, flavors, version } from "@catppuccin/palette";
 import palette from "@/palette.json" with { type: "json" };
 
 Deno.test("flavorEntries", () => {
@@ -20,4 +20,8 @@ Deno.test("flavors", () => {
       palette[flavorName].name,
     );
   });
+});
+
+Deno.test("version", () => {
+  assertEquals(version, "1.2.0"); // x-release-please-version
 });

@@ -187,17 +187,25 @@ export type ColorFormat = Readonly<{
   accent: boolean;
 }>;
 
+const { version: _, ...jsonFlavors } = definitions;
+
+/**
+ * The version of the Catppuccin palette
+ */
+export const version = definitions.version;
+
 /**
  * All flavors of Catppuccin
  */
-export const flavors: CatppuccinFlavors = entriesFromObject(definitions)
-  .reduce((acc, [flavorName, flavor]) => {
-    acc[flavorName] = {
-      ...flavor,
-      colorEntries: entriesFromObject(flavor.colors),
-    };
-    return acc;
-  }, {} as CatppuccinFlavors);
+export const flavors: CatppuccinFlavors = entriesFromObject(
+  jsonFlavors,
+).reduce((acc, [flavorName, flavor]) => {
+  acc[flavorName] = {
+    ...flavor,
+    colorEntries: entriesFromObject(flavor.colors),
+  };
+  return acc;
+}, {} as CatppuccinFlavors);
 
 /**
  * A typed `Object.entries()` iterable of all Catppuccin flavors

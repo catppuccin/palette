@@ -8,6 +8,15 @@
           "path": "deno.json",
           "type": "json",
           "jsonpath": "$.version"
+        },
+        {
+          "path": "palette.json",
+          "type": "json",
+          "jsonpath": "$.version"
+        },
+        {
+          "type": "generic",
+          "path": "mod.test.ts"
         }
       ]
     }
