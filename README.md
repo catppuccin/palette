@@ -21,8 +21,11 @@ npm install @catppuccin/palette
 ```
 
 ```ts
-import { flavors, flavorEntries } from "@catppuccin/palette";
+import { flavors, flavorEntries, version } from "@catppuccin/palette";
 import chalk from "chalk";
+
+// a string containing the version of the library
+console.log(version)
 
 // an object containing all catppuccin flavors
 console.log(flavors);
@@ -49,8 +52,11 @@ flavorEntries.map(([_, flavor]) => {
 The library is available through [JSR](https://jsr.io/@catppuccin/palette) and [`deno.land/x/catppuccin`](https://deno.land/x/catppuccin):
 
 ```ts
-import { flavors, flavorEntries } from "https://deno.land/x/catppuccin/mod.ts";
+import { flavors, flavorEntries, version } from "https://deno.land/x/catppuccin/mod.ts";
 import { bgRgb24 } from "https://deno.land/std/fmt/colors.ts";
+
+// a string containing the version of the library
+console.log(version)
 
 // an object containing all catppuccin flavors
 console.log(flavors);
