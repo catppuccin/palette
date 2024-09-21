@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/catppuccin/palette/compare/v1.3.0...v1.4.0) (2024-09-21)
+
+
+### Features
+
+* add version key into `palette.json` ([#91](https://github.com/catppuccin/palette/issues/91)) ([e76a60a](https://github.com/catppuccin/palette/commit/e76a60a7126eab601ae11de8c259c7914a8856be))
+* **palettes:** prefix filenames with "Catppuccin" ([#92](https://github.com/catppuccin/palette/issues/92)) ([cf765d2](https://github.com/catppuccin/palette/commit/cf765d2269d8a4391355b7f6a6dffe580c69e1c2))
+
+
+### Documentation
+
+* **README:** add `version` into the examples ([#95](https://github.com/catppuccin/palette/issues/95)) ([cf9cb5c](https://github.com/catppuccin/palette/commit/cf9cb5c443a29542940952b70d7b17b4dd83f80c))
+
 ## [1.3.0](https://github.com/catppuccin/palette/compare/v1.2.0...v1.3.0) (2024-09-08)
 
 
