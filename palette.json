@@ -422,6 +422,96 @@
         },
         "accent": false
       }
+    },
+    "ansi": {
+      "black": {
+        "mapping": "surface2",
+        "normal": {
+          "hex": "#acb0be",
+          "code": 0
+        },
+        "bright": {
+          "hex": "#b3b8c6",
+          "code": 8
+        }
+      },
+      "red": {
+        "mapping": "red",
+        "normal": {
+          "hex": "#d20f39",
+          "code": 1
+        },
+        "bright": {
+          "hex": "#d91641",
+          "code": 9
+        }
+      },
+      "green": {
+        "mapping": "green",
+        "normal": {
+          "hex": "#40a02b",
+          "code": 2
+        },
+        "bright": {
+          "hex": "#4da62e",
+          "code": 10
+        }
+      },
+      "yellow": {
+        "mapping": "yellow",
+        "normal": {
+          "hex": "#df8e1d",
+          "code": 3
+        },
+        "bright": {
+          "hex": "#ea9329",
+          "code": 11
+        }
+      },
+      "blue": {
+        "mapping": "blue",
+        "normal": {
+          "hex": "#1e66f5",
+          "code": 4
+        },
+        "bright": {
+          "hex": "#046cfc",
+          "code": 12
+        }
+      },
+      "purple": {
+        "mapping": "pink",
+        "normal": {
+          "hex": "#ea76cb",
+          "code": 5
+        },
+        "bright": {
+          "hex": "#f07ed6",
+          "code": 13
+        }
+      },
+      "cyan": {
+        "mapping": "teal",
+        "normal": {
+          "hex": "#179299",
+          "code": 6
+        },
+        "bright": {
+          "hex": "#23989d",
+          "code": 14
+        }
+      },
+      "white": {
+        "mapping": "subtext1",
+        "normal": {
+          "hex": "#5c5f77",
+          "code": 7
+        },
+        "bright": {
+          "hex": "#5f637b",
+          "code": 15
+        }
+      }
     }
   },
   "frappe": {
@@ -845,6 +935,96 @@
           "l": 0.17058823529411765
         },
         "accent": false
+      }
+    },
+    "ansi": {
+      "black": {
+        "mapping": "surface2",
+        "normal": {
+          "hex": "#626880",
+          "code": 0
+        },
+        "bright": {
+          "hex": "#5a6388",
+          "code": 8
+        }
+      },
+      "red": {
+        "mapping": "red",
+        "normal": {
+          "hex": "#e78284",
+          "code": 1
+        },
+        "bright": {
+          "hex": "#ea7475",
+          "code": 9
+        }
+      },
+      "green": {
+        "mapping": "green",
+        "normal": {
+          "hex": "#a6d189",
+          "code": 2
+        },
+        "bright": {
+          "hex": "#93cb76",
+          "code": 10
+        }
+      },
+      "yellow": {
+        "mapping": "yellow",
+        "normal": {
+          "hex": "#e5c890",
+          "code": 3
+        },
+        "bright": {
+          "hex": "#debf78",
+          "code": 11
+        }
+      },
+      "blue": {
+        "mapping": "blue",
+        "normal": {
+          "hex": "#8caaee",
+          "code": 4
+        },
+        "bright": {
+          "hex": "#7fa2f4",
+          "code": 12
+        }
+      },
+      "purple": {
+        "mapping": "pink",
+        "normal": {
+          "hex": "#f4b8e4",
+          "code": 5
+        },
+        "bright": {
+          "hex": "#f6a9df",
+          "code": 13
+        }
+      },
+      "cyan": {
+        "mapping": "teal",
+        "normal": {
+          "hex": "#81c8be",
+          "code": 6
+        },
+        "bright": {
+          "hex": "#5ec3b9",
+          "code": 14
+        }
+      },
+      "white": {
+        "mapping": "subtext1",
+        "normal": {
+          "hex": "#b5bfe2",
+          "code": 7
+        },
+        "bright": {
+          "hex": "#a9b6e8",
+          "code": 15
+        }
       }
     }
   },
@@ -1270,6 +1450,96 @@
         },
         "accent": false
       }
+    },
+    "ansi": {
+      "black": {
+        "mapping": "surface2",
+        "normal": {
+          "hex": "#5b6078",
+          "code": 0
+        },
+        "bright": {
+          "hex": "#545b81",
+          "code": 8
+        }
+      },
+      "red": {
+        "mapping": "red",
+        "normal": {
+          "hex": "#ed8796",
+          "code": 1
+        },
+        "bright": {
+          "hex": "#f07889",
+          "code": 9
+        }
+      },
+      "green": {
+        "mapping": "green",
+        "normal": {
+          "hex": "#a6da95",
+          "code": 2
+        },
+        "bright": {
+          "hex": "#90d483",
+          "code": 10
+        }
+      },
+      "yellow": {
+        "mapping": "yellow",
+        "normal": {
+          "hex": "#eed49f",
+          "code": 3
+        },
+        "bright": {
+          "hex": "#e6ca86",
+          "code": 11
+        }
+      },
+      "blue": {
+        "mapping": "blue",
+        "normal": {
+          "hex": "#8aadf4",
+          "code": 4
+        },
+        "bright": {
+          "hex": "#7ca5fa",
+          "code": 12
+        }
+      },
+      "purple": {
+        "mapping": "pink",
+        "normal": {
+          "hex": "#f5bde6",
+          "code": 5
+        },
+        "bright": {
+          "hex": "#f7aee1",
+          "code": 13
+        }
+      },
+      "cyan": {
+        "mapping": "teal",
+        "normal": {
+          "hex": "#8bd5ca",
+          "code": 6
+        },
+        "bright": {
+          "hex": "#68d0c4",
+          "code": 14
+        }
+      },
+      "white": {
+        "mapping": "subtext1",
+        "normal": {
+          "hex": "#b8c0e0",
+          "code": 7
+        },
+        "bright": {
+          "hex": "#acb7e6",
+          "code": 15
+        }
+      }
     }
   },
   "mocha": {
@@ -1693,6 +1963,96 @@
           "l": 0.08627450980392157
         },
         "accent": false
+      }
+    },
+    "ansi": {
+      "black": {
+        "mapping": "surface2",
+        "normal": {
+          "hex": "#585b70",
+          "code": 0
+        },
+        "bright": {
+          "hex": "#525679",
+          "code": 8
+        }
+      },
+      "red": {
+        "mapping": "red",
+        "normal": {
+          "hex": "#f38ba8",
+          "code": 1
+        },
+        "bright": {
+          "hex": "#f77b9d",
+          "code": 9
+        }
+      },
+      "green": {
+        "mapping": "green",
+        "normal": {
+          "hex": "#a6e3a1",
+          "code": 2
+        },
+        "bright": {
+          "hex": "#8edd90",
+          "code": 10
+        }
+      },
+      "yellow": {
+        "mapping": "yellow",
+        "normal": {
+          "hex": "#f9e2af",
+          "code": 3
+        },
+        "bright": {
+          "hex": "#f1d895",
+          "code": 11
+        }
+      },
+      "blue": {
+        "mapping": "blue",
+        "normal": {
+          "hex": "#89b4fa",
+          "code": 4
+        },
+        "bright": {
+          "hex": "#78acff",
+          "code": 12
+        }
+      },
+      "purple": {
+        "mapping": "pink",
+        "normal": {
+          "hex": "#f5c2e7",
+          "code": 5
+        },
+        "bright": {
+          "hex": "#f7b3e2",
+          "code": 13
+        }
+      },
+      "cyan": {
+        "mapping": "teal",
+        "normal": {
+          "hex": "#94e2d5",
+          "code": 6
+        },
+        "bright": {
+          "hex": "#70dcce",
+          "code": 14
+        }
+      },
+      "white": {
+        "mapping": "subtext1",
+        "normal": {
+          "hex": "#bac2de",
+          "code": 7
+        },
+        "bright": {
+          "hex": "#aeb9e4",
+          "code": 15
+        }
       }
     }
   }

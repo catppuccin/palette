@@ -10,7 +10,8 @@
     "dnt": "https://deno.land/x/dnt@0.39.0/mod.ts",
     "ase-utils": "https://esm.sh/v135/*ase-utils@0.1.1",
     "procreate-swatches": "https://esm.sh/v135/*procreate-swatches@0.1.1",
-    "tinycolor2": "https://esm.sh/v135/tinycolor2@1.6.0"
+    "tinycolor2": "https://esm.sh/v135/tinycolor2@1.6.0",
+    "colorjs": "https://esm.sh/v135/colorjs.io@0.5.2"
   },
   "scopes": {
     "https://esm.sh/v135/": {

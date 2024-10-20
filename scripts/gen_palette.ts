@@ -1,9 +1,11 @@
 import { join } from "std/path/join.ts";
 import tinycolor from "tinycolor2";
+import Color from "colorjs";
 
 import meta from "../deno.json" with { type: "json" };
 
 import type {
+  CatppuccinAnsiColors,
   CatppuccinColors,
   CatppuccinFlavor,
   Flavors,
@@ -199,8 +201,83 @@ const accents = [
   "lavender",
 ];
 
-const formatted = entriesFromObject(definitions)
-  .reduce((acc, [flavorName, flavor], currentIndex) => {
+const ansi_mappings = {
+  black: {
+    colorName: "surface2",
+    normal: {
+      code: 0,
+    },
+    bright: {
+      code: 8,
+    },
+  },
+  red: {
+    colorName: "red",
+    normal: {
+      code: 1,
+    },
+    bright: {
+      code: 9,
+    },
+  },
+  green: {
+    colorName: "green",
+    normal: {
+      code: 2,
+    },
+    bright: {
+      code: 10,
+    },
+  },
+  yellow: {
+    colorName: "yellow",
+    normal: {
+      code: 3,
+    },
+    bright: {
+      code: 11,
+    },
+  },
+  blue: {
+    colorName: "blue",
+    normal: {
+      code: 4,
+    },
+    bright: {
+      code: 12,
+    },
+  },
+  purple: {
+    colorName: "pink",
+    normal: {
+      code: 5,
+    },
+    bright: {
+      code: 13,
+    },
+  },
+  cyan: {
+    colorName: "teal",
+    normal: {
+      code: 6,
+    },
+    bright: {
+      code: 14,
+    },
+  },
+  white: {
+    colorName: "subtext1",
+    normal: {
+      code: 7,
+    },
+    bright: {
+      code: 15,
+    },
+  },
+};
+
+const formatted = entriesFromObject(definitions).reduce(
+  (acc, [flavorName, flavor], currentIndex) => {
     acc[flavorName] = {
       name: flavor.name,
       emoji: flavor.emoji,
@@ -222,9 +299,37 @@ const formatted = entriesFromObject(definitions)
         },
         {} as Writeable<CatppuccinColors>,
       ),
+      ansi: entriesFromObject(ansi_mappings).reduce(
+        (acc, [name, props]) => {
+          const color =
+            flavor.colors[props.colorName as keyof CatppuccinColors];
+          const ansiBrights = new Color(color);
+          const lightnessShift = flavor.dark ? 0.96 : 1.04;
+          const chromaShift = flavor.dark ? 8 : 0;
+          const hueShift = flavor.dark ? 2 : -2;
+          ansiBrights.lch.l *= lightnessShift;
+          ansiBrights.lch.c += chromaShift;
+          ansiBrights.lch.h += hueShift;
+          acc[name] = {
+            mapping: props.colorName,
+            normal: {
+              hex: color,
+              code: props.normal.code,
+            },
+            bright: {
+              hex: ansiBrights.toString({ format: "hex" }),
+              code: props.bright.code,
+            },
+          };
+          return acc;
+        },
+        {} as Writeable<CatppuccinAnsiColors>,
+      ),
     };
     return acc;
-  }, {} as Flavors<Omit<CatppuccinFlavor, "colorEntries">>);
+  },
+  {} as Flavors<Omit<CatppuccinFlavor, "colorEntries" | "ansiColorEntries">>,
+);
 
 const __dirname = new URL(".", import.meta.url).pathname;
 
