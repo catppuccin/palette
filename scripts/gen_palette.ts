@@ -308,12 +308,9 @@ const formatted = entriesFromObject(definitions).reduce(
           brightColorHex = flavor.colors["subtext0"]
         } else {
           const brightColor = new Color(normalColorHex);
-          const lightnessShift = flavor.dark ? 0.96 : 1.04;
-          const chromaShift = flavor.dark ? 8 : 0;
-          const hueShift = 2;
-          brightColor.lch.l *= lightnessShift;
-          brightColor.lch.c += chromaShift;
-          brightColor.lch.h += hueShift;
+          brightColor.lch.l *= flavor.dark ? 0.96 : 1.04;
+          brightColor.lch.c += flavor.dark ? 8 : 0;
+          brightColor.lch.h += 2;
           brightColorHex = brightColor.toString({ format: "hex" })
         }
         acc[name] = {
