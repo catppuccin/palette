@@ -106,7 +106,7 @@ export type CatppuccinFlavor = Readonly<{
   /**
    * An object containing all the ANSI color mappings of the flavor
    */
-  ansi: CatppuccinAnsiColors;
+  ansiColors: CatppuccinAnsiColors;
 
   /**
    * A typed Object.entries iterable of the colors of the flavor
@@ -259,7 +259,7 @@ export const flavors: CatppuccinFlavors = entriesFromObject(
   acc[flavorName] = {
     ...flavor,
     colorEntries: entriesFromObject(flavor.colors),
-    ansiColorEntries: entriesFromObject(flavor.ansi),
+    ansiColorEntries: entriesFromObject(flavor.ansiColors),
   };
   return acc;
 }, {} as CatppuccinFlavors);

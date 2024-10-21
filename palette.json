@@ -423,7 +423,7 @@
         "accent": false
       }
     },
-    "ansi": {
+    "ansiColors": {
       "black": {
         "normal": {
           "hex": "#acb0be",
@@ -929,7 +929,7 @@
         "accent": false
       }
     },
-    "ansi": {
+    "ansiColors": {
       "black": {
         "normal": {
           "hex": "#626880",
@@ -1435,7 +1435,7 @@
         "accent": false
       }
     },
-    "ansi": {
+    "ansiColors": {
       "black": {
         "normal": {
           "hex": "#5b6078",
@@ -1941,7 +1941,7 @@
         "accent": false
       }
     },
-    "ansi": {
+    "ansiColors": {
       "black": {
         "normal": {
           "hex": "#585b70",

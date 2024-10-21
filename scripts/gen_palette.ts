@@ -300,7 +300,7 @@ const formatted = entriesFromObject(definitions).reduce(
         },
         {} as Writeable<CatppuccinColors>,
       ),
-      ansi: entriesFromObject(ansiMappings).reduce((acc, [name, props]) => {
+      ansiColors: entriesFromObject(ansiMappings).reduce((acc, [name, props]) => {
         const mapping = props.normal.mapping as ColorName;
         const normalColorHex = flavor.colors[mapping];
         let brightColorHex: string;

@@ -27,7 +27,7 @@ Deno.test("ansiEntries", () => {
     flavor.ansiColorEntries.map(([ansiColorName, ansiColor]) => {
       assertEquals(
         ansiColor.normal.hex,
-        palette[flavorName].ansi[ansiColorName].normal.hex,
+        palette[flavorName].ansiColors[ansiColorName].normal.hex,
       );
       if (ansiColorName == "black") {
         assertEquals(
