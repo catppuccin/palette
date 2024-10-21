@@ -310,7 +310,7 @@ const formatted = entriesFromObject(definitions).reduce(
           brightColorHex = flavor.colors["subtext0"];
         } else {
           const brightColor = new Color(normalColorHex);
-          brightColor.lch.l *= flavor.dark ? 0.96 : 1.04;
+          brightColor.lch.l *= flavor.dark ? 0.94 : 1.09;
           brightColor.lch.c += flavor.dark ? 8 : 0;
           brightColor.lch.h += 2;
           brightColorHex = brightColor.toString({ format: "hex" });

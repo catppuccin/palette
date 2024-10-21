@@ -440,7 +440,7 @@
           "code": 1
         },
         "bright": {
-          "hex": "#d71f39",
+          "hex": "#de293e",
           "code": 9
         }
       },
@@ -450,7 +450,7 @@
           "code": 2
         },
         "bright": {
-          "hex": "#40a735",
+          "hex": "#49af3d",
           "code": 10
         }
       },
@@ -460,7 +460,7 @@
           "code": 3
         },
         "bright": {
-          "hex": "#e49722",
+          "hex": "#eea02d",
           "code": 11
         }
       },
@@ -470,7 +470,7 @@
           "code": 4
         },
         "bright": {
-          "hex": "#3c68f9",
+          "hex": "#456eff",
           "code": 12
         }
       },
@@ -480,7 +480,7 @@
           "code": 5
         },
         "bright": {
-          "hex": "#f47ccf",
+          "hex": "#fe85d8",
           "code": 13
         }
       },
@@ -490,7 +490,7 @@
           "code": 6
         },
         "bright": {
-          "hex": "#2298a1",
+          "hex": "#2d9fa8",
           "code": 14
         }
       },
@@ -946,7 +946,7 @@
           "code": 1
         },
         "bright": {
-          "hex": "#ea7475",
+          "hex": "#e67172",
           "code": 9
         }
       },
@@ -956,7 +956,7 @@
           "code": 2
         },
         "bright": {
-          "hex": "#93cb76",
+          "hex": "#8ec772",
           "code": 10
         }
       },
@@ -966,7 +966,7 @@
           "code": 3
         },
         "bright": {
-          "hex": "#debf78",
+          "hex": "#d9ba73",
           "code": 11
         }
       },
@@ -976,7 +976,7 @@
           "code": 4
         },
         "bright": {
-          "hex": "#7fa2f4",
+          "hex": "#7b9ef0",
           "code": 12
         }
       },
@@ -986,7 +986,7 @@
           "code": 5
         },
         "bright": {
-          "hex": "#f6a9df",
+          "hex": "#f2a4db",
           "code": 13
         }
       },
@@ -996,7 +996,7 @@
           "code": 6
         },
         "bright": {
-          "hex": "#5ec3b9",
+          "hex": "#5abfb5",
           "code": 14
         }
       },
@@ -1452,7 +1452,7 @@
           "code": 1
         },
         "bright": {
-          "hex": "#f07889",
+          "hex": "#ec7486",
           "code": 9
         }
       },
@@ -1462,7 +1462,7 @@
           "code": 2
         },
         "bright": {
-          "hex": "#90d483",
+          "hex": "#8ccf7f",
           "code": 10
         }
       },
@@ -1472,7 +1472,7 @@
           "code": 3
         },
         "bright": {
-          "hex": "#e6ca86",
+          "hex": "#e1c682",
           "code": 11
         }
       },
@@ -1482,7 +1482,7 @@
           "code": 4
         },
         "bright": {
-          "hex": "#7ca5fa",
+          "hex": "#78a1f6",
           "code": 12
         }
       },
@@ -1492,7 +1492,7 @@
           "code": 5
         },
         "bright": {
-          "hex": "#f7aee1",
+          "hex": "#f2a9dd",
           "code": 13
         }
       },
@@ -1502,7 +1502,7 @@
           "code": 6
         },
         "bright": {
-          "hex": "#68d0c4",
+          "hex": "#63cbc0",
           "code": 14
         }
       },
@@ -1958,7 +1958,7 @@
           "code": 1
         },
         "bright": {
-          "hex": "#f77b9d",
+          "hex": "#f37799",
           "code": 9
         }
       },
@@ -1968,7 +1968,7 @@
           "code": 2
         },
         "bright": {
-          "hex": "#8edd90",
+          "hex": "#89d88b",
           "code": 10
         }
       },
@@ -1978,7 +1978,7 @@
           "code": 3
         },
         "bright": {
-          "hex": "#f1d895",
+          "hex": "#ebd391",
           "code": 11
         }
       },
@@ -1988,7 +1988,7 @@
           "code": 4
         },
         "bright": {
-          "hex": "#78acff",
+          "hex": "#74a8fc",
           "code": 12
         }
       },
@@ -1998,7 +1998,7 @@
           "code": 5
         },
         "bright": {
-          "hex": "#f7b3e2",
+          "hex": "#f2aede",
           "code": 13
         }
       },
@@ -2008,7 +2008,7 @@
           "code": 6
         },
         "bright": {
-          "hex": "#70dcce",
+          "hex": "#6bd7ca",
           "code": 14
         }
       },
