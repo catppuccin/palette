@@ -300,14 +300,14 @@ const formatted = entriesFromObject(definitions).reduce(
         {} as Writeable<CatppuccinColors>,
       ),
       ansi: entriesFromObject(ansi_mappings).reduce((acc, [name, props]) => {
-        const normalColor = flavor.colors[props.colorName as keyof CatppuccinColors];
+        const normalColorHex = flavor.colors[props.colorName as keyof CatppuccinColors];
         let brightColorHex: string;
         if (props.colorName == "surface2") {
           brightColorHex = flavor.colors["surface1"];
         } else if (props.colorName == "subtext1") {
           brightColorHex = flavor.colors["subtext0"]
         } else {
-          const brightColor = new Color(normalColor);
+          const brightColor = new Color(normalColorHex);
           const lightnessShift = flavor.dark ? 0.96 : 1.04;
           const chromaShift = flavor.dark ? 8 : 0;
           const hueShift = 2;
@@ -319,7 +319,7 @@ const formatted = entriesFromObject(definitions).reduce(
         acc[name] = {
           mapping: props.colorName,
           normal: {
-            hex: normalColor,
+            hex: normalColorHex,
             code: props.normal.code,
           },
           bright: {
