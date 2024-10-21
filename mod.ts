@@ -127,7 +127,7 @@ export type CatppuccinColors = Readonly<Colors<ColorFormat>>;
 /**
  * All ANSI color mappings of Catppuccin
  */
-export type CatppuccinAnsiColors = Readonly<AnsiColors<AnsiColorFormat>>;
+export type CatppuccinAnsiColors = Readonly<AnsiColors<AnsiColorGroups>>;
 
 /**
  * All flavors of Catppuccin
@@ -217,25 +217,19 @@ export type ColorFormat = Readonly<{
   accent: boolean;
 }>;
 
-export type AnsiColorFormat = Readonly<{
+export type AnsiColorGroups = Readonly<{
   /**
-   * The name of the Catppuccin color that this ANSI color maps to.
-   * @example "pink"
+   * An object containing all the ANSI "normal" colors, which are the 8 standard colors from 0 to 7.
    */
-  mapping: string;
+  normal: AnsiColorFormat;
 
   /**
-   * The ANSI "normal" colors, which are the 8 standard colors from 0 to 7.
+   * An object containing all the ANSI "bright" colors, which are the 8 standard colors from 8 to 15.
    */
-  normal: AnsiColorProperties;
-
-  /**
-   * The ANSI "bright" colors, which are the 8 standard colors from 8 to 15.
-   */
-  bright: AnsiColorProperties;
+  bright: AnsiColorFormat;
 }>;
 
-export type AnsiColorProperties = {
+export type AnsiColorFormat = Readonly<{
   /**
    * String-formatted hex value
    * @example "#babbf1"
@@ -247,7 +241,7 @@ export type AnsiColorProperties = {
    * @example 4
    */
   code: number;
-};
+}>;
 
 const { version: _, ...jsonFlavors } = definitions;
 

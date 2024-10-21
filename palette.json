@@ -425,7 +425,6 @@
     },
     "ansi": {
       "black": {
-        "mapping": "surface2",
         "normal": {
           "hex": "#acb0be",
           "code": 0
@@ -436,7 +435,6 @@
         }
       },
       "red": {
-        "mapping": "red",
         "normal": {
           "hex": "#d20f39",
           "code": 1
@@ -447,7 +445,6 @@
         }
       },
       "green": {
-        "mapping": "green",
         "normal": {
           "hex": "#40a02b",
           "code": 2
@@ -458,7 +455,6 @@
         }
       },
       "yellow": {
-        "mapping": "yellow",
         "normal": {
           "hex": "#df8e1d",
           "code": 3
@@ -469,7 +465,6 @@
         }
       },
       "blue": {
-        "mapping": "blue",
         "normal": {
           "hex": "#1e66f5",
           "code": 4
@@ -480,7 +475,6 @@
         }
       },
       "purple": {
-        "mapping": "pink",
         "normal": {
           "hex": "#ea76cb",
           "code": 5
@@ -491,7 +485,6 @@
         }
       },
       "cyan": {
-        "mapping": "teal",
         "normal": {
           "hex": "#179299",
           "code": 6
@@ -502,7 +495,6 @@
         }
       },
       "white": {
-        "mapping": "subtext1",
         "normal": {
           "hex": "#5c5f77",
           "code": 7
@@ -939,7 +931,6 @@
     },
     "ansi": {
       "black": {
-        "mapping": "surface2",
         "normal": {
           "hex": "#626880",
           "code": 0
@@ -950,7 +941,6 @@
         }
       },
       "red": {
-        "mapping": "red",
         "normal": {
           "hex": "#e78284",
           "code": 1
@@ -961,7 +951,6 @@
         }
       },
       "green": {
-        "mapping": "green",
         "normal": {
           "hex": "#a6d189",
           "code": 2
@@ -972,7 +961,6 @@
         }
       },
       "yellow": {
-        "mapping": "yellow",
         "normal": {
           "hex": "#e5c890",
           "code": 3
@@ -983,7 +971,6 @@
         }
       },
       "blue": {
-        "mapping": "blue",
         "normal": {
           "hex": "#8caaee",
           "code": 4
@@ -994,7 +981,6 @@
         }
       },
       "purple": {
-        "mapping": "pink",
         "normal": {
           "hex": "#f4b8e4",
           "code": 5
@@ -1005,7 +991,6 @@
         }
       },
       "cyan": {
-        "mapping": "teal",
         "normal": {
           "hex": "#81c8be",
           "code": 6
@@ -1016,7 +1001,6 @@
         }
       },
       "white": {
-        "mapping": "subtext1",
         "normal": {
           "hex": "#b5bfe2",
           "code": 7
@@ -1453,7 +1437,6 @@
     },
     "ansi": {
       "black": {
-        "mapping": "surface2",
         "normal": {
           "hex": "#5b6078",
           "code": 0
@@ -1464,7 +1447,6 @@
         }
       },
       "red": {
-        "mapping": "red",
         "normal": {
           "hex": "#ed8796",
           "code": 1
@@ -1475,7 +1457,6 @@
         }
       },
       "green": {
-        "mapping": "green",
         "normal": {
           "hex": "#a6da95",
           "code": 2
@@ -1486,7 +1467,6 @@
         }
       },
       "yellow": {
-        "mapping": "yellow",
         "normal": {
           "hex": "#eed49f",
           "code": 3
@@ -1497,7 +1477,6 @@
         }
       },
       "blue": {
-        "mapping": "blue",
         "normal": {
           "hex": "#8aadf4",
           "code": 4
@@ -1508,7 +1487,6 @@
         }
       },
       "purple": {
-        "mapping": "pink",
         "normal": {
           "hex": "#f5bde6",
           "code": 5
@@ -1519,7 +1497,6 @@
         }
       },
       "cyan": {
-        "mapping": "teal",
         "normal": {
           "hex": "#8bd5ca",
           "code": 6
@@ -1530,7 +1507,6 @@
         }
       },
       "white": {
-        "mapping": "subtext1",
         "normal": {
           "hex": "#b8c0e0",
           "code": 7
@@ -1967,7 +1943,6 @@
     },
     "ansi": {
       "black": {
-        "mapping": "surface2",
         "normal": {
           "hex": "#585b70",
           "code": 0
@@ -1978,7 +1953,6 @@
         }
       },
       "red": {
-        "mapping": "red",
         "normal": {
           "hex": "#f38ba8",
           "code": 1
@@ -1989,7 +1963,6 @@
         }
       },
       "green": {
-        "mapping": "green",
         "normal": {
           "hex": "#a6e3a1",
           "code": 2
@@ -2000,7 +1973,6 @@
         }
       },
       "yellow": {
-        "mapping": "yellow",
         "normal": {
           "hex": "#f9e2af",
           "code": 3
@@ -2011,7 +1983,6 @@
         }
       },
       "blue": {
-        "mapping": "blue",
         "normal": {
           "hex": "#89b4fa",
           "code": 4
@@ -2022,7 +1993,6 @@
         }
       },
       "purple": {
-        "mapping": "pink",
         "normal": {
           "hex": "#f5c2e7",
           "code": 5
@@ -2033,7 +2003,6 @@
         }
       },
       "cyan": {
-        "mapping": "teal",
         "normal": {
           "hex": "#94e2d5",
           "code": 6
@@ -2044,7 +2013,6 @@
         }
       },
       "white": {
-        "mapping": "subtext1",
         "normal": {
           "hex": "#bac2de",
           "code": 7

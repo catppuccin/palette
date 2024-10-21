@@ -8,6 +8,7 @@ import type {
   CatppuccinAnsiColors,
   CatppuccinColors,
   CatppuccinFlavor,
+  ColorName,
   Flavors,
 } from "@catppuccin/palette";
 
@@ -201,10 +202,10 @@ const accents = [
   "lavender",
 ];
 
-const ansi_mappings = {
+const ansiMappings = {
   black: {
-    colorName: "surface2",
     normal: {
+      mapping: "surface2",
       code: 0,
     },
     bright: {
@@ -212,8 +213,8 @@ const ansi_mappings = {
     },
   },
   red: {
-    colorName: "red",
     normal: {
+      mapping: "red",
       code: 1,
     },
     bright: {
@@ -221,8 +222,8 @@ const ansi_mappings = {
     },
   },
   green: {
-    colorName: "green",
     normal: {
+      mapping: "green",
       code: 2,
     },
     bright: {
@@ -230,8 +231,8 @@ const ansi_mappings = {
     },
   },
   yellow: {
-    colorName: "yellow",
     normal: {
+      mapping: "yellow",
       code: 3,
     },
     bright: {
@@ -239,8 +240,8 @@ const ansi_mappings = {
     },
   },
   blue: {
-    colorName: "blue",
     normal: {
+      mapping: "blue",
       code: 4,
     },
     bright: {
@@ -248,8 +249,8 @@ const ansi_mappings = {
     },
   },
   purple: {
-    colorName: "pink",
     normal: {
+      mapping: "pink",
       code: 5,
     },
     bright: {
@@ -257,8 +258,8 @@ const ansi_mappings = {
     },
   },
   cyan: {
-    colorName: "teal",
     normal: {
+      mapping: "teal",
       code: 6,
     },
     bright: {
@@ -266,8 +267,8 @@ const ansi_mappings = {
     },
   },
   white: {
-    colorName: "subtext1",
     normal: {
+      mapping: "subtext1",
       code: 7,
     },
     bright: {
@@ -299,22 +300,22 @@ const formatted = entriesFromObject(definitions).reduce(
         },
         {} as Writeable<CatppuccinColors>,
       ),
-      ansi: entriesFromObject(ansi_mappings).reduce((acc, [name, props]) => {
-        const normalColorHex = flavor.colors[props.colorName as keyof CatppuccinColors];
+      ansi: entriesFromObject(ansiMappings).reduce((acc, [name, props]) => {
+        const mapping = props.normal.mapping as ColorName;
+        const normalColorHex = flavor.colors[mapping];
         let brightColorHex: string;
-        if (props.colorName == "surface2") {
+        if (props.normal.mapping == "surface2") {
           brightColorHex = flavor.colors["surface1"];
-        } else if (props.colorName == "subtext1") {
-          brightColorHex = flavor.colors["subtext0"]
+        } else if (props.normal.mapping == "subtext1") {
+          brightColorHex = flavor.colors["subtext0"];
         } else {
           const brightColor = new Color(normalColorHex);
           brightColor.lch.l *= flavor.dark ? 0.96 : 1.04;
           brightColor.lch.c += flavor.dark ? 8 : 0;
           brightColor.lch.h += 2;
-          brightColorHex = brightColor.toString({ format: "hex" })
+          brightColorHex = brightColor.toString({ format: "hex" });
         }
         acc[name] = {
-          mapping: props.colorName,
           normal: {
             hex: normalColorHex,
             code: props.normal.code,
