@@ -299,32 +299,36 @@ const formatted = entriesFromObject(definitions).reduce(
         },
         {} as Writeable<CatppuccinColors>,
       ),
-      ansi: entriesFromObject(ansi_mappings).reduce(
-        (acc, [name, props]) => {
-          const color =
-            flavor.colors[props.colorName as keyof CatppuccinColors];
-          const ansiBrights = new Color(color);
+      ansi: entriesFromObject(ansi_mappings).reduce((acc, [name, props]) => {
+        const normalColor = flavor.colors[props.colorName as keyof CatppuccinColors];
+        let brightColorHex: string;
+        if (props.colorName == "surface2") {
+          brightColorHex = flavor.colors["surface1"];
+        } else if (props.colorName == "subtext1") {
+          brightColorHex = flavor.colors["subtext0"]
+        } else {
+          const brightColor = new Color(normalColor);
           const lightnessShift = flavor.dark ? 0.96 : 1.04;
           const chromaShift = flavor.dark ? 8 : 0;
-          const hueShift = flavor.dark ? 2 : -2;
-          ansiBrights.lch.l *= lightnessShift;
-          ansiBrights.lch.c += chromaShift;
-          ansiBrights.lch.h += hueShift;
-          acc[name] = {
-            mapping: props.colorName,
-            normal: {
-              hex: color,
-              code: props.normal.code,
-            },
-            bright: {
-              hex: ansiBrights.toString({ format: "hex" }),
-              code: props.bright.code,
-            },
-          };
-          return acc;
-        },
-        {} as Writeable<CatppuccinAnsiColors>,
-      ),
+          const hueShift = 2;
+          brightColor.lch.l *= lightnessShift;
+          brightColor.lch.c += chromaShift;
+          brightColor.lch.h += hueShift;
+          brightColorHex = brightColor.toString({ format: "hex" })
+        }
+        acc[name] = {
+          mapping: props.colorName,
+          normal: {
+            hex: normalColor,
+            code: props.normal.code,
+          },
+          bright: {
+            hex: brightColorHex,
+            code: props.bright.code,
+          },
+        };
+        return acc;
+      }, {} as Writeable<CatppuccinAnsiColors>),
     };
     return acc;
   },
