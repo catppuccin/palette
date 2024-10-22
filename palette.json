@@ -426,11 +426,11 @@
     "ansiColors": {
       "black": {
         "normal": {
-          "hex": "#acb0be",
+          "hex": "#5c5f77",
           "code": 0
         },
         "bright": {
-          "hex": "#bcc0cc",
+          "hex": "#6c6f85",
           "code": 8
         }
       },
@@ -496,11 +496,11 @@
       },
       "white": {
         "normal": {
-          "hex": "#5c5f77",
+          "hex": "#acb0be",
           "code": 7
         },
         "bright": {
-          "hex": "#6c6f85",
+          "hex": "#bcc0cc",
           "code": 15
         }
       }
