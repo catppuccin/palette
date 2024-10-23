@@ -304,9 +304,12 @@ const formatted = entriesFromObject(definitions).reduce(
         const mapping = props.normal.mapping as ColorName;
         let normalColorHex = flavor.colors[mapping];
         let brightColorHex: string;
+
+        // Color 0 (Black)
         if (props.normal.mapping == "surface2") {
           normalColorHex = flavor.dark ? flavor.colors["surface2"] : flavor.colors["subtext1"];
           brightColorHex = flavor.dark ? flavor.colors["surface1"] : flavor.colors["subtext0"];
+          // Color 8 (White)
         } else if (props.normal.mapping == "subtext1") {
           normalColorHex = flavor.dark ? flavor.colors["subtext1"] : flavor.colors["surface2"] ;
           brightColorHex = flavor.dark ? flavor.colors["subtext0"] : flavor.colors["surface1"] ;
