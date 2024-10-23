@@ -10,6 +10,7 @@
     "dnt": "https://deno.land/x/dnt@0.39.0/mod.ts",
     "ase-utils": "npm:ase-utils@0.1.1",
     "procreate-swatches": "npm:procreate-swatches@0.1.1",
-    "tinycolor2": "npm:tinycolor2@1.6.0"
+    "tinycolor2": "npm:tinycolor2@1.6.0",
+    "colorjs": "npm:colorjs.io@0.5.2"
   }
 }
