@@ -226,7 +226,7 @@ export type AnsiColorGroups = Readonly<{
   /**
    * An object containing all the ANSI "bright" colors, which are the 8 standard colors from 8 to 15.
    * 
-   * Note: These bright colors are not neccesarily "brighter" than the normal colors, but rather more bold and saturated.
+   * Note: These bright colors are not necessarily "brighter" than the normal colors, but rather more bold and saturated.
    */
   bright: AnsiColorFormat;
 }>;
