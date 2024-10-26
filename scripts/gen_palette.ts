@@ -205,7 +205,7 @@ const accents = [
 const ansiMappings = {
   black: {
     normal: {
-      mapping: "", // superflous, exists to make TypeScript happy
+      mapping: "", // superfluous, exists to make TypeScript happy
       code: 0,
     },
     bright: {
@@ -268,7 +268,7 @@ const ansiMappings = {
   },
   white: {
     normal: {
-      mapping: "", // superflous, exists to make TypeScript happy
+      mapping: "", // superfluous, exists to make TypeScript happy
       code: 7,
     },
     bright: {
