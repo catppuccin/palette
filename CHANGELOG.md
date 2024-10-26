@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/catppuccin/palette/compare/v1.4.0...v1.5.0) (2024-10-26)
+
+
+### Features
+
+* add ANSI colours ([#98](https://github.com/catppuccin/palette/issues/98)) ([1fdc227](https://github.com/catppuccin/palette/commit/1fdc227a6025fc968990e2439e886b736b807634))
+
+
+### Build system & distribution
+
+* switch to `npm:` specifiers for Renovate ([#99](https://github.com/catppuccin/palette/issues/99)) ([6632482](https://github.com/catppuccin/palette/commit/6632482a5b09dfc7a468c426800615e97cae043e))
+
 ## [1.4.0](https://github.com/catppuccin/palette/compare/v1.3.0...v1.4.0) (2024-09-21)
 
 
