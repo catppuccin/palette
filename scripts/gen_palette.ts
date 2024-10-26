@@ -205,7 +205,7 @@ const accents = [
 const ansiMappings = {
   black: {
     normal: {
-      mapping: "surface2",
+      mapping: "", // superflous, exists to make TypeScript happy
       code: 0,
     },
     bright: {
@@ -268,7 +268,7 @@ const ansiMappings = {
   },
   white: {
     normal: {
-      mapping: "subtext1",
+      mapping: "", // superflous, exists to make TypeScript happy
       code: 7,
     },
     bright: {
@@ -305,14 +305,12 @@ const formatted = entriesFromObject(definitions).reduce(
         let normalColorHex = flavor.colors[mapping];
         let brightColorHex: string;
 
-        // Color 0 (Black)
-        if (props.normal.mapping == "surface2") {
-          normalColorHex = flavor.dark ? flavor.colors["surface2"] : flavor.colors["subtext1"];
-          brightColorHex = flavor.dark ? flavor.colors["surface1"] : flavor.colors["subtext0"];
-          // Color 7 (White)
-        } else if (props.normal.mapping == "subtext1") {
-          normalColorHex = flavor.dark ? flavor.colors["subtext1"] : flavor.colors["surface2"] ;
-          brightColorHex = flavor.dark ? flavor.colors["subtext0"] : flavor.colors["surface1"] ;
+        if (name == "black") {
+          normalColorHex = flavor.dark ? flavor.colors["surface1"] : flavor.colors["subtext1"];
+          brightColorHex = flavor.dark ? flavor.colors["surface2"] : flavor.colors["subtext0"];
+        } else if (name == "white") {
+          normalColorHex = flavor.dark ? flavor.colors["subtext0"] : flavor.colors["surface2"] ;
+          brightColorHex = flavor.dark ? flavor.colors["subtext1"] : flavor.colors["surface1"] ;
         } else {
           const brightColor = new Color(normalColorHex);
           brightColor.lch.l *= flavor.dark ? 0.94 : 1.09;

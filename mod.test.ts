@@ -38,11 +38,11 @@ Deno.test("ansiEntries", () => {
         } else {
           assertEquals(
             ansiColor.normal.hex,
-            palette[flavorName].colors.surface2.hex,
+            palette[flavorName].colors.surface1.hex,
           );
           assertEquals(
             ansiColor.bright.hex,
-            palette[flavorName].colors.surface1.hex,
+            palette[flavorName].colors.surface2.hex,
           );
         }
       }
@@ -60,11 +60,11 @@ Deno.test("ansiEntries", () => {
         } else {
           assertEquals(
             ansiColor.normal.hex,
-            palette[flavorName].colors.subtext1.hex,
+            palette[flavorName].colors.subtext0.hex,
           );
           assertEquals(
             ansiColor.bright.hex,
-            palette[flavorName].colors.subtext0.hex,
+            palette[flavorName].colors.subtext1.hex,
           );
         }
       }

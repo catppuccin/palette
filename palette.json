@@ -932,11 +932,11 @@
     "ansiColors": {
       "black": {
         "normal": {
-          "hex": "#626880",
+          "hex": "#51576d",
           "code": 0
         },
         "bright": {
-          "hex": "#51576d",
+          "hex": "#626880",
           "code": 8
         }
       },
@@ -1002,11 +1002,11 @@
       },
       "white": {
         "normal": {
-          "hex": "#b5bfe2",
+          "hex": "#a5adce",
           "code": 7
         },
         "bright": {
-          "hex": "#a5adce",
+          "hex": "#b5bfe2",
           "code": 15
         }
       }
@@ -1438,11 +1438,11 @@
     "ansiColors": {
       "black": {
         "normal": {
-          "hex": "#5b6078",
+          "hex": "#494d64",
           "code": 0
         },
         "bright": {
-          "hex": "#494d64",
+          "hex": "#5b6078",
           "code": 8
         }
       },
@@ -1508,11 +1508,11 @@
       },
       "white": {
         "normal": {
-          "hex": "#b8c0e0",
+          "hex": "#a5adcb",
           "code": 7
         },
         "bright": {
-          "hex": "#a5adcb",
+          "hex": "#b8c0e0",
           "code": 15
         }
       }
@@ -1944,11 +1944,11 @@
     "ansiColors": {
       "black": {
         "normal": {
-          "hex": "#585b70",
+          "hex": "#45475a",
           "code": 0
         },
         "bright": {
-          "hex": "#45475a",
+          "hex": "#585b70",
           "code": 8
         }
       },
@@ -2014,11 +2014,11 @@
       },
       "white": {
         "normal": {
-          "hex": "#bac2de",
+          "hex": "#a6adc8",
           "code": 7
         },
         "bright": {
-          "hex": "#a6adc8",
+          "hex": "#bac2de",
           "code": 15
         }
       }
