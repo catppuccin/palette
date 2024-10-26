@@ -248,7 +248,7 @@ const ansiMappings = {
       code: 12,
     },
   },
-  purple: {
+  magenta: {
     normal: {
       mapping: "pink",
       code: 5,
