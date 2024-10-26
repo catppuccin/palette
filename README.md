@@ -25,7 +25,7 @@ import { flavors, flavorEntries, version } from "@catppuccin/palette";
 import chalk from "chalk";
 
 // a string containing the version of the library
-console.log(version)
+console.log(version);
 
 // an object containing all catppuccin flavors
 console.log(flavors);
@@ -44,6 +44,16 @@ flavorEntries.map(([_, flavor]) => {
     );
   });
   console.log("\n");
+
+  // same for the ansi colors
+  flavor.ansiColorEntries.map(([colorName, ansi]) => {
+    console.log(
+      chalk.hex(ansi.normal.hex)(`[${ansi.normal.code}] Normal ${colorName}`)
+    );
+    console.log(
+      chalk.hex(ansi.bright.hex)(`[${ansi.bright.code}] Bright ${colorName}`)
+    );
+  });
 });
 ```
 
@@ -52,11 +62,15 @@ flavorEntries.map(([_, flavor]) => {
 The library is available through [JSR](https://jsr.io/@catppuccin/palette) and [`deno.land/x/catppuccin`](https://deno.land/x/catppuccin):
 
 ```ts
-import { flavors, flavorEntries, version } from "https://deno.land/x/catppuccin/mod.ts";
+import {
+  flavors,
+  flavorEntries,
+  version,
+} from "https://deno.land/x/catppuccin/mod.ts";
 import { bgRgb24 } from "https://deno.land/std/fmt/colors.ts";
 
 // a string containing the version of the library
-console.log(version)
+console.log(version);
 
 // an object containing all catppuccin flavors
 console.log(flavors);
