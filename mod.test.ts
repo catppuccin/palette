@@ -4,21 +4,71 @@ import { flavorEntries, flavors, version } from "@catppuccin/palette";
 import palette from "@/palette.json" with { type: "json" };
 
 Deno.test("flavorEntries", () => {
-  flavorEntries
-    .map(([flavorName, flavor]) =>
-      flavor.colorEntries
-        .map(([colorName, color]) =>
-          assertEquals(palette[flavorName].colors[colorName].hex, color.hex)
-        )
+  flavorEntries.map(([flavorName, flavor]) => {
+    flavor.colorEntries.map(([colorName, color]) =>
+      assertEquals(color.hex, palette[flavorName].colors[colorName].hex)
     );
+  });
 });
 
 Deno.test("flavors", () => {
   flavorEntries.map(([flavorName]) => {
-    assertEquals(
-      flavors[flavorName].name,
-      palette[flavorName].name,
-    );
+    assertEquals(flavors[flavorName].name, palette[flavorName].name);
+  });
+});
+
+Deno.test("ansiEntries", () => {
+  flavorEntries.map(([flavorName, flavor]) => {
+    flavor.ansiColorEntries.map(([ansiColorName, ansiColor]) => {
+      assertEquals(
+        ansiColor.normal.hex,
+        palette[flavorName].ansiColors[ansiColorName].normal.hex,
+      );
+
+      if (ansiColorName == "black") {
+        if (flavorName == "latte") {
+          assertEquals(
+            ansiColor.normal.hex,
+            palette[flavorName].colors.subtext1.hex,
+          );
+          assertEquals(
+            ansiColor.bright.hex,
+            palette[flavorName].colors.subtext0.hex,
+          );
+        } else {
+          assertEquals(
+            ansiColor.normal.hex,
+            palette[flavorName].colors.surface1.hex,
+          );
+          assertEquals(
+            ansiColor.bright.hex,
+            palette[flavorName].colors.surface2.hex,
+          );
+        }
+      }
+
+      if (ansiColorName == "white") {
+        if (flavorName == "latte") {
+          assertEquals(
+            ansiColor.normal.hex,
+            palette[flavorName].colors.surface2.hex,
+          );
+          assertEquals(
+            ansiColor.bright.hex,
+            palette[flavorName].colors.surface1.hex,
+          );
+        } else {
+          assertEquals(
+            ansiColor.normal.hex,
+            palette[flavorName].colors.subtext0.hex,
+          );
+          assertEquals(
+            ansiColor.bright.hex,
+            palette[flavorName].colors.subtext1.hex,
+          );
+        }
+      }
+    });
   });
 });
 

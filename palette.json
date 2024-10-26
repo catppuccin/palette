@@ -422,6 +422,88 @@
         },
         "accent": false
       }
+    },
+    "ansiColors": {
+      "black": {
+        "normal": {
+          "hex": "#5c5f77",
+          "code": 0
+        },
+        "bright": {
+          "hex": "#6c6f85",
+          "code": 8
+        }
+      },
+      "red": {
+        "normal": {
+          "hex": "#d20f39",
+          "code": 1
+        },
+        "bright": {
+          "hex": "#de293e",
+          "code": 9
+        }
+      },
+      "green": {
+        "normal": {
+          "hex": "#40a02b",
+          "code": 2
+        },
+        "bright": {
+          "hex": "#49af3d",
+          "code": 10
+        }
+      },
+      "yellow": {
+        "normal": {
+          "hex": "#df8e1d",
+          "code": 3
+        },
+        "bright": {
+          "hex": "#eea02d",
+          "code": 11
+        }
+      },
+      "blue": {
+        "normal": {
+          "hex": "#1e66f5",
+          "code": 4
+        },
+        "bright": {
+          "hex": "#456eff",
+          "code": 12
+        }
+      },
+      "magenta": {
+        "normal": {
+          "hex": "#ea76cb",
+          "code": 5
+        },
+        "bright": {
+          "hex": "#fe85d8",
+          "code": 13
+        }
+      },
+      "cyan": {
+        "normal": {
+          "hex": "#179299",
+          "code": 6
+        },
+        "bright": {
+          "hex": "#2d9fa8",
+          "code": 14
+        }
+      },
+      "white": {
+        "normal": {
+          "hex": "#acb0be",
+          "code": 7
+        },
+        "bright": {
+          "hex": "#bcc0cc",
+          "code": 15
+        }
+      }
     }
   },
   "frappe": {
@@ -845,6 +927,88 @@
           "l": 0.17058823529411765
         },
         "accent": false
+      }
+    },
+    "ansiColors": {
+      "black": {
+        "normal": {
+          "hex": "#51576d",
+          "code": 0
+        },
+        "bright": {
+          "hex": "#626880",
+          "code": 8
+        }
+      },
+      "red": {
+        "normal": {
+          "hex": "#e78284",
+          "code": 1
+        },
+        "bright": {
+          "hex": "#e67172",
+          "code": 9
+        }
+      },
+      "green": {
+        "normal": {
+          "hex": "#a6d189",
+          "code": 2
+        },
+        "bright": {
+          "hex": "#8ec772",
+          "code": 10
+        }
+      },
+      "yellow": {
+        "normal": {
+          "hex": "#e5c890",
+          "code": 3
+        },
+        "bright": {
+          "hex": "#d9ba73",
+          "code": 11
+        }
+      },
+      "blue": {
+        "normal": {
+          "hex": "#8caaee",
+          "code": 4
+        },
+        "bright": {
+          "hex": "#7b9ef0",
+          "code": 12
+        }
+      },
+      "magenta": {
+        "normal": {
+          "hex": "#f4b8e4",
+          "code": 5
+        },
+        "bright": {
+          "hex": "#f2a4db",
+          "code": 13
+        }
+      },
+      "cyan": {
+        "normal": {
+          "hex": "#81c8be",
+          "code": 6
+        },
+        "bright": {
+          "hex": "#5abfb5",
+          "code": 14
+        }
+      },
+      "white": {
+        "normal": {
+          "hex": "#a5adce",
+          "code": 7
+        },
+        "bright": {
+          "hex": "#b5bfe2",
+          "code": 15
+        }
       }
     }
   },
@@ -1270,6 +1434,88 @@
         },
         "accent": false
       }
+    },
+    "ansiColors": {
+      "black": {
+        "normal": {
+          "hex": "#494d64",
+          "code": 0
+        },
+        "bright": {
+          "hex": "#5b6078",
+          "code": 8
+        }
+      },
+      "red": {
+        "normal": {
+          "hex": "#ed8796",
+          "code": 1
+        },
+        "bright": {
+          "hex": "#ec7486",
+          "code": 9
+        }
+      },
+      "green": {
+        "normal": {
+          "hex": "#a6da95",
+          "code": 2
+        },
+        "bright": {
+          "hex": "#8ccf7f",
+          "code": 10
+        }
+      },
+      "yellow": {
+        "normal": {
+          "hex": "#eed49f",
+          "code": 3
+        },
+        "bright": {
+          "hex": "#e1c682",
+          "code": 11
+        }
+      },
+      "blue": {
+        "normal": {
+          "hex": "#8aadf4",
+          "code": 4
+        },
+        "bright": {
+          "hex": "#78a1f6",
+          "code": 12
+        }
+      },
+      "magenta": {
+        "normal": {
+          "hex": "#f5bde6",
+          "code": 5
+        },
+        "bright": {
+          "hex": "#f2a9dd",
+          "code": 13
+        }
+      },
+      "cyan": {
+        "normal": {
+          "hex": "#8bd5ca",
+          "code": 6
+        },
+        "bright": {
+          "hex": "#63cbc0",
+          "code": 14
+        }
+      },
+      "white": {
+        "normal": {
+          "hex": "#a5adcb",
+          "code": 7
+        },
+        "bright": {
+          "hex": "#b8c0e0",
+          "code": 15
+        }
+      }
     }
   },
   "mocha": {
@@ -1693,6 +1939,88 @@
           "l": 0.08627450980392157
         },
         "accent": false
+      }
+    },
+    "ansiColors": {
+      "black": {
+        "normal": {
+          "hex": "#45475a",
+          "code": 0
+        },
+        "bright": {
+          "hex": "#585b70",
+          "code": 8
+        }
+      },
+      "red": {
+        "normal": {
+          "hex": "#f38ba8",
+          "code": 1
+        },
+        "bright": {
+          "hex": "#f37799",
+          "code": 9
+        }
+      },
+      "green": {
+        "normal": {
+          "hex": "#a6e3a1",
+          "code": 2
+        },
+        "bright": {
+          "hex": "#89d88b",
+          "code": 10
+        }
+      },
+      "yellow": {
+        "normal": {
+          "hex": "#f9e2af",
+          "code": 3
+        },
+        "bright": {
+          "hex": "#ebd391",
+          "code": 11
+        }
+      },
+      "blue": {
+        "normal": {
+          "hex": "#89b4fa",
+          "code": 4
+        },
+        "bright": {
+          "hex": "#74a8fc",
+          "code": 12
+        }
+      },
+      "magenta": {
+        "normal": {
+          "hex": "#f5c2e7",
+          "code": 5
+        },
+        "bright": {
+          "hex": "#f2aede",
+          "code": 13
+        }
+      },
+      "cyan": {
+        "normal": {
+          "hex": "#94e2d5",
+          "code": 6
+        },
+        "bright": {
+          "hex": "#6bd7ca",
+          "code": 14
+        }
+      },
+      "white": {
+        "normal": {
+          "hex": "#a6adc8",
+          "code": 7
+        },
+        "bright": {
+          "hex": "#bac2de",
+          "code": 15
+        }
       }
     }
   }

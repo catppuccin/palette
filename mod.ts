@@ -49,6 +49,16 @@ export type MonochromaticName =
   | "mantle"
   | "crust";
 
+type AnsiName =
+  | "black"
+  | "red"
+  | "green"
+  | "yellow"
+  | "blue"
+  | "magenta"
+  | "cyan"
+  | "white";
+
 /**
  * All color names of Catppuccin
  */
@@ -58,6 +68,11 @@ export type ColorName = AccentName | MonochromaticName;
  * Generic to map type T to all Catppuccin color names
  */
 export type Colors<T> = Record<ColorName, T>;
+
+/**
+ * Generic to map type T to all ANSI color names
+ */
+export type AnsiColors<T> = Record<AnsiName, T>;
 
 /**
  * A flavor of Catppuccin
@@ -89,15 +104,30 @@ export type CatppuccinFlavor = Readonly<{
   colors: CatppuccinColors;
 
   /**
+   * An object containing all the ANSI color mappings of the flavor
+   */
+  ansiColors: CatppuccinAnsiColors;
+
+  /**
    * A typed Object.entries iterable of the colors of the flavor
    */
   colorEntries: Entries<CatppuccinColors>;
+
+  /**
+   * A typed Object.entries iterable of the ANSI colors of the flavor
+   */
+  ansiColorEntries: Entries<CatppuccinAnsiColors>;
 }>;
 
 /**
  * All colors of Catppuccin
  */
 export type CatppuccinColors = Readonly<Colors<ColorFormat>>;
+
+/**
+ * All ANSI color mappings of Catppuccin
+ */
+export type CatppuccinAnsiColors = Readonly<AnsiColors<AnsiColorGroups>>;
 
 /**
  * All flavors of Catppuccin
@@ -187,6 +217,34 @@ export type ColorFormat = Readonly<{
   accent: boolean;
 }>;
 
+export type AnsiColorGroups = Readonly<{
+  /**
+   * An object containing all the ANSI "normal" colors, which are the 8 standard colors from 0 to 7.
+   */
+  normal: AnsiColorFormat;
+
+  /**
+   * An object containing all the ANSI "bright" colors, which are the 8 standard colors from 8 to 15.
+   *
+   * Note: These bright colors are not necessarily "brighter" than the normal colors, but rather more bold and saturated.
+   */
+  bright: AnsiColorFormat;
+}>;
+
+export type AnsiColorFormat = Readonly<{
+  /**
+   * String-formatted hex value
+   * @example "#babbf1"
+   */
+  hex: string;
+
+  /**
+   * The ANSI color code
+   * @example 4
+   */
+  code: number;
+}>;
+
 const { version: _, ...jsonFlavors } = definitions;
 
 /**
@@ -203,6 +261,7 @@ export const flavors: CatppuccinFlavors = entriesFromObject(
   acc[flavorName] = {
     ...flavor,
     colorEntries: entriesFromObject(flavor.colors),
+    ansiColorEntries: entriesFromObject(flavor.ansiColors),
   };
   return acc;
 }, {} as CatppuccinFlavors);
