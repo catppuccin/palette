@@ -243,6 +243,11 @@ export type AnsiColorGroups = Readonly<{
 
 export type AnsiColorFormat = Readonly<{
   /**
+   * Name of the ANSI group.
+   */
+  name: string;
+
+  /**
    * String-formatted hex value.
    * @example "#babbf1"
    */
