@@ -325,10 +325,12 @@ const formatted = entriesFromObject(definitions).reduce(
           name: name[0].toUpperCase() + name.substring(1).toLowerCase(),
           order: currentIndex,
           normal: {
+            name: "Normal",
             hex: normalColorHex,
             code: props.normal.code,
           },
           bright: {
+            name: "Bright",
             hex: brightColorHex,
             code: props.bright.code,
           },
