@@ -219,6 +219,16 @@ export type ColorFormat = Readonly<{
 
 export type AnsiColorGroups = Readonly<{
   /**
+   * Name of the ANSI color.
+   */
+  name: string;
+
+  /**
+   * Order of the ANSI color in the palette spec
+   */
+  order: number;
+
+  /**
    * An object containing all the ANSI "normal" colors, which are the 8 standard colors from 0 to 7.
    */
   normal: AnsiColorFormat;

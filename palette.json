@@ -425,6 +425,8 @@
     },
     "ansiColors": {
       "black": {
+        "name": "Black",
+        "order": 0,
         "normal": {
           "hex": "#5c5f77",
           "code": 0
@@ -435,6 +437,8 @@
         }
       },
       "red": {
+        "name": "Red",
+        "order": 1,
         "normal": {
           "hex": "#d20f39",
           "code": 1
@@ -445,6 +449,8 @@
         }
       },
       "green": {
+        "name": "Green",
+        "order": 2,
         "normal": {
           "hex": "#40a02b",
           "code": 2
@@ -455,6 +461,8 @@
         }
       },
       "yellow": {
+        "name": "Yellow",
+        "order": 3,
         "normal": {
           "hex": "#df8e1d",
           "code": 3
@@ -465,6 +473,8 @@
         }
       },
       "blue": {
+        "name": "Blue",
+        "order": 4,
         "normal": {
           "hex": "#1e66f5",
           "code": 4
@@ -475,6 +485,8 @@
         }
       },
       "magenta": {
+        "name": "Magenta",
+        "order": 5,
         "normal": {
           "hex": "#ea76cb",
           "code": 5
@@ -485,6 +497,8 @@
         }
       },
       "cyan": {
+        "name": "Cyan",
+        "order": 6,
         "normal": {
           "hex": "#179299",
           "code": 6
@@ -495,6 +509,8 @@
         }
       },
       "white": {
+        "name": "White",
+        "order": 7,
         "normal": {
           "hex": "#acb0be",
           "code": 7
@@ -931,6 +947,8 @@
     },
     "ansiColors": {
       "black": {
+        "name": "Black",
+        "order": 0,
         "normal": {
           "hex": "#51576d",
           "code": 0
@@ -941,6 +959,8 @@
         }
       },
       "red": {
+        "name": "Red",
+        "order": 1,
         "normal": {
           "hex": "#e78284",
           "code": 1
@@ -951,6 +971,8 @@
         }
       },
       "green": {
+        "name": "Green",
+        "order": 2,
         "normal": {
           "hex": "#a6d189",
           "code": 2
@@ -961,6 +983,8 @@
         }
       },
       "yellow": {
+        "name": "Yellow",
+        "order": 3,
         "normal": {
           "hex": "#e5c890",
           "code": 3
@@ -971,6 +995,8 @@
         }
       },
       "blue": {
+        "name": "Blue",
+        "order": 4,
         "normal": {
           "hex": "#8caaee",
           "code": 4
@@ -981,6 +1007,8 @@
         }
       },
       "magenta": {
+        "name": "Magenta",
+        "order": 5,
         "normal": {
           "hex": "#f4b8e4",
           "code": 5
@@ -991,6 +1019,8 @@
         }
       },
       "cyan": {
+        "name": "Cyan",
+        "order": 6,
         "normal": {
           "hex": "#81c8be",
           "code": 6
@@ -1001,6 +1031,8 @@
         }
       },
       "white": {
+        "name": "White",
+        "order": 7,
         "normal": {
           "hex": "#a5adce",
           "code": 7
@@ -1437,6 +1469,8 @@
     },
     "ansiColors": {
       "black": {
+        "name": "Black",
+        "order": 0,
         "normal": {
           "hex": "#494d64",
           "code": 0
@@ -1447,6 +1481,8 @@
         }
       },
       "red": {
+        "name": "Red",
+        "order": 1,
         "normal": {
           "hex": "#ed8796",
           "code": 1
@@ -1457,6 +1493,8 @@
         }
       },
       "green": {
+        "name": "Green",
+        "order": 2,
         "normal": {
           "hex": "#a6da95",
           "code": 2
@@ -1467,6 +1505,8 @@
         }
       },
       "yellow": {
+        "name": "Yellow",
+        "order": 3,
         "normal": {
           "hex": "#eed49f",
           "code": 3
@@ -1477,6 +1517,8 @@
         }
       },
       "blue": {
+        "name": "Blue",
+        "order": 4,
         "normal": {
           "hex": "#8aadf4",
           "code": 4
@@ -1487,6 +1529,8 @@
         }
       },
       "magenta": {
+        "name": "Magenta",
+        "order": 5,
         "normal": {
           "hex": "#f5bde6",
           "code": 5
@@ -1497,6 +1541,8 @@
         }
       },
       "cyan": {
+        "name": "Cyan",
+        "order": 6,
         "normal": {
           "hex": "#8bd5ca",
           "code": 6
@@ -1507,6 +1553,8 @@
         }
       },
       "white": {
+        "name": "White",
+        "order": 7,
         "normal": {
           "hex": "#a5adcb",
           "code": 7
@@ -1943,6 +1991,8 @@
     },
     "ansiColors": {
       "black": {
+        "name": "Black",
+        "order": 0,
         "normal": {
           "hex": "#45475a",
           "code": 0
@@ -1953,6 +2003,8 @@
         }
       },
       "red": {
+        "name": "Red",
+        "order": 1,
         "normal": {
           "hex": "#f38ba8",
           "code": 1
@@ -1963,6 +2015,8 @@
         }
       },
       "green": {
+        "name": "Green",
+        "order": 2,
         "normal": {
           "hex": "#a6e3a1",
           "code": 2
@@ -1973,6 +2027,8 @@
         }
       },
       "yellow": {
+        "name": "Yellow",
+        "order": 3,
         "normal": {
           "hex": "#f9e2af",
           "code": 3
@@ -1983,6 +2039,8 @@
         }
       },
       "blue": {
+        "name": "Blue",
+        "order": 4,
         "normal": {
           "hex": "#89b4fa",
           "code": 4
@@ -1993,6 +2051,8 @@
         }
       },
       "magenta": {
+        "name": "Magenta",
+        "order": 5,
         "normal": {
           "hex": "#f5c2e7",
           "code": 5
@@ -2003,6 +2063,8 @@
         }
       },
       "cyan": {
+        "name": "Cyan",
+        "order": 6,
         "normal": {
           "hex": "#94e2d5",
           "code": 6
@@ -2013,6 +2075,8 @@
         }
       },
       "white": {
+        "name": "White",
+        "order": 7,
         "normal": {
           "hex": "#a6adc8",
           "code": 7

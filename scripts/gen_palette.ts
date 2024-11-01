@@ -288,6 +288,7 @@ const formatted = entriesFromObject(definitions).reduce(
         (acc, [colorName, color], currentIndex) => {
           const { r, g, b } = tinycolor(color).toRgb();
           const { h, s, l } = tinycolor(color).toHsl();
+
           acc[colorName] = {
             name: prettyNames[currentIndex],
             order: currentIndex,
@@ -296,11 +297,12 @@ const formatted = entriesFromObject(definitions).reduce(
             hsl: { h, s, l },
             accent: accents.includes(colorName),
           };
+
           return acc;
         },
         {} as Writeable<CatppuccinColors>,
       ),
-      ansiColors: entriesFromObject(ansiMappings).reduce((acc, [name, props]) => {
+      ansiColors: entriesFromObject(ansiMappings).reduce((acc, [name, props], currentIndex) => {
         const mapping = props.normal.mapping as ColorName;
         let normalColorHex = flavor.colors[mapping];
         let brightColorHex: string;
@@ -318,7 +320,10 @@ const formatted = entriesFromObject(definitions).reduce(
           brightColor.lch.h += 2;
           brightColorHex = brightColor.toString({ format: "hex" });
         }
+
         acc[name] = {
+          name: name[0].toUpperCase() + name.substring(1).toLowerCase(),
+          order: currentIndex,
           normal: {
             hex: normalColorHex,
             code: props.normal.code,
@@ -328,6 +333,7 @@ const formatted = entriesFromObject(definitions).reduce(
             code: props.bright.code,
           },
         };
+
         return acc;
       }, {} as Writeable<CatppuccinAnsiColors>),
     };
