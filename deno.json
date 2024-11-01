@@ -1,6 +1,6 @@
 {
   "name": "@catppuccin/palette",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "exports": "./mod.ts",
   "importMap": "./import_map.json",
   "exclude": [

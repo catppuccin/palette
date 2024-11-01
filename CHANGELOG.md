@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/catppuccin/palette/compare/v1.5.0...v1.6.0) (2024-11-01)
+
+
+### Features
+
+* **ansi:** add `name` and `order` keys ([#106](https://github.com/catppuccin/palette/issues/106)) ([2fa1506](https://github.com/catppuccin/palette/commit/2fa150676256efe4700ee38000beb0a6ec1390d6))
+* **ansi:** add `name` key to `normal` & `bright` objects ([#108](https://github.com/catppuccin/palette/issues/108)) ([bc3215e](https://github.com/catppuccin/palette/commit/bc3215e690677724e14cd7a50e373b7bba4a7a93))
+
 ## [1.5.0](https://github.com/catppuccin/palette/compare/v1.4.0...v1.5.0) (2024-10-26)
 
 
