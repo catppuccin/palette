@@ -19,11 +19,12 @@ const template = flavorEntries
     const ansiColors = ansiColorEntries.map(
       ([ansiColorName, { normal, bright }]) => {
         return [normal, bright].map((group) => {
-          const name = `--ctp-${flavorName}-ansi-${group}-${ansiColorName}`;
-          return sprintf(" %s: %s;", name, group.hex);
+          const name =
+            `--ctp-${flavorName}-ansi-${group.name.toLowerCase()}-${ansiColorName}`;
+          return sprintf("  %s: %s;", name, group.hex);
         }).join("\n");
       },
-    );
+    ).join("\n");
 
     return `:root {\n${colors}\n${ansiColors}\n}`;
   })
