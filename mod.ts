@@ -8,7 +8,7 @@ const entriesFromObject = <T extends object>(obj: T): Entries<T> =>
   Object.entries(obj) as Entries<T>;
 
 /**
- * All flavor names of Catppuccin
+ * All flavor names of Catppuccin.
  */
 export type FlavorName = "latte" | "frappe" | "macchiato" | "mocha";
 
@@ -60,121 +60,121 @@ type AnsiName =
   | "white";
 
 /**
- * All color names of Catppuccin
+ * All color names of Catppuccin.
  */
 export type ColorName = AccentName | MonochromaticName;
 
 /**
- * Generic to map type T to all Catppuccin color names
+ * Generic to map type T to all Catppuccin color names.
  */
 export type Colors<T> = Record<ColorName, T>;
 
 /**
- * Generic to map type T to all ANSI color names
+ * Generic to map type T to all ANSI color names.
  */
 export type AnsiColors<T> = Record<AnsiName, T>;
 
 /**
- * A flavor of Catppuccin
+ * A flavor of Catppuccin.
  */
 export type CatppuccinFlavor = Readonly<{
   /**
-   * Name of the flavor
+   * Name of the flavor.
    */
   name: string;
 
   /**
-   * Emoji associated with the flavor. Requires Unicode 13.0 (2020) or later to render
+   * Emoji associated with the flavor. Requires Unicode 13.0 (2020) or later to render.
    */
   emoji: string;
 
   /**
-   * Order of the flavor in the palette spec
+   * Order of the flavor in the palette spec.
    */
   order: number;
 
   /**
-   * Whether the flavor is a dark theme
+   * Whether the flavor is a dark theme.
    */
   dark: boolean;
 
   /**
-   * An object containing all the colors of the flavor
+   * An object containing all the colors of the flavor.
    */
   colors: CatppuccinColors;
 
   /**
-   * An object containing all the ANSI color mappings of the flavor
+   * An object containing all the ANSI color mappings of the flavor.
    */
   ansiColors: CatppuccinAnsiColors;
 
   /**
-   * A typed Object.entries iterable of the colors of the flavor
+   * A typed Object.entries iterable of the colors of the flavor.
    */
   colorEntries: Entries<CatppuccinColors>;
 
   /**
-   * A typed Object.entries iterable of the ANSI colors of the flavor
+   * A typed Object.entries iterable of the ANSI colors of the flavor.
    */
   ansiColorEntries: Entries<CatppuccinAnsiColors>;
 }>;
 
 /**
- * All colors of Catppuccin
+ * All colors of Catppuccin.
  */
 export type CatppuccinColors = Readonly<Colors<ColorFormat>>;
 
 /**
- * All ANSI color mappings of Catppuccin
+ * All ANSI color mappings of Catppuccin.
  */
 export type CatppuccinAnsiColors = Readonly<AnsiColors<AnsiColorGroups>>;
 
 /**
- * All flavors of Catppuccin
+ * All flavors of Catppuccin.
  */
 export type CatppuccinFlavors = Flavors<CatppuccinFlavor>;
 
 export type Flavors<T> = {
   /**
-   * Light variant
+   * Light variant.
    */
   latte: T;
 
   /**
-   * Low-saturation, low-contrast dark variant
+   * Low-saturation, low-contrast dark variant.
    */
   frappe: T;
 
   /**
-   * Mid-saturation, mid-contrast dark variant
+   * Mid-saturation, mid-contrast dark variant.
    */
   macchiato: T;
 
   /**
-   * High-saturation, High-contrast dark variant
+   * High-saturation, High-contrast dark variant.
    */
   mocha: T;
 };
 
 export type ColorFormat = Readonly<{
   /**
-   * Name of the color
+   * Name of the color.
    */
   name: string;
 
   /**
-   * Order of the color in the palette spec
+   * Order of the color in the palette spec.
    */
   order: number;
 
   /**
-   * String-formatted hex value
+   * String-formatted hex value.
    * @example "#babbf1"
    */
   hex: string;
 
   /**
-   * Formatted rgb value
+   * Formatted rgb value.
    * @example { r: 186, g: 187, b: 241}
    */
   rgb: {
@@ -193,7 +193,7 @@ export type ColorFormat = Readonly<{
   };
 
   /**
-   * Formatted hsl value
+   * Formatted hsl value.
    * @example { h: 238.9, s: 12.1, l: 83.5 }
    */
   hsl: {
@@ -224,7 +224,7 @@ export type AnsiColorGroups = Readonly<{
   name: string;
 
   /**
-   * Order of the ANSI color in the palette spec
+   * Order of the ANSI color in the palette spec.
    */
   order: number;
 
@@ -243,13 +243,13 @@ export type AnsiColorGroups = Readonly<{
 
 export type AnsiColorFormat = Readonly<{
   /**
-   * String-formatted hex value
+   * String-formatted hex value.
    * @example "#babbf1"
    */
   hex: string;
 
   /**
-   * The ANSI color code
+   * The ANSI color code.
    * @example 4
    */
   code: number;
@@ -258,12 +258,12 @@ export type AnsiColorFormat = Readonly<{
 const { version: _, ...jsonFlavors } = definitions;
 
 /**
- * The version of the Catppuccin palette
+ * The version of the Catppuccin palette.
  */
 export const version = definitions.version;
 
 /**
- * All flavors of Catppuccin
+ * All flavors of Catppuccin.
  */
 export const flavors: CatppuccinFlavors = entriesFromObject(
   jsonFlavors,
@@ -277,7 +277,7 @@ export const flavors: CatppuccinFlavors = entriesFromObject(
 }, {} as CatppuccinFlavors);
 
 /**
- * A typed `Object.entries()` iterable of all Catppuccin flavors
+ * A typed `Object.entries()` iterable of all Catppuccin flavors.
  */
 export const flavorEntries: Entries<CatppuccinFlavors> = entriesFromObject(
   flavors,
