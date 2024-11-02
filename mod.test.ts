@@ -21,6 +21,14 @@ Deno.test("ansiEntries", () => {
   flavorEntries.map(([flavorName, flavor]) => {
     flavor.ansiColorEntries.map(([ansiColorName, ansiColor]) => {
       assertEquals(
+        ansiColor.normal.name,
+        ansiColor.name
+      );
+      assertEquals(
+        ansiColor.bright.name,
+        `Bright ${ansiColor.name}`
+      );
+      assertEquals(
         ansiColor.normal.hex,
         palette[flavorName].ansiColors[ansiColorName].normal.hex,
       );
