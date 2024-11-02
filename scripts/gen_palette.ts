@@ -277,6 +277,24 @@ const ansiMappings = {
   },
 };
 
+const toRgb = (hex: string): { r: number; g: number; b: number } => {
+  const { r, g, b } = tinycolor(hex).toRgb();
+  return {
+    r,
+    g,
+    b,
+  };
+};
+
+const toHsl = (hex: string): { h: number; s: number; l: number } => {
+  const { h, s, l } = tinycolor(hex).toHsl();
+  return {
+    h,
+    s,
+    l,
+  };
+};
+
 const formatted = entriesFromObject(definitions).reduce(
   (acc, [flavorName, flavor], currentIndex) => {
     acc[flavorName] = {
@@ -286,58 +304,69 @@ const formatted = entriesFromObject(definitions).reduce(
       dark: flavor.dark,
       colors: entriesFromObject(flavor.colors).reduce(
         (acc, [colorName, color], currentIndex) => {
-          const { r, g, b } = tinycolor(color).toRgb();
-          const { h, s, l } = tinycolor(color).toHsl();
-
           acc[colorName] = {
             name: prettyNames[currentIndex],
             order: currentIndex,
             hex: color,
-            rgb: { r, g, b },
-            hsl: { h, s, l },
+            rgb: toRgb(color),
+            hsl: toHsl(color),
             accent: accents.includes(colorName),
           };
-
           return acc;
         },
         {} as Writeable<CatppuccinColors>,
       ),
-      ansiColors: entriesFromObject(ansiMappings).reduce((acc, [name, props], currentIndex) => {
-        const mapping = props.normal.mapping as ColorName;
-        let normalColorHex = flavor.colors[mapping];
-        let brightColorHex: string;
+      ansiColors: entriesFromObject(ansiMappings).reduce(
+        (acc, [name, props], currentIndex) => {
+          const mapping = props.normal.mapping as ColorName;
+          let normalColorHex = flavor.colors[mapping];
+          let brightColorHex: string;
 
-        if (name == "black") {
-          normalColorHex = flavor.dark ? flavor.colors["surface1"] : flavor.colors["subtext1"];
-          brightColorHex = flavor.dark ? flavor.colors["surface2"] : flavor.colors["subtext0"];
-        } else if (name == "white") {
-          normalColorHex = flavor.dark ? flavor.colors["subtext0"] : flavor.colors["surface2"] ;
-          brightColorHex = flavor.dark ? flavor.colors["subtext1"] : flavor.colors["surface1"] ;
-        } else {
-          const brightColor = new Color(normalColorHex);
-          brightColor.lch.l *= flavor.dark ? 0.94 : 1.09;
-          brightColor.lch.c += flavor.dark ? 8 : 0;
-          brightColor.lch.h += 2;
-          brightColorHex = brightColor.toString({ format: "hex" });
-        }
+          if (name == "black") {
+            normalColorHex = flavor.dark
+              ? flavor.colors["surface1"]
+              : flavor.colors["subtext1"];
+            brightColorHex = flavor.dark
+              ? flavor.colors["surface2"]
+              : flavor.colors["subtext0"];
+          } else if (name == "white") {
+            normalColorHex = flavor.dark
+              ? flavor.colors["subtext0"]
+              : flavor.colors["surface2"];
+            brightColorHex = flavor.dark
+              ? flavor.colors["subtext1"]
+              : flavor.colors["surface1"];
+          } else {
+            const brightColor = new Color(normalColorHex);
+            brightColor.lch.l *= flavor.dark ? 0.94 : 1.09;
+            brightColor.lch.c += flavor.dark ? 8 : 0;
+            brightColor.lch.h += 2;
+            brightColorHex = brightColor.toString({ format: "hex" });
+          }
 
-        acc[name] = {
-          name: name[0].toUpperCase() + name.substring(1).toLowerCase(),
-          order: currentIndex,
-          normal: {
-            name: "Normal",
-            hex: normalColorHex,
-            code: props.normal.code,
-          },
-          bright: {
-            name: "Bright",
-            hex: brightColorHex,
-            code: props.bright.code,
-          },
-        };
+          acc[name] = {
+            name: name[0].toUpperCase() + name.substring(1).toLowerCase(),
+            order: currentIndex,
+            normal: {
+              name: "Normal",
+              hex: normalColorHex,
+              rgb: toRgb(normalColorHex),
+              hsl: toHsl(normalColorHex),
+              code: props.normal.code,
+            },
+            bright: {
+              name: "Bright",
+              hex: brightColorHex,
+              rgb: toRgb(brightColorHex),
+              hsl: toHsl(brightColorHex),
+              code: props.bright.code,
+            },
+          };
 
-        return acc;
-      }, {} as Writeable<CatppuccinAnsiColors>),
+          return acc;
+        },
+        {} as Writeable<CatppuccinAnsiColors>,
+      ),
     };
     return acc;
   },
