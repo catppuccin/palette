@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.1](https://github.com/catppuccin/palette/compare/v1.7.0...v1.7.1) (2024-11-02)
+
+
+### Bug Fixes
+
+* **ansi:** better names for `normal` and `bright` objects ([#112](https://github.com/catppuccin/palette/issues/112)) ([251f6a2](https://github.com/catppuccin/palette/commit/251f6a21e763097f6af47a912fcdd7a546088794))
+
 ## [1.7.0](https://github.com/catppuccin/palette/compare/v1.6.0...v1.7.0) (2024-11-02)
 
 
