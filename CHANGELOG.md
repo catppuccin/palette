@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/catppuccin/palette/compare/v1.6.0...v1.7.0) (2024-11-02)
+
+
+### Features
+
+* **ansi:** add `hsl` and `rgb` values ([#110](https://github.com/catppuccin/palette/issues/110)) ([b669cdf](https://github.com/catppuccin/palette/commit/b669cdf78cfba997ba6bf06918d83daa250caf1c))
+
 ## [1.6.0](https://github.com/catppuccin/palette/compare/v1.5.0...v1.6.0) (2024-11-01)
 
 
