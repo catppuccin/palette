@@ -319,6 +319,9 @@ const formatted = entriesFromObject(definitions).reduce(
       ansiColors: entriesFromObject(ansiMappings).reduce(
         (acc, [name, props], currentIndex) => {
           const mapping = props.normal.mapping as ColorName;
+          const normalName = name[0].toUpperCase() +
+            name.substring(1).toLowerCase();
+          const brightName = `Bright ${normalName}`;
           let normalColorHex = flavor.colors[mapping];
           let brightColorHex: string;
 
@@ -345,17 +348,17 @@ const formatted = entriesFromObject(definitions).reduce(
           }
 
           acc[name] = {
-            name: name[0].toUpperCase() + name.substring(1).toLowerCase(),
+            name: normalName,
             order: currentIndex,
             normal: {
-              name: "Normal",
+              name: normalName,
               hex: normalColorHex,
               rgb: toRgb(normalColorHex),
               hsl: toHsl(normalColorHex),
               code: props.normal.code,
             },
             bright: {
-              name: "Bright",
+              name: brightName,
               hex: brightColorHex,
               rgb: toRgb(brightColorHex),
               hsl: toHsl(brightColorHex),
