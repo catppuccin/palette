@@ -102,6 +102,7 @@ flavorEntries.map(([_, flavor]) => {
   - [Lua](https://github.com/catppuccin/lua)
   - [Nim](https://github.com/catppuccin/nim)
   - [Python](https://github.com/catppuccin/python)
+  - [Ruby](https://github.com/catppuccin/ruby)
   - [Rust](https://github.com/catppuccin/rust)
   - [Tailwind CSS](https://github.com/catppuccin/tailwindcss)
   - [V](https://github.com/catppuccin/v)
