@@ -20,7 +20,7 @@ The easiest way to import a single flavor, is to use one of these 4 files:\
 
 Input:
 ```scss
-@import "mocha";
+@use "mocha";
 // sass is also part of the npm package:
 // @use "~@catppuccin/palette/scss/catppuccin/mocha";
 
@@ -47,9 +47,9 @@ is to use `_catppuccin.scss`.
 
 In short:\
 ❌ Don't do this:
-`#{map-get($color, blue)}`\
+`#{map.get($color, blue)}`\
 ✅ Do this:
-`#{map-get($color, 'blue')}`
+`#{map.get($color, 'blue')}`
 
 Input:
 
@@ -57,12 +57,13 @@ Input:
 @use "catppuccin";
 // sass is also part of the npm package:
 // @use "~@catppuccin/palette/scss/catppuccin";
+@use "sass:map";
 
 @each $flavor, $color in catppuccin.$palette {
-    .my-#{flavor}-class {
+    .my-#{$flavor}-class {
         // you need surround the catppuccin color names with quotes
-        background: map-get($color, 'base');
-        color: map-get($color, 'blue');
+        background: map.get($color, 'base');
+        color: map.get($color, 'blue');
     }
 }
 ```
