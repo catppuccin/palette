@@ -21,11 +21,30 @@ const entriesFromObject = <T extends object>(obj: T): Entries<T> =>
 
 type Writeable<T> = { -readonly [P in keyof T]: T[P] };
 
+const intensities = [75, 60, 45, 30, 15];
+
+const blendColor = (
+  intensity: number,
+  accentColor: Color,
+  blendingColor: Color,
+): Color => {
+  return accentColor.mix(blendingColor, intensity / 100, {
+    space: "oklab",
+    outputSpace: "srgb",
+  });
+};
+
 const definitions = {
   latte: {
     name: "Latte",
     emoji: "🌻",
     dark: false,
+    tints: {
+      blendingColor: "#eff1f5",
+    },
+    shades: {
+      blendingColor: "#000000",
+    },
     colors: {
       rosewater: {
         name: "Rosewater",
@@ -163,6 +182,12 @@ const definitions = {
     name: "Frappé",
     emoji: "🪴",
     dark: true,
+    tints: {
+      blendingColor: "#FFFFFF",
+    },
+    shades: {
+      blendingColor: "#303446",
+    },
     colors: {
       rosewater: {
         name: "Rosewater",
@@ -300,6 +325,12 @@ const definitions = {
     name: "Macchiato",
     emoji: "🌺",
     dark: true,
+    tints: {
+      blendingColor: "#FFFFFF",
+    },
+    shades: {
+      blendingColor: "#24273a",
+    },
     colors: {
       rosewater: {
         name: "Rosewater",
@@ -437,6 +468,12 @@ const definitions = {
     name: "Mocha",
     emoji: "🌿",
     dark: true,
+    tints: {
+      blendingColor: "#FFFFFF",
+    },
+    shades: {
+      blendingColor: "#1e1e2e",
+    },
     colors: {
       rosewater: {
         name: "Rosewater",
@@ -678,6 +715,39 @@ const formatted = entriesFromObject(definitions).reduce(
       emoji: flavor.emoji,
       order: currentIndex,
       dark: flavor.dark,
+      tints: entriesFromObject(flavor.colors).filter(([_, color]) =>
+        color.accent
+      ).reduce(
+        (acc, [name, color], currentIndex) => {
+          acc[name] = {
+            name: color.name,
+            order: currentIndex,
+            colors: intensities.reduce(
+              (acc, intensity, intensityIndex) => {
+                const accentColor = flavor.colors[name as ColorName].object;
+                const blendingColor = new Color(flavor.tints.blendingColor);
+                const blendedColor = blendColor(
+                  intensity,
+                  accentColor,
+                  blendingColor,
+                );
+                acc[intensityIndex] = {
+                  name: color.name + " Tint " + intensityIndex,
+                  order: intensityIndex,
+                  hex: toHex(blendedColor),
+                  rgb: toRgb(blendedColor),
+                  hsl: toHsl(toHex(blendedColor)),
+                };
+                return acc;
+              },
+              [],
+            ),
+            accent: true,
+          };
+          return acc;
+        },
+        {},
+      ),
       colors: entriesFromObject(flavor.colors).reduce(
         (acc, [colorName, color], currentIndex) => {
           acc[colorName] = {
