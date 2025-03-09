@@ -5,45 +5,63 @@ import Color from "colorjs";
 import meta from "../deno.json" with { type: "json" };
 
 import type {
+  AccentName,
+  BlendedColorFormat,
   CatppuccinAnsiColors,
   CatppuccinColors,
   CatppuccinFlavor,
+  CatppuccinShadeColors,
+  CatppuccinTintColors,
   ColorName,
+  FlavorName,
   Flavors,
+  TintName,
 } from "@catppuccin/palette";
 
 type Entries<T> = {
   [K in keyof T]: [K, T[K]];
 }[keyof T][];
 
+type Writeable<T> = { -readonly [P in keyof T]: T[P] };
+
+type CatppuccinDefinition = {
+  [key in FlavorName]: {
+    name: string;
+    emoji: string;
+    dark: boolean;
+    tints: {
+      blendingColor: Color;
+    };
+    shades: {
+      blendingColor: Color;
+    };
+    colors: CatppuccinDefinitionColors;
+  };
+};
+
+type CatppuccinDefinitionColors = {
+  [key in ColorName]: CatppuccinDefinitionColor;
+};
+
+type CatppuccinDefinitionColor = {
+  name: string;
+  object: Color;
+  accent: boolean;
+};
+
 const entriesFromObject = <T extends object>(obj: T): Entries<T> =>
   Object.entries(obj) as Entries<T>;
 
-type Writeable<T> = { -readonly [P in keyof T]: T[P] };
-
-const intensities = [75, 60, 45, 30, 15];
-
-const blendColor = (
-  intensity: number,
-  accentColor: Color,
-  blendingColor: Color,
-): Color => {
-  return accentColor.mix(blendingColor, intensity / 100, {
-    space: "oklab",
-    outputSpace: "srgb",
-  });
-};
-
-const definitions = {
+const definitions: CatppuccinDefinition = {
   latte: {
     name: "Latte",
     emoji: "🌻",
     dark: false,
     tints: {
-      blendingColor: "#eff1f5",
+      blendingColor: new Color("#eff1f5"),
     },
     shades: {
-      blendingColor: "#000000",
+      blendingColor: new Color("#000000"),
     },
     colors: {
       rosewater: {
@@ -183,10 +201,10 @@ const definitions = {
     emoji: "🪴",
     dark: true,
     tints: {
-      blendingColor: "#FFFFFF",
+      blendingColor: new Color("#FFFFFF"),
     },
     shades: {
-      blendingColor: "#303446",
+      blendingColor: new Color("#303446"),
     },
     colors: {
       rosewater: {
@@ -326,10 +344,10 @@ const definitions = {
     emoji: "🌺",
     dark: true,
     tints: {
-      blendingColor: "#FFFFFF",
+      blendingColor: new Color("#FFFFFF"),
     },
     shades: {
-      blendingColor: "#24273a",
+      blendingColor: new Color("#24273a"),
     },
     colors: {
       rosewater: {
@@ -469,10 +487,10 @@ const definitions = {
     emoji: "🌿",
     dark: true,
     tints: {
-      blendingColor: "#FFFFFF",
+      blendingColor: new Color("#FFFFFF"),
     },
     shades: {
-      blendingColor: "#1e1e2e",
+      blendingColor: new Color("#1e1e2e"),
     },
     colors: {
       rosewater: {
@@ -684,6 +702,8 @@ const ansiMappings = {
   },
 };
 
+const intensities = [15, 30, 45, 60, 75];
+
 const toHex = (color: Color): string => {
   return color.toString({ format: "hex" });
 };
@@ -708,6 +728,50 @@ const toHsl = (hex: string): { h: number; s: number; l: number } => {
   };
 };
 
+const blendColor = (
+  intensity: number,
+  accentColor: Color,
+  blendingColor: Color,
+): Color => {
+  return accentColor.toGamut().mix(blendingColor, intensity / 100, {
+    space: "srgb",
+    outputSpace: "srgb",
+  });
+};
+
+const blendedColors = <T extends CatppuccinTintColors | CatppuccinShadeColors>(
+  type: "Tint" | "Shade",
+  colors: CatppuccinDefinitionColors,
+  blendingColor: Color,
+) => {
+  return entriesFromObject(colors).filter(([_, color]) => color.accent)
+    .reduce(
+      (acc, [name, color]) => {
+        acc[name as AccentName] = intensities.reduce(
+          (acc, intensity, intensityIndex) => {
+            const accentColor = colors[name].object;
+            const blendedColor = blendColor(
+              intensity,
+              accentColor,
+              blendingColor,
+            );
+            acc[`${type.toLowerCase()}${intensityIndex + 1}` as TintName] = {
+              name: `${color.name} ${type} ${intensityIndex + 1}`,
+              order: intensityIndex,
+              hex: toHex(blendedColor),
+              rgb: toRgb(blendedColor),
+              hsl: toHsl(toHex(blendedColor)),
+            };
+            return acc;
+          },
+          {} as Writeable<Record<TintName, BlendedColorFormat>>,
+        );
+        return acc;
+      },
+      {} as Writeable<T>,
+    );
+};
+
 const formatted = entriesFromObject(definitions).reduce(
   (acc, [flavorName, flavor], currentIndex) => {
     acc[flavorName] = {
@@ -715,38 +779,15 @@ const formatted = entriesFromObject(definitions).reduce(
       emoji: flavor.emoji,
       order: currentIndex,
       dark: flavor.dark,
-      tints: entriesFromObject(flavor.colors).filter(([_, color]) =>
-        color.accent
-      ).reduce(
-        (acc, [name, color], currentIndex) => {
-          acc[name] = {
-            name: color.name,
-            order: currentIndex,
-            colors: intensities.reduce(
-              (acc, intensity, intensityIndex) => {
-                const accentColor = flavor.colors[name as ColorName].object;
-                const blendingColor = new Color(flavor.tints.blendingColor);
-                const blendedColor = blendColor(
-                  intensity,
-                  accentColor,
-                  blendingColor,
-                );
-                acc[intensityIndex] = {
-                  name: color.name + " Tint " + intensityIndex,
-                  order: intensityIndex,
-                  hex: toHex(blendedColor),
-                  rgb: toRgb(blendedColor),
-                  hsl: toHsl(toHex(blendedColor)),
-                };
-                return acc;
-              },
-              [],
-            ),
-            accent: true,
-          };
-          return acc;
-        },
-        {},
+      tints: blendedColors(
+        "Tint",
+        flavor.colors,
+        flavor.tints.blendingColor,
+      ),
+      shades: blendedColors(
+        "Shade",
+        flavor.colors,
+        flavor.shades.blendingColor,
       ),
       colors: entriesFromObject(flavor.colors).reduce(
         (acc, [colorName, color], currentIndex) => {
@@ -819,7 +860,12 @@ const formatted = entriesFromObject(definitions).reduce(
     };
     return acc;
   },
-  {} as Flavors<Omit<CatppuccinFlavor, "colorEntries" | "ansiColorEntries">>,
+  {} as Flavors<
+    Omit<
+      CatppuccinFlavor,
+      "colorEntries" | "tintEntries" | "shadeEntries" | "ansiColorEntries"
+    >
+  >,
 );
 
 const __dirname = new URL(".", import.meta.url).pathname;

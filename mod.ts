@@ -49,7 +49,11 @@ export type MonochromaticName =
   | "mantle"
   | "crust";
 
-type AnsiName =
+export type TintName = "tint1" | "tint2" | "tint3" | "tint4" | "tint5";
+
+export type ShadeName = "shade1" | "shade2" | "shade3" | "shade4" | "shade5";
+
+export type AnsiName =
   | "black"
   | "red"
   | "green"
@@ -68,6 +72,16 @@ export type ColorName = AccentName | MonochromaticName;
  * Generic to map type T to all Catppuccin color names.
  */
 export type Colors<T> = Record<ColorName, T>;
+
+/**
+ * Generic to map type T to all Catppuccin tint color names.
+ */
+export type TintColors<T> = Record<AccentName, Record<TintName, T>>;
+
+/**
+ * Generic to map type T to all Catppuccin shade color names.
+ */
+export type ShadeColors<T> = Record<AccentName, Record<ShadeName, T>>;
 
 /**
  * Generic to map type T to all ANSI color names.
@@ -104,6 +118,16 @@ export type CatppuccinFlavor = Readonly<{
   colors: CatppuccinColors;
 
   /**
+   * An object containing all the generated tints of the flavor.
+   */
+  tints: CatppuccinTintColors;
+
+  /**
+   * An object containing all the generated shades of the flavor.
+   */
+  shades: CatppuccinShadeColors;
+
+  /**
    * An object containing all the ANSI color mappings of the flavor.
    */
   ansiColors: CatppuccinAnsiColors;
@@ -112,6 +136,16 @@ export type CatppuccinFlavor = Readonly<{
    * A typed Object.entries iterable of the colors of the flavor.
    */
   colorEntries: Entries<CatppuccinColors>;
+
+  /**
+   * A typed Object.entries iterable of the generated tints of the flavor.
+   */
+  tintEntries: Entries<CatppuccinTintColors>;
+
+  /**
+   * A typed Object.entries iterable of the generated shades of the flavor.
+   */
+  shadeEntries: Entries<CatppuccinShadeColors>;
 
   /**
    * A typed Object.entries iterable of the ANSI colors of the flavor.
@@ -123,6 +157,16 @@ export type CatppuccinFlavor = Readonly<{
  * All colors of Catppuccin.
  */
 export type CatppuccinColors = Readonly<Colors<ColorFormat>>;
+
+/**
+ * All tint colors of Catppuccin.
+ */
+export type CatppuccinTintColors = Readonly<TintColors<BlendedColorFormat>>;
+
+/**
+ * All shade colors of Catppuccin.
+ */
+export type CatppuccinShadeColors = Readonly<ShadeColors<BlendedColorFormat>>;
 
 /**
  * All ANSI color mappings of Catppuccin.
@@ -215,6 +259,62 @@ export type ColorFormat = Readonly<{
    * Indicates whether the color is intended to be used as an accent color.
    */
   accent: boolean;
+}>;
+
+export type BlendedColorFormat = Readonly<{
+  /**
+   * Name of the color.
+   */
+  name: string;
+
+  /**
+   * Order of the color in the palette spec.
+   */
+  order: number;
+
+  /**
+   * String-formatted hex value.
+   * @example "#babbf1"
+   */
+  hex: string;
+
+  /**
+   * Formatted rgb value.
+   * @example { r: 186, g: 187, b: 241}
+   */
+  rgb: {
+    /**
+     * Red, 0-255
+     */
+    r: number;
+    /**
+     * Green, 0-255
+     */
+    g: number;
+    /**
+     * Blue, 0-255
+     */
+    b: number;
+  };
+
+  /**
+   * Formatted hsl value.
+   * @example { h: 238.9, s: 12.1, l: 83.5 }
+   */
+  hsl: {
+    /**
+     * Hue, 0-360
+     */
+    h: number;
+    /**
+     * Saturation, 0-100
+     */
+    s: number;
+    /**
+     * Lightness, 0-100
+     */
+    l: number;
+  };
 }>;
 
 export type AnsiColorGroups = Readonly<{
@@ -311,9 +411,12 @@ export const version = definitions.version;
 export const flavors: CatppuccinFlavors = entriesFromObject(
   jsonFlavors,
 ).reduce((acc, [flavorName, flavor]) => {
+  console.log(JSON.stringify(flavor));
   acc[flavorName] = {
     ...flavor,
     colorEntries: entriesFromObject(flavor.colors),
+    tintEntries: entriesFromObject(flavor.tints),
+    shadeEntries: entriesFromObject(flavor.shades),
     ansiColorEntries: entriesFromObject(flavor.ansiColors),
   };
   return acc;

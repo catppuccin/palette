@@ -4,6 +4,12 @@ import { flavorEntries, flavors, version } from "@catppuccin/palette";
 import palette from "@/palette.json" with { type: "json" };
 
 Deno.test("flavorEntries", () => {
+  flavorEntries.map(([flavorName]) => {
+    assertEquals(flavors[flavorName].name, palette[flavorName].name);
+  });
+});
+
+Deno.test("colorEntries", () => {
   flavorEntries.map(([flavorName, flavor]) => {
     flavor.colorEntries.map(([colorName, color]) =>
       assertEquals(color.hex, palette[flavorName].colors[colorName].hex)
@@ -11,9 +17,14 @@ Deno.test("flavorEntries", () => {
   });
 });
 
-Deno.test("flavors", () => {
-  flavorEntries.map(([flavorName]) => {
-    assertEquals(flavors[flavorName].name, palette[flavorName].name);
+Deno.test("tintEntries", () => {
+  flavorEntries.forEach(([flavorName, flavor]) => {
+    flavor.tintEntries.forEach(([colorName, color]) => {
+      console.log(colorName);
+      Object.entries(color).forEach(([tintName, tint]) => {
+        console.log(`${tintName}: ${tint.hex}`);
+      });
+    });
   });
 });
 
@@ -22,11 +33,11 @@ Deno.test("ansiEntries", () => {
     flavor.ansiColorEntries.map(([ansiColorName, ansiColor]) => {
       assertEquals(
         ansiColor.normal.name,
-        ansiColor.name
+        ansiColor.name,
       );
       assertEquals(
         ansiColor.bright.name,
-        `Bright ${ansiColor.name}`
+        `Bright ${ansiColor.name}`,
       );
       assertEquals(
         ansiColor.normal.hex,
