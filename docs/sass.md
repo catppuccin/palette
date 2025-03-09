@@ -54,10 +54,10 @@ In short:\
 Input:
 
 ```scss
+@use "sass:map";
 @use "catppuccin";
 // sass is also part of the npm package:
 // @use "~@catppuccin/palette/scss/catppuccin";
-@use "sass:map";
 
 @each $flavor, $color in catppuccin.$palette {
     .my-#{$flavor}-class {
