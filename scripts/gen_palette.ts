@@ -21,67 +21,142 @@ const entriesFromObject = <T extends object>(obj: T): Entries<T> =>
 
 type Writeable<T> = { -readonly [P in keyof T]: T[P] };
 
-const prettyNames = [
-  "Rosewater",
-  "Flamingo",
-  "Pink",
-  "Mauve",
-  "Red",
-  "Maroon",
-  "Peach",
-  "Yellow",
-  "Green",
-  "Teal",
-  "Sky",
-  "Sapphire",
-  "Blue",
-  "Lavender",
-  "Text",
-  "Subtext 1",
-  "Subtext 0",
-  "Overlay 2",
-  "Overlay 1",
-  "Overlay 0",
-  "Surface 2",
-  "Surface 1",
-  "Surface 0",
-  "Base",
-  "Mantle",
-  "Crust",
-] as const;
-
 const definitions = {
   latte: {
     name: "Latte",
     emoji: "🌻",
     dark: false,
     colors: {
-      rosewater: "#dc8a78",
-      flamingo: "#dd7878",
-      pink: "#ea76cb",
-      mauve: "#8839ef",
-      red: "#d20f39",
-      maroon: "#e64553",
-      peach: "#fe640b",
-      yellow: "#df8e1d",
-      green: "#40a02b",
-      teal: "#179299",
-      sky: "#04a5e5",
-      sapphire: "#209fb5",
-      blue: "#1e66f5",
-      lavender: "#7287fd",
-      text: "#4c4f69",
-      subtext1: "#5c5f77",
-      subtext0: "#6c6f85",
-      overlay2: "#7c7f93",
-      overlay1: "#8c8fa1",
-      overlay0: "#9ca0b0",
-      surface2: "#acb0be",
-      surface1: "#bcc0cc",
-      surface0: "#ccd0da",
-      base: "#eff1f5",
-      mantle: "#e6e9ef",
-      crust: "#dce0e8",
+      rosewater: {
+        name: "Rosewater",
+        object: new Color("#dc8a78"),
+        accent: true,
+      },
+      flamingo: {
+        name: "Flamingo",
+        object: new Color("#dd7878"),
+        accent: true,
+      },
+      pink: {
+        name: "Pink",
+        object: new Color("#ea76cb"),
+        accent: true,
+      },
+      mauve: {
+        name: "Mauve",
+        object: new Color("#8839ef"),
+        accent: true,
+      },
+      red: {
+        name: "Red",
+        object: new Color("#d20f39"),
+        accent: true,
+      },
+      maroon: {
+        name: "Maroon",
+        object: new Color("#e64553"),
+        accent: true,
+      },
+      peach: {
+        name: "Peach",
+        object: new Color("#fe640b"),
+        accent: true,
+      },
+      yellow: {
+        name: "Yellow",
+        object: new Color("#df8e1d"),
+        accent: true,
+      },
+      green: {
+        name: "Green",
+        object: new Color("#40a02b"),
+        accent: true,
+      },
+      teal: {
+        name: "Teal",
+        object: new Color("#179299"),
+        accent: true,
+      },
+      sky: {
+        name: "Sky",
+        object: new Color("#04a5e5"),
+        accent: true,
+      },
+      sapphire: {
+        name: "Sapphire",
+        object: new Color("#209fb5"),
+        accent: true,
+      },
+      blue: {
+        name: "Blue",
+        object: new Color("#1e66f5"),
+        accent: true,
+      },
+      lavender: {
+        name: "Lavender",
+        object: new Color("#7287fd"),
+        accent: true,
+      },
+      text: {
+        name: "Text",
+        object: new Color("#4c4f69"),
+        accent: false,
+      },
+      subtext1: {
+        name: "Subtext 1",
+        object: new Color("#5c5f77"),
+        accent: false,
+      },
+      subtext0: {
+        name: "Subtext 0",
+        object: new Color("#6c6f85"),
+        accent: false,
+      },
+      overlay2: {
+        name: "Overlay 2",
+        object: new Color("#7c7f93"),
+        accent: false,
+      },
+      overlay1: {
+        name: "Overlay 1",
+        object: new Color("#8c8fa1"),
+        accent: false,
+      },
+      overlay0: {
+        name: "Overlay 0",
+        object: new Color("#9ca0b0"),
+        accent: false,
+      },
+      surface2: {
+        name: "Surface 2",
+        object: new Color("#acb0be"),
+        accent: false,
+      },
+      surface1: {
+        name: "Surface 1",
+        object: new Color("#bcc0cc"),
+        accent: false,
+      },
+      surface0: {
+        name: "Surface 0",
+        object: new Color("#ccd0da"),
+        accent: false,
+      },
+      base: {
+        name: "Base",
+        object: new Color("#eff1f5"),
+        accent: false,
+      },
+      mantle: {
+        name: "Mantle",
+        object: new Color("#e6e9ef"),
+        accent: false,
+      },
+      crust: {
+        name: "Crust",
+        object: new Color("#dce0e8"),
+        accent: false,
+      },
     },
   },
   frappe: {
@@ -89,32 +164,136 @@ const definitions = {
     emoji: "🪴",
     dark: true,
     colors: {
-      rosewater: "#f2d5cf",
-      flamingo: "#eebebe",
-      pink: "#f4b8e4",
-      mauve: "#ca9ee6",
-      red: "#e78284",
-      maroon: "#ea999c",
-      peach: "#ef9f76",
-      yellow: "#e5c890",
-      green: "#a6d189",
-      teal: "#81c8be",
-      sky: "#99d1db",
-      sapphire: "#85c1dc",
-      blue: "#8caaee",
-      lavender: "#babbf1",
-      text: "#c6d0f5",
-      subtext1: "#b5bfe2",
-      subtext0: "#a5adce",
-      overlay2: "#949cbb",
-      overlay1: "#838ba7",
-      overlay0: "#737994",
-      surface2: "#626880",
-      surface1: "#51576d",
-      surface0: "#414559",
-      base: "#303446",
-      mantle: "#292c3c",
-      crust: "#232634",
+      rosewater: {
+        name: "Rosewater",
+        object: new Color("#f2d5cf"),
+        accent: true,
+      },
+      flamingo: {
+        name: "Flamingo",
+        object: new Color("#eebebe"),
+        accent: true,
+      },
+      pink: {
+        name: "Pink",
+        object: new Color("#f4b8e4"),
+        accent: true,
+      },
+      mauve: {
+        name: "Mauve",
+        object: new Color("#ca9ee6"),
+        accent: true,
+      },
+      red: {
+        name: "Red",
+        object: new Color("#e78284"),
+        accent: true,
+      },
+      maroon: {
+        name: "Maroon",
+        object: new Color("#ea999c"),
+        accent: true,
+      },
+      peach: {
+        name: "Peach",
+        object: new Color("#ef9f76"),
+        accent: true,
+      },
+      yellow: {
+        name: "Yellow",
+        object: new Color("#e5c890"),
+        accent: true,
+      },
+      green: {
+        name: "Green",
+        object: new Color("#a6d189"),
+        accent: true,
+      },
+      teal: {
+        name: "Teal",
+        object: new Color("#81c8be"),
+        accent: true,
+      },
+      sky: {
+        name: "Sky",
+        object: new Color("#99d1db"),
+        accent: true,
+      },
+      sapphire: {
+        name: "Sapphire",
+        object: new Color("#85c1dc"),
+        accent: true,
+      },
+      blue: {
+        name: "Blue",
+        object: new Color("#8caaee"),
+        accent: true,
+      },
+      lavender: {
+        name: "Lavender",
+        object: new Color("#babbf1"),
+        accent: true,
+      },
+      text: {
+        name: "Text",
+        object: new Color("#c6d0f5"),
+        accent: false,
+      },
+      subtext1: {
+        name: "Subtext 1",
+        object: new Color("#b5bfe2"),
+        accent: false,
+      },
+      subtext0: {
+        name: "Subtext 0",
+        object: new Color("#a5adce"),
+        accent: false,
+      },
+      overlay2: {
+        name: "Overlay 2",
+        object: new Color("#949cbb"),
+        accent: false,
+      },
+      overlay1: {
+        name: "Overlay 1",
+        object: new Color("#838ba7"),
+        accent: false,
+      },
+      overlay0: {
+        name: "Overlay 0",
+        object: new Color("#737994"),
+        accent: false,
+      },
+      surface2: {
+        name: "Surface 2",
+        object: new Color("#626880"),
+        accent: false,
+      },
+      surface1: {
+        name: "Surface 1",
+        object: new Color("#51576d"),
+        accent: false,
+      },
+      surface0: {
+        name: "Surface 0",
+        object: new Color("#414559"),
+        accent: false,
+      },
+      base: {
+        name: "Base",
+        object: new Color("#303446"),
+        accent: false,
+      },
+      mantle: {
+        name: "Mantle",
+        object: new Color("#292c3c"),
+        accent: false,
+      },
+      crust: {
+        name: "Crust",
+        object: new Color("#232634"),
+        accent: false,
+      },
     },
   },
   macchiato: {
@@ -122,32 +301,136 @@ const definitions = {
     emoji: "🌺",
     dark: true,
     colors: {
-      rosewater: "#f4dbd6",
-      flamingo: "#f0c6c6",
-      pink: "#f5bde6",
-      mauve: "#c6a0f6",
-      red: "#ed8796",
-      maroon: "#ee99a0",
-      peach: "#f5a97f",
-      yellow: "#eed49f",
-      green: "#a6da95",
-      teal: "#8bd5ca",
-      sky: "#91d7e3",
-      sapphire: "#7dc4e4",
-      blue: "#8aadf4",
-      lavender: "#b7bdf8",
-      text: "#cad3f5",
-      subtext1: "#b8c0e0",
-      subtext0: "#a5adcb",
-      overlay2: "#939ab7",
-      overlay1: "#8087a2",
-      overlay0: "#6e738d",
-      surface2: "#5b6078",
-      surface1: "#494d64",
-      surface0: "#363a4f",
-      base: "#24273a",
-      mantle: "#1e2030",
-      crust: "#181926",
+      rosewater: {
+        name: "Rosewater",
+        object: new Color("#f4dbd6"),
+        accent: true,
+      },
+      flamingo: {
+        name: "Flamingo",
+        object: new Color("#f0c6c6"),
+        accent: true,
+      },
+      pink: {
+        name: "Pink",
+        object: new Color("#f5bde6"),
+        accent: true,
+      },
+      mauve: {
+        name: "Mauve",
+        object: new Color("#c6a0f6"),
+        accent: true,
+      },
+      red: {
+        name: "Red",
+        object: new Color("#ed8796"),
+        accent: true,
+      },
+      maroon: {
+        name: "Maroon",
+        object: new Color("#ee99a0"),
+        accent: true,
+      },
+      peach: {
+        name: "Peach",
+        object: new Color("#f5a97f"),
+        accent: true,
+      },
+      yellow: {
+        name: "Yellow",
+        object: new Color("#eed49f"),
+        accent: true,
+      },
+      green: {
+        name: "Green",
+        object: new Color("#a6da95"),
+        accent: true,
+      },
+      teal: {
+        name: "Teal",
+        object: new Color("#8bd5ca"),
+        accent: true,
+      },
+      sky: {
+        name: "Sky",
+        object: new Color("#91d7e3"),
+        accent: true,
+      },
+      sapphire: {
+        name: "Sapphire",
+        object: new Color("#7dc4e4"),
+        accent: true,
+      },
+      blue: {
+        name: "Blue",
+        object: new Color("#8aadf4"),
+        accent: true,
+      },
+      lavender: {
+        name: "Lavender",
+        object: new Color("#b7bdf8"),
+        accent: true,
+      },
+      text: {
+        name: "Text",
+        object: new Color("#cad3f5"),
+        accent: false,
+      },
+      subtext1: {
+        name: "Subtext 1",
+        object: new Color("#b8c0e0"),
+        accent: false,
+      },
+      subtext0: {
+        name: "Subtext 0",
+        object: new Color("#a5adcb"),
+        accent: false,
+      },
+      overlay2: {
+        name: "Overlay 2",
+        object: new Color("#939ab7"),
+        accent: false,
+      },
+      overlay1: {
+        name: "Overlay 1",
+        object: new Color("#8087a2"),
+        accent: false,
+      },
+      overlay0: {
+        name: "Overlay 0",
+        object: new Color("#6e738d"),
+        accent: false,
+      },
+      surface2: {
+        name: "Surface 2",
+        object: new Color("#5b6078"),
+        accent: false,
+      },
+      surface1: {
+        name: "Surface 1",
+        object: new Color("#494d64"),
+        accent: false,
+      },
+      surface0: {
+        name: "Surface 0",
+        object: new Color("#363a4f"),
+        accent: false,
+      },
+      base: {
+        name: "Base",
+        object: new Color("#24273a"),
+        accent: false,
+      },
+      mantle: {
+        name: "Mantle",
+        object: new Color("#1e2030"),
+        accent: false,
+      },
+      crust: {
+        name: "Crust",
+        object: new Color("#181926"),
+        accent: false,
+      },
     },
   },
   mocha: {
@@ -155,52 +438,139 @@ const definitions = {
     emoji: "🌿",
     dark: true,
     colors: {
-      rosewater: "#f5e0dc",
-      flamingo: "#f2cdcd",
-      pink: "#f5c2e7",
-      mauve: "#cba6f7",
-      red: "#f38ba8",
-      maroon: "#eba0ac",
-      peach: "#fab387",
-      yellow: "#f9e2af",
-      green: "#a6e3a1",
-      teal: "#94e2d5",
-      sky: "#89dceb",
-      sapphire: "#74c7ec",
-      blue: "#89b4fa",
-      lavender: "#b4befe",
-      text: "#cdd6f4",
-      subtext1: "#bac2de",
-      subtext0: "#a6adc8",
-      overlay2: "#9399b2",
-      overlay1: "#7f849c",
-      overlay0: "#6c7086",
-      surface2: "#585b70",
-      surface1: "#45475a",
-      surface0: "#313244",
-      base: "#1e1e2e",
-      mantle: "#181825",
-      crust: "#11111b",
+      rosewater: {
+        name: "Rosewater",
+        object: new Color("#f5e0dc"),
+        accent: true,
+      },
+      flamingo: {
+        name: "Flamingo",
+        object: new Color("#f2cdcd"),
+        accent: true,
+      },
+      pink: {
+        name: "Pink",
+        object: new Color("#f5c2e7"),
+        accent: true,
+      },
+      mauve: {
+        name: "Mauve",
+        object: new Color("#cba6f7"),
+        accent: true,
+      },
+      red: {
+        name: "Red",
+        object: new Color("#f38ba8"),
+        accent: true,
+      },
+      maroon: {
+        name: "Maroon",
+        object: new Color("#eba0ac"),
+        accent: true,
+      },
+      peach: {
+        name: "Peach",
+        object: new Color("#fab387"),
+        accent: true,
+      },
+      yellow: {
+        name: "Yellow",
+        object: new Color("#f9e2af"),
+        accent: true,
+      },
+      green: {
+        name: "Green",
+        object: new Color("#a6e3a1"),
+        accent: true,
+      },
+      teal: {
+        name: "Teal",
+        object: new Color("#94e2d5"),
+        accent: true,
+      },
+      sky: {
+        name: "Sky",
+        object: new Color("#89dceb"),
+        accent: true,
+      },
+      sapphire: {
+        name: "Sapphire",
+        object: new Color("#74c7ec"),
+        accent: true,
+      },
+      blue: {
+        name: "Blue",
+        object: new Color("#89b4fa"),
+        accent: true,
+      },
+      lavender: {
+        name: "Lavender",
+        object: new Color("#b4befe"),
+        accent: true,
+      },
+      text: {
+        name: "Text",
+        object: new Color("#cdd6f4"),
+        accent: false,
+      },
+      subtext1: {
+        name: "Subtext 1",
+        object: new Color("#bac2de"),
+        accent: false,
+      },
+      subtext0: {
+        name: "Subtext 0",
+        object: new Color("#a6adc8"),
+        accent: false,
+      },
+      overlay2: {
+        name: "Overlay 2",
+        object: new Color("#9399b2"),
+        accent: false,
+      },
+      overlay1: {
+        name: "Overlay 1",
+        object: new Color("#7f849c"),
+        accent: false,
+      },
+      overlay0: {
+        name: "Overlay 0",
+        object: new Color("#6c7086"),
+        accent: false,
+      },
+      surface2: {
+        name: "Surface 2",
+        object: new Color("#585b70"),
+        accent: false,
+      },
+      surface1: {
+        name: "Surface 1",
+        object: new Color("#45475a"),
+        accent: false,
+      },
+      surface0: {
+        name: "Surface 0",
+        object: new Color("#313244"),
+        accent: false,
+      },
+      base: {
+        name: "Base",
+        object: new Color("#1e1e2e"),
+        accent: false,
+      },
+      mantle: {
+        name: "Mantle",
+        object: new Color("#181825"),
+        accent: false,
+      },
+      crust: {
+        name: "Crust",
+        object: new Color("#11111b"),
+        accent: false,
+      },
     },
   },
 };
-
-const accents = [
-  "rosewater",
-  "flamingo",
-  "pink",
-  "mauve",
-  "red",
-  "maroon",
-  "peach",
-  "yellow",
-  "green",
-  "teal",
-  "sky",
-  "sapphire",
-  "blue",
-  "lavender",
-];
 
 const ansiMappings = {
   black: {
@@ -277,12 +647,18 @@ const ansiMappings = {
   },
 };
 
-const toRgb = (hex: string): { r: number; g: number; b: number } => {
-  const { r, g, b } = tinycolor(hex).toRgb();
+const toHex = (color: Color): string => {
+  return color.toString({ format: "hex" });
+};
+
+const toRgb = (color: Color): { r: number; g: number; b: number } => {
+  const coords = color.to("srgb").toGamut().coords.map((i) =>
+    Math.round(i * 255)
+  );
   return {
-    r,
-    g,
-    b,
+    r: coords[0],
+    g: coords[1],
+    b: coords[2],
   };
 };
 
@@ -305,12 +681,12 @@ const formatted = entriesFromObject(definitions).reduce(
       colors: entriesFromObject(flavor.colors).reduce(
         (acc, [colorName, color], currentIndex) => {
           acc[colorName] = {
-            name: prettyNames[currentIndex],
+            name: color.name,
             order: currentIndex,
-            hex: color,
-            rgb: toRgb(color),
-            hsl: toHsl(color),
-            accent: accents.includes(colorName),
+            hex: toHex(color.object),
+            rgb: toRgb(color.object),
+            hsl: toHsl(toHex(color.object)),
+            accent: color.accent,
           };
           return acc;
         },
@@ -322,29 +698,29 @@ const formatted = entriesFromObject(definitions).reduce(
           const normalName = name[0].toUpperCase() +
             name.substring(1).toLowerCase();
           const brightName = `Bright ${normalName}`;
-          let normalColorHex = flavor.colors[mapping];
-          let brightColorHex: string;
+          let normalColor: Color;
+          let brightColor: Color;
 
           if (name == "black") {
-            normalColorHex = flavor.dark
-              ? flavor.colors["surface1"]
-              : flavor.colors["subtext1"];
-            brightColorHex = flavor.dark
-              ? flavor.colors["surface2"]
-              : flavor.colors["subtext0"];
+            normalColor = flavor.dark
+              ? flavor.colors["surface1"].object
+              : flavor.colors["subtext1"].object;
+            brightColor = flavor.dark
+              ? flavor.colors["surface2"].object
+              : flavor.colors["subtext0"].object;
           } else if (name == "white") {
-            normalColorHex = flavor.dark
-              ? flavor.colors["subtext0"]
-              : flavor.colors["surface2"];
-            brightColorHex = flavor.dark
-              ? flavor.colors["subtext1"]
-              : flavor.colors["surface1"];
+            normalColor = flavor.dark
+              ? flavor.colors["subtext0"].object
+              : flavor.colors["surface2"].object;
+            brightColor = flavor.dark
+              ? flavor.colors["subtext1"].object
+              : flavor.colors["surface1"].object;
           } else {
-            const brightColor = new Color(normalColorHex);
+            normalColor = flavor.colors[mapping].object;
+            brightColor = new Color(normalColor);
             brightColor.lch.l *= flavor.dark ? 0.94 : 1.09;
             brightColor.lch.c += flavor.dark ? 8 : 0;
             brightColor.lch.h += 2;
-            brightColorHex = brightColor.toString({ format: "hex" });
           }
 
           acc[name] = {
@@ -352,16 +728,16 @@ const formatted = entriesFromObject(definitions).reduce(
             order: currentIndex,
             normal: {
               name: normalName,
-              hex: normalColorHex,
-              rgb: toRgb(normalColorHex),
-              hsl: toHsl(normalColorHex),
+              hex: toHex(normalColor),
+              rgb: toRgb(normalColor),
+              hsl: toHsl(toHex(normalColor)),
               code: props.normal.code,
             },
             bright: {
               name: brightName,
-              hex: brightColorHex,
-              rgb: toRgb(brightColorHex),
-              hsl: toHsl(brightColorHex),
+              hex: toHex(brightColor),
+              rgb: toRgb(brightColor),
+              hsl: toHsl(toHex(brightColor)),
               code: props.bright.code,
             },
           };
