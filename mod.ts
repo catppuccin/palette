@@ -411,7 +411,6 @@ export const version = definitions.version;
 export const flavors: CatppuccinFlavors = entriesFromObject(
   jsonFlavors,
 ).reduce((acc, [flavorName, flavor]) => {
-  console.log(JSON.stringify(flavor));
   acc[flavorName] = {
     ...flavor,
     colorEntries: entriesFromObject(flavor.colors),

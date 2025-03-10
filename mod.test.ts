@@ -1,6 +1,12 @@
 import { assertEquals } from "std/assert/assert_equals.ts";
 
-import { flavorEntries, flavors, version } from "@catppuccin/palette";
+import {
+  type AccentName,
+  type AnsiName,
+  flavorEntries,
+  flavors,
+  version,
+} from "@catppuccin/palette";
 import palette from "@/palette.json" with { type: "json" };
 
 Deno.test("flavorEntries", () => {
@@ -18,7 +24,7 @@ Deno.test("colorEntries", () => {
 });
 
 Deno.test("tintEntries", () => {
-  flavorEntries.forEach(([flavorName, flavor]) => {
+  flavorEntries.forEach(([_, flavor]) => {
     flavor.tintEntries.forEach(([colorName, color]) => {
       console.log(colorName);
       Object.entries(color).forEach(([tintName, tint]) => {
@@ -29,8 +35,17 @@ Deno.test("tintEntries", () => {
 });
 
 Deno.test("ansiEntries", () => {
-  flavorEntries.map(([flavorName, flavor]) => {
-    flavor.ansiColorEntries.map(([ansiColorName, ansiColor]) => {
+  const mappings: Omit<Record<AnsiName, AccentName>, "black" | "white"> = {
+    red: "red",
+    green: "green",
+    yellow: "yellow",
+    blue: "blue",
+    magenta: "pink",
+    cyan: "teal",
+  };
+
+  flavorEntries.forEach(([flavorName, flavor]) => {
+    flavor.ansiColorEntries.forEach(([ansiColorName, ansiColor]) => {
       assertEquals(
         ansiColor.normal.name,
         ansiColor.name,
@@ -43,6 +58,12 @@ Deno.test("ansiEntries", () => {
         ansiColor.normal.hex,
         palette[flavorName].ansiColors[ansiColorName].normal.hex,
       );
+      if (ansiColorName !== "black" && ansiColorName !== "white") {
+        assertEquals(
+          ansiColor.bright.hex,
+          palette[flavorName].tints[mappings[ansiColorName]].tint2.hex,
+        );
+      }
 
       if (ansiColorName == "black") {
         if (flavorName == "latte") {

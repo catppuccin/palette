@@ -54,7 +54,7 @@ type DefinitionColor = {
 type DefinitionAnsiColors = {
   [key in AnsiName]: {
     normal: {
-      mapping?: string;
+      mapping: string;
       code: number;
     };
     bright: {
@@ -67,64 +67,100 @@ type DefinitionAnsiColors = {
 const entriesFromObject = <T extends object>(obj: T): Entries<T> =>
   Object.entries(obj) as Entries<T>;
 
-const staticAnsiColors: Pick<
-  DefinitionAnsiColors,
-  "red" | "green" | "yellow" | "blue" | "magenta" | "cyan"
-> = {
-  red: {
-    normal: {
-      mapping: "red",
-      code: 1,
+const ansiColors = (flavor: FlavorName): DefinitionAnsiColors => {
+  let blackNormalMapping: string;
+  let blackBrightMapping: string;
+  let whiteNormalMapping: string;
+  let whiteBrightMapping: string;
+
+  if (flavor === "latte") {
+    blackNormalMapping = "subtext1";
+    blackBrightMapping = "subtext0";
+    whiteNormalMapping = "surface2";
+    whiteBrightMapping = "surface1";
+  } else {
+    blackNormalMapping = "surface1";
+    blackBrightMapping = "surface2";
+    whiteNormalMapping = "subtext0";
+    whiteBrightMapping = "subtext1";
+  }
+
+  return {
+    black: {
+      normal: {
+        mapping: blackNormalMapping,
+        code: 0,
+      },
+      bright: {
+        mapping: blackBrightMapping,
+        code: 8,
+      },
     },
-    bright: {
-      code: 9,
+    red: {
+      normal: {
+        mapping: "red",
+        code: 1,
+      },
+      bright: {
+        code: 9,
+      },
     },
-  },
-  green: {
-    normal: {
-      mapping: "green",
-      code: 2,
+    green: {
+      normal: {
+        mapping: "green",
+        code: 2,
+      },
+      bright: {
+        code: 10,
+      },
     },
-    bright: {
-      code: 10,
+    yellow: {
+      normal: {
+        mapping: "yellow",
+        code: 3,
+      },
+      bright: {
+        code: 11,
+      },
     },
-  },
-  yellow: {
-    normal: {
-      mapping: "yellow",
-      code: 3,
+    blue: {
+      normal: {
+        mapping: "blue",
+        code: 4,
+      },
+      bright: {
+        code: 12,
+      },
     },
-    bright: {
-      code: 11,
+    magenta: {
+      normal: {
+        mapping: "pink",
+        code: 5,
+      },
+      bright: {
+        code: 13,
+      },
     },
-  },
-  blue: {
-    normal: {
-      mapping: "blue",
-      code: 4,
+    cyan: {
+      normal: {
+        mapping: "teal",
+        code: 6,
+      },
+      bright: {
+        code: 14,
+      },
     },
-    bright: {
-      code: 12,
+    white: {
+      normal: {
+        mapping: whiteNormalMapping,
+        code: 7,
+      },
+      bright: {
+        mapping: whiteBrightMapping,
+        code: 15,
+      },
     },
-  },
-  magenta: {
-    normal: {
-      mapping: "pink",
-      code: 5,
-    },
-    bright: {
-      code: 13,
-    },
-  },
-  cyan: {
-    normal: {
-      mapping: "teal",
-      code: 6,
-    },
-    bright: {
-      code: 14,
-    },
-  },
+  };
 };
 
 const definitions: Definition = {
@@ -270,29 +306,7 @@ const definitions: Definition = {
         accent: false,
       },
     },
-    ansiColors: {
-      black: {
-        normal: {
-          mapping: "subtext1",
-          code: 0,
-        },
-        bright: {
-          mapping: "subtext0",
-          code: 8,
-        },
-      },
-      ...staticAnsiColors,
-      white: {
-        normal: {
-          mapping: "surface2",
-          code: 7,
-        },
-        bright: {
-          mapping: "surface1",
-          code: 15,
-        },
-      },
-    },
+    ansiColors: ansiColors("latte"),
   },
   frappe: {
     name: "Frappé",
@@ -436,29 +450,7 @@ const definitions: Definition = {
         accent: false,
       },
     },
-    ansiColors: {
-      black: {
-        normal: {
-          mapping: "surface1",
-          code: 0,
-        },
-        bright: {
-          mapping: "surface2",
-          code: 8,
-        },
-      },
-      ...staticAnsiColors,
-      white: {
-        normal: {
-          mapping: "subtext0",
-          code: 7,
-        },
-        bright: {
-          mapping: "subtext1",
-          code: 15,
-        },
-      },
-    },
+    ansiColors: ansiColors("frappe"),
   },
   macchiato: {
     name: "Macchiato",
@@ -602,29 +594,7 @@ const definitions: Definition = {
         accent: false,
       },
     },
-    ansiColors: {
-      black: {
-        normal: {
-          mapping: "surface1",
-          code: 0,
-        },
-        bright: {
-          mapping: "surface2",
-          code: 8,
-        },
-      },
-      ...staticAnsiColors,
-      white: {
-        normal: {
-          mapping: "subtext0",
-          code: 7,
-        },
-        bright: {
-          mapping: "subtext1",
-          code: 15,
-        },
-      },
-    },
+    ansiColors: ansiColors("macchiato"),
   },
   mocha: {
     name: "Mocha",
@@ -768,29 +738,7 @@ const definitions: Definition = {
         accent: false,
       },
     },
-    ansiColors: {
-      black: {
-        normal: {
-          mapping: "surface1",
-          code: 0,
-        },
-        bright: {
-          mapping: "surface2",
-          code: 8,
-        },
-      },
-      ...staticAnsiColors,
-      white: {
-        normal: {
-          mapping: "subtext0",
-          code: 7,
-        },
-        bright: {
-          mapping: "subtext1",
-          code: 15,
-        },
-      },
-    },
+    ansiColors: ansiColors("mocha"),
   },
 };
 
@@ -909,10 +857,11 @@ const formatted = entriesFromObject(definitions).reduce(
             brightColor =
               flavor.colors[props.bright.mapping as ColorName].object;
           } else {
-            brightColor = new Color(normalColor);
-            brightColor.lch.l *= flavor.dark ? 0.94 : 1.09;
-            brightColor.lch.c += flavor.dark ? 8 : 0;
-            brightColor.lch.h += 2;
+            brightColor = blendColor(
+              30,
+              normalColor,
+              flavor.tints.blendingColor,
+            );
           }
 
           acc[name] = {
