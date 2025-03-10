@@ -4,9 +4,13 @@ import {
   type AnsiName,
   flavorEntries,
   flavors,
+  type ShadeName,
+  type TintName,
   version,
 } from "@catppuccin/palette";
 import palette from "@/palette.json" with { type: "json" };
+import Color from "colorjs";
+import { assert } from "std/assert/assert.ts";
 
 Deno.test("flavorEntries", () => {
   flavorEntries.forEach(([flavorName]) => {
@@ -22,13 +26,28 @@ Deno.test("colorEntries", () => {
   });
 });
 
-Deno.test("tintEntries", () => {
+Deno.test("tintEntries - tints increase in lightness", () => {
   flavorEntries.forEach(([_, flavor]) => {
-    flavor.tintEntries.forEach(([colorName, color]) => {
-      console.log(colorName);
-      Object.entries(color).forEach(([tintName, tint]) => {
-        console.log(`${tintName}: ${tint.hex}`);
-      });
+    flavor.tintEntries.forEach(([_, color]) => {
+      const tintsLength = Object.keys(color).length;
+      for (let i = 0; i < tintsLength - 1; i++) {
+        const firstTint = new Color(color[`tint${i + 1}` as TintName].hex);
+        const secondTint = new Color(color[`tint${i + 2}` as TintName].hex);
+        assert(firstTint.lch.l <= secondTint.lch.l);
+      }
+    });
+  });
+});
+
+Deno.test("shadeEntries - shades decrease in lightness", () => {
+  flavorEntries.forEach(([_, flavor]) => {
+    flavor.shadeEntries.forEach(([_, color]) => {
+      const length = Object.keys(color).length;
+      for (let i = 0; i < length - 1; i++) {
+        const firstTint = new Color(color[`shade${i + 1}` as ShadeName].hex);
+        const secondTint = new Color(color[`shade${i + 2}` as ShadeName].hex);
+        assert(firstTint.lch.l >= secondTint.lch.l);
+      }
     });
   });
 });
