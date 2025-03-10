@@ -64,6 +64,12 @@ type DefinitionAnsiColors = {
   };
 };
 
+const intensities = [15, 30, 45, 60, 75] as const;
+
+type Intensity = (typeof intensities)[number];
+
+const INTENSITY_TWO: Intensity = intensities[1];
+
 const entriesFromObject = <T extends object>(obj: T): Entries<T> =>
   Object.entries(obj) as Entries<T>;
 
@@ -742,8 +748,6 @@ const definitions: Definition = {
   },
 };
 
-const intensities = [15, 30, 45, 60, 75];
-
 const toHex = (color: Color): string => {
   return color.toString({ format: "hex" });
 };
@@ -769,7 +773,7 @@ const toHsl = (hex: string): { h: number; s: number; l: number } => {
 };
 
 const blendColor = (
-  intensity: number,
+  intensity: Intensity,
   accentColor: Color,
   blendingColor: Color,
 ): Color => {
@@ -858,7 +862,7 @@ const formatted = entriesFromObject(definitions).reduce(
               flavor.colors[props.bright.mapping as ColorName].object;
           } else {
             brightColor = blendColor(
-              30,
+              INTENSITY_TWO,
               normalColor,
               flavor.tints.blendingColor,
             );
