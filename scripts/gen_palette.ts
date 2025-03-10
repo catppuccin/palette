@@ -1,5 +1,4 @@
 import { join } from "std/path/join.ts";
-import tinycolor from "tinycolor2";
 import Color from "colorjs";
 
 import meta from "../deno.json" with { type: "json" };
@@ -763,12 +762,12 @@ const toRgb = (color: Color): { r: number; g: number; b: number } => {
   };
 };
 
-const toHsl = (hex: string): { h: number; s: number; l: number } => {
-  const { h, s, l } = tinycolor(hex).toHsl();
+const toHsl = (color: Color): { h: number; s: number; l: number } => {
+  const coords = color.to("hsl").toGamut().coords;
   return {
-    h,
-    s,
-    l,
+    h: coords[0],
+    s: coords[1] / 100,
+    l: coords[2] / 100,
   };
 };
 
@@ -804,7 +803,7 @@ const blendedColors = <T extends CatppuccinTintColors | CatppuccinShadeColors>(
               order: intensityIndex,
               hex: toHex(blendedColor),
               rgb: toRgb(blendedColor),
-              hsl: toHsl(toHex(blendedColor)),
+              hsl: toHsl(blendedColor),
             };
             return acc;
           },
@@ -840,7 +839,7 @@ const formatted = entriesFromObject(definitions).reduce(
             order: currentIndex,
             hex: toHex(color.object),
             rgb: toRgb(color.object),
-            hsl: toHsl(toHex(color.object)),
+            hsl: toHsl(color.object),
             accent: color.accent,
           };
           return acc;
@@ -875,14 +874,14 @@ const formatted = entriesFromObject(definitions).reduce(
               name: normalName,
               hex: toHex(normalColor),
               rgb: toRgb(normalColor),
-              hsl: toHsl(toHex(normalColor)),
+              hsl: toHsl(normalColor),
               code: props.normal.code,
             },
             bright: {
               name: brightName,
               hex: toHex(brightColor),
               rgb: toRgb(brightColor),
-              hsl: toHsl(toHex(brightColor)),
+              hsl: toHsl(brightColor),
               code: props.bright.code,
             },
           };
