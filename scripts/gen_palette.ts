@@ -6,6 +6,7 @@ import meta from "../deno.json" with { type: "json" };
 
 import type {
   AccentName,
+  AnsiName,
   BlendedColorFormat,
   CatppuccinAnsiColors,
   CatppuccinColors,
@@ -24,7 +25,7 @@ type Entries<T> = {
 
 type Writeable<T> = { -readonly [P in keyof T]: T[P] };
 
-type CatppuccinDefinition = {
+type Definition = {
   [key in FlavorName]: {
     name: string;
     emoji: string;
@@ -35,24 +36,98 @@ type CatppuccinDefinition = {
     shades: {
       blendingColor: Color;
     };
-    colors: CatppuccinDefinitionColors;
+    colors: DefinitionColors;
+    ansiColors: DefinitionAnsiColors;
   };
 };
 
-type CatppuccinDefinitionColors = {
-  [key in ColorName]: CatppuccinDefinitionColor;
+type DefinitionColors = {
+  [key in ColorName]: DefinitionColor;
 };
 
-type CatppuccinDefinitionColor = {
+type DefinitionColor = {
   name: string;
   object: Color;
   accent: boolean;
 };
 
+type DefinitionAnsiColors = {
+  [key in AnsiName]: {
+    normal: {
+      mapping?: string;
+      code: number;
+    };
+    bright: {
+      mapping?: string;
+      code: number;
+    };
+  };
+};
+
 const entriesFromObject = <T extends object>(obj: T): Entries<T> =>
   Object.entries(obj) as Entries<T>;
 
-const definitions: CatppuccinDefinition = {
+const staticAnsiColors: Pick<
+  DefinitionAnsiColors,
+  "red" | "green" | "yellow" | "blue" | "magenta" | "cyan"
+> = {
+  red: {
+    normal: {
+      mapping: "red",
+      code: 1,
+    },
+    bright: {
+      code: 9,
+    },
+  },
+  green: {
+    normal: {
+      mapping: "green",
+      code: 2,
+    },
+    bright: {
+      code: 10,
+    },
+  },
+  yellow: {
+    normal: {
+      mapping: "yellow",
+      code: 3,
+    },
+    bright: {
+      code: 11,
+    },
+  },
+  blue: {
+    normal: {
+      mapping: "blue",
+      code: 4,
+    },
+    bright: {
+      code: 12,
+    },
+  },
+  magenta: {
+    normal: {
+      mapping: "pink",
+      code: 5,
+    },
+    bright: {
+      code: 13,
+    },
+  },
+  cyan: {
+    normal: {
+      mapping: "teal",
+      code: 6,
+    },
+    bright: {
+      code: 14,
+    },
+  },
+};
+
+const definitions: Definition = {
   latte: {
     name: "Latte",
     emoji: "🌻",
@@ -193,6 +268,29 @@ const definitions: CatppuccinDefinition = {
         name: "Crust",
         object: new Color("#dce0e8"),
         accent: false,
+      },
+    },
+    ansiColors: {
+      black: {
+        normal: {
+          mapping: "subtext1",
+          code: 0,
+        },
+        bright: {
+          mapping: "subtext0",
+          code: 8,
+        },
+      },
+      ...staticAnsiColors,
+      white: {
+        normal: {
+          mapping: "surface2",
+          code: 7,
+        },
+        bright: {
+          mapping: "surface1",
+          code: 15,
+        },
       },
     },
   },
@@ -338,6 +436,29 @@ const definitions: CatppuccinDefinition = {
         accent: false,
       },
     },
+    ansiColors: {
+      black: {
+        normal: {
+          mapping: "surface1",
+          code: 0,
+        },
+        bright: {
+          mapping: "surface2",
+          code: 8,
+        },
+      },
+      ...staticAnsiColors,
+      white: {
+        normal: {
+          mapping: "subtext0",
+          code: 7,
+        },
+        bright: {
+          mapping: "subtext1",
+          code: 15,
+        },
+      },
+    },
   },
   macchiato: {
     name: "Macchiato",
@@ -479,6 +600,29 @@ const definitions: CatppuccinDefinition = {
         name: "Crust",
         object: new Color("#181926"),
         accent: false,
+      },
+    },
+    ansiColors: {
+      black: {
+        normal: {
+          mapping: "surface1",
+          code: 0,
+        },
+        bright: {
+          mapping: "surface2",
+          code: 8,
+        },
+      },
+      ...staticAnsiColors,
+      white: {
+        normal: {
+          mapping: "subtext0",
+          code: 7,
+        },
+        bright: {
+          mapping: "subtext1",
+          code: 15,
+        },
       },
     },
   },
@@ -624,80 +768,28 @@ const definitions: CatppuccinDefinition = {
         accent: false,
       },
     },
-  },
-};
-
-const ansiMappings = {
-  black: {
-    normal: {
-      mapping: "", // superfluous, exists to make TypeScript happy
-      code: 0,
-    },
-    bright: {
-      code: 8,
-    },
-  },
-  red: {
-    normal: {
-      mapping: "red",
-      code: 1,
-    },
-    bright: {
-      code: 9,
-    },
-  },
-  green: {
-    normal: {
-      mapping: "green",
-      code: 2,
-    },
-    bright: {
-      code: 10,
-    },
-  },
-  yellow: {
-    normal: {
-      mapping: "yellow",
-      code: 3,
-    },
-    bright: {
-      code: 11,
-    },
-  },
-  blue: {
-    normal: {
-      mapping: "blue",
-      code: 4,
-    },
-    bright: {
-      code: 12,
-    },
-  },
-  magenta: {
-    normal: {
-      mapping: "pink",
-      code: 5,
-    },
-    bright: {
-      code: 13,
-    },
-  },
-  cyan: {
-    normal: {
-      mapping: "teal",
-      code: 6,
-    },
-    bright: {
-      code: 14,
-    },
-  },
-  white: {
-    normal: {
-      mapping: "", // superfluous, exists to make TypeScript happy
-      code: 7,
-    },
-    bright: {
-      code: 15,
+    ansiColors: {
+      black: {
+        normal: {
+          mapping: "surface1",
+          code: 0,
+        },
+        bright: {
+          mapping: "surface2",
+          code: 8,
+        },
+      },
+      ...staticAnsiColors,
+      white: {
+        normal: {
+          mapping: "subtext0",
+          code: 7,
+        },
+        bright: {
+          mapping: "subtext1",
+          code: 15,
+        },
+      },
     },
   },
 };
@@ -741,7 +833,7 @@ const blendColor = (
 
 const blendedColors = <T extends CatppuccinTintColors | CatppuccinShadeColors>(
   type: "Tint" | "Shade",
-  colors: CatppuccinDefinitionColors,
+  colors: DefinitionColors,
   blendingColor: Color,
 ) => {
   return entriesFromObject(colors).filter(([_, color]) => color.accent)
@@ -803,31 +895,20 @@ const formatted = entriesFromObject(definitions).reduce(
         },
         {} as Writeable<CatppuccinColors>,
       ),
-      ansiColors: entriesFromObject(ansiMappings).reduce(
+      ansiColors: entriesFromObject(flavor.ansiColors).reduce(
         (acc, [name, props], currentIndex) => {
-          const mapping = props.normal.mapping as ColorName;
-          const normalName = name[0].toUpperCase() +
-            name.substring(1).toLowerCase();
+          const normalMapping = props.normal.mapping as ColorName;
+          const normalColor = flavor.colors[normalMapping].object;
+          const normalName = `${name[0].toUpperCase()}${
+            name.substring(1).toLowerCase()
+          }`;
           const brightName = `Bright ${normalName}`;
-          let normalColor: Color;
           let brightColor: Color;
 
-          if (name == "black") {
-            normalColor = flavor.dark
-              ? flavor.colors["surface1"].object
-              : flavor.colors["subtext1"].object;
-            brightColor = flavor.dark
-              ? flavor.colors["surface2"].object
-              : flavor.colors["subtext0"].object;
-          } else if (name == "white") {
-            normalColor = flavor.dark
-              ? flavor.colors["subtext0"].object
-              : flavor.colors["surface2"].object;
-            brightColor = flavor.dark
-              ? flavor.colors["subtext1"].object
-              : flavor.colors["surface1"].object;
+          if (props.bright.mapping) {
+            brightColor =
+              flavor.colors[props.bright.mapping as ColorName].object;
           } else {
-            normalColor = flavor.colors[mapping].object;
             brightColor = new Color(normalColor);
             brightColor.lch.l *= flavor.dark ? 0.94 : 1.09;
             brightColor.lch.c += flavor.dark ? 8 : 0;
