@@ -15,6 +15,7 @@ import type {
   ColorName,
   FlavorName,
   Flavors,
+  ShadeName,
   TintName,
 } from "@catppuccin/palette";
 
@@ -798,7 +799,11 @@ const blendedColors = <T extends CatppuccinTintColors | CatppuccinShadeColors>(
               accentColor,
               blendingColor,
             );
-            acc[`${type.toLowerCase()}${intensityIndex + 1}` as TintName] = {
+            acc[
+              `${type.toLowerCase()}${intensityIndex + 1}` as
+                | TintName
+                | ShadeName
+            ] = {
               name: `${color.name} ${type} ${intensityIndex + 1}`,
               order: intensityIndex,
               hex: toHex(blendedColor),
@@ -807,7 +812,7 @@ const blendedColors = <T extends CatppuccinTintColors | CatppuccinShadeColors>(
             };
             return acc;
           },
-          {} as Writeable<Record<TintName, BlendedColorFormat>>,
+          {} as Writeable<Record<TintName | ShadeName, BlendedColorFormat>>,
         );
         return acc;
       },
@@ -896,7 +901,12 @@ const formatted = entriesFromObject(definitions).reduce(
   {} as Flavors<
     Omit<
       CatppuccinFlavor,
-      "colorEntries" | "tintEntries" | "shadeEntries" | "ansiColorEntries"
+      | "accentColorEntries"
+      | "monochromaticColorEntries"
+      | "colorEntries"
+      | "tintEntries"
+      | "shadeEntries"
+      | "ansiColorEntries"
     >
   >,
 );

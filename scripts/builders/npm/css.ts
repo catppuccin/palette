@@ -3,63 +3,67 @@ import { ensureDir } from "std/fs/mod.ts";
 
 import {
   type AccentName,
+  type BlendedColorFormat,
   type CatppuccinShadeColors,
   type CatppuccinTintColors,
+  type ColorFormat,
   flavorEntries,
 } from "@catppuccin/palette";
 
-const blendedColors = (
-  blended: CatppuccinTintColors | CatppuccinShadeColors,
+const cssColorLines = (
+  name: string,
+  color: ColorFormat | BlendedColorFormat,
+) => {
+  return [
+    sprintf("  %s: %s;", name, color.hex),
+    sprintf("  %s-rgb: %d %d %d;", name, ...Object.values(color.rgb)),
+    sprintf(
+      "  %s-hsl: %.3f %.3f%% %.3f%%;",
+      name,
+      color.hsl.h,
+      color.hsl.s * 100,
+      color.hsl.l * 100,
+    ),
+  ];
+};
+
+const cssTintShadesLines = (
   prefix: string,
   accent: AccentName,
+  tintShades: CatppuccinTintColors | CatppuccinShadeColors,
 ) => {
-  return Object.entries(blended[accent]).flatMap(
-    ([colorName, color]) => [
-      sprintf("  %s-%s: %s;", prefix, colorName, color.hex),
-      sprintf(
-        "  %s-%s-rgb: %d %d %d;",
-        prefix,
-        colorName,
-        ...Object.values(color.rgb),
-      ),
-      sprintf(
-        "  %s-%s-hsl: %.3f %.3f%% %.3f%%;",
-        prefix,
-        colorName,
-        color.hsl.h,
-        color.hsl.s * 100,
-        color.hsl.l * 100,
-      ),
-    ],
+  return Object.entries(tintShades[accent]).flatMap(
+    ([colorName, color]) => cssColorLines(`${prefix}-${colorName}`, color),
   );
 };
 
-const template = flavorEntries
-  .map(([flavorName, { tints, shades, colorEntries }]) => {
-    const colors = colorEntries
-      .map(([colorName, { accent, hex, rgb, hsl: { h, s, l } }]) => {
-        const name = `--ctp-${flavorName}-${colorName}`;
-        const cssColors = [
-          sprintf("  %s: %s;", name, hex),
-          sprintf("  %s-rgb: %d %d %d;", name, ...Object.values(rgb)),
-          sprintf("  %s-hsl: %.3f %.3f%% %.3f%%;", name, h, s * 100, l * 100),
-        ];
-        const cssTints = accent
-          ? blendedColors(tints, name, colorName as AccentName)
-          : [];
-        const cssShades = accent
-          ? blendedColors(shades, name, colorName as AccentName)
-          : [];
+const template = flavorEntries.map(([flavorName, flavor]) => {
+  const accentColors = flavor.accentColorEntries.map(
+    ([colorName, color]) => {
+      const name = `--ctp-${flavorName}-${colorName}`;
+      return [
+        ...cssTintShadesLines(name, colorName, flavor.tints).reverse(),
+        ...cssColorLines(name, color),
+        ...cssTintShadesLines(name, colorName, flavor.shades),
+      ].join("\n");
+    },
+  );
+  const monochromaticColors = flavor.monochromaticColorEntries.map(
+    ([colorName, color]) => {
+      const name = `--ctp-${flavorName}-${colorName}`;
+      return [
+        ...cssColorLines(name, color),
+      ].join("\n");
+    },
+  );
 
-        return [
-          ...cssTints.reverse(),
-          ...cssColors,
-          ...cssShades,
-        ].join("\n");
-      })
-      .join("\n");
-    return `:root {\n${colors}\n}`;
-  })
+  const colors = [
+    ...accentColors,
+    ...monochromaticColors,
+  ].join("\n");
+
+  return `:root {\n${colors}\n}`;
+})
   .join("\n\n");
 
 export const compileCss = async (outDir: string) => {
