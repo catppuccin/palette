@@ -32,8 +32,9 @@ const cssTintShadesLines = (
   accent: AccentName,
   tintShades: CatppuccinTintColors | CatppuccinShadeColors,
 ) => {
-  return Object.entries(tintShades[accent]).flatMap(
-    ([colorName, color]) => cssColorLines(`${prefix}-${colorName}`, color),
+  return Object.entries(tintShades[accent]).map(
+    ([colorName, color]) =>
+      cssColorLines(`${prefix}-${colorName}`, color).join("\n"),
   );
 };
 
@@ -51,9 +52,7 @@ const template = flavorEntries.map(([flavorName, flavor]) => {
   const monochromaticColors = flavor.monochromaticColorEntries.map(
     ([colorName, color]) => {
       const name = `--ctp-${flavorName}-${colorName}`;
-      return [
-        ...cssColorLines(name, color),
-      ].join("\n");
+      return cssColorLines(name, color).join("\n");
     },
   );
 
