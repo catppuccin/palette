@@ -1,31 +1,185 @@
 import { join } from "std/path/join.ts";
-import tinycolor from "tinycolor2";
 import Color from "colorjs";
 
 import meta from "../deno.json" with { type: "json" };
 
 import type {
+  AccentName,
+  AnsiName,
+  BlendedColorFormat,
   CatppuccinAnsiColors,
   CatppuccinColors,
   CatppuccinFlavor,
+  CatppuccinShadeColors,
+  CatppuccinTintColors,
   ColorName,
+  FlavorName,
   Flavors,
+  ShadeName,
+  TintName,
 } from "@catppuccin/palette";
 
 type Entries<T> = {
   [K in keyof T]: [K, T[K]];
 }[keyof T][];
 
+type Writeable<T> = { -readonly [P in keyof T]: T[P] };
+
+type Definition = {
+  [key in FlavorName]: {
+    name: string;
+    emoji: string;
+    dark: boolean;
+    tints: {
+      blendingColor: Color;
+    };
+    shades: {
+      blendingColor: Color;
+    };
+    colors: DefinitionColors;
+    ansiColors: DefinitionAnsiColors;
+  };
+};
+
+type DefinitionColors = {
+  [key in ColorName]: DefinitionColor;
+};
+
+type DefinitionColor = {
+  name: string;
+  object: Color;
+  accent: boolean;
+};
+
+type DefinitionAnsiColors = {
+  [key in AnsiName]: {
+    normal: {
+      mapping: string;
+      code: number;
+    };
+    bright: {
+      mapping?: string;
+      code: number;
+    };
+  };
+};
+
+const intensities = [15, 30, 45, 60, 75] as const;
+
+type Intensity = (typeof intensities)[number];
+
+const INTENSITY_TWO: Intensity = intensities[1];
+
 const entriesFromObject = <T extends object>(obj: T): Entries<T> =>
   Object.entries(obj) as Entries<T>;
 
-type Writeable<T> = { -readonly [P in keyof T]: T[P] };
+const ansiColors = (flavor: FlavorName): DefinitionAnsiColors => {
+  let blackNormalMapping: string;
+  let blackBrightMapping: string;
+  let whiteNormalMapping: string;
+  let whiteBrightMapping: string;
 
-const definitions = {
+  if (flavor === "latte") {
+    blackNormalMapping = "subtext1";
+    blackBrightMapping = "subtext0";
+    whiteNormalMapping = "surface2";
+    whiteBrightMapping = "surface1";
+  } else {
+    blackNormalMapping = "surface1";
+    blackBrightMapping = "surface2";
+    whiteNormalMapping = "subtext0";
+    whiteBrightMapping = "subtext1";
+  }
+
+  return {
+    black: {
+      normal: {
+        mapping: blackNormalMapping,
+        code: 0,
+      },
+      bright: {
+        mapping: blackBrightMapping,
+        code: 8,
+      },
+    },
+    red: {
+      normal: {
+        mapping: "red",
+        code: 1,
+      },
+      bright: {
+        code: 9,
+      },
+    },
+    green: {
+      normal: {
+        mapping: "green",
+        code: 2,
+      },
+      bright: {
+        code: 10,
+      },
+    },
+    yellow: {
+      normal: {
+        mapping: "yellow",
+        code: 3,
+      },
+      bright: {
+        code: 11,
+      },
+    },
+    blue: {
+      normal: {
+        mapping: "blue",
+        code: 4,
+      },
+      bright: {
+        code: 12,
+      },
+    },
+    magenta: {
+      normal: {
+        mapping: "pink",
+        code: 5,
+      },
+      bright: {
+        code: 13,
+      },
+    },
+    cyan: {
+      normal: {
+        mapping: "teal",
+        code: 6,
+      },
+      bright: {
+        code: 14,
+      },
+    },
+    white: {
+      normal: {
+        mapping: whiteNormalMapping,
+        code: 7,
+      },
+      bright: {
+        mapping: whiteBrightMapping,
+        code: 15,
+      },
+    },
+  };
+};
+
+const definitions: Definition = {
   latte: {
     name: "Latte",
     emoji: "🌻",
     dark: false,
+    tints: {
+      blendingColor: new Color("#eff1f5"),
+    },
+    shades: {
+      blendingColor: new Color("#000000"),
+    },
     colors: {
       rosewater: {
         name: "Rosewater",
@@ -158,11 +312,18 @@ const definitions = {
         accent: false,
       },
     },
+    ansiColors: ansiColors("latte"),
   },
   frappe: {
     name: "Frappé",
     emoji: "🪴",
     dark: true,
+    tints: {
+      blendingColor: new Color("#FFFFFF"),
+    },
+    shades: {
+      blendingColor: new Color("#303446"),
+    },
     colors: {
       rosewater: {
         name: "Rosewater",
@@ -295,11 +456,18 @@ const definitions = {
         accent: false,
       },
     },
+    ansiColors: ansiColors("frappe"),
   },
   macchiato: {
     name: "Macchiato",
     emoji: "🌺",
     dark: true,
+    tints: {
+      blendingColor: new Color("#FFFFFF"),
+    },
+    shades: {
+      blendingColor: new Color("#24273a"),
+    },
     colors: {
       rosewater: {
         name: "Rosewater",
@@ -432,11 +600,18 @@ const definitions = {
         accent: false,
       },
     },
+    ansiColors: ansiColors("macchiato"),
   },
   mocha: {
     name: "Mocha",
     emoji: "🌿",
     dark: true,
+    tints: {
+      blendingColor: new Color("#FFFFFF"),
+    },
+    shades: {
+      blendingColor: new Color("#1e1e2e"),
+    },
     colors: {
       rosewater: {
         name: "Rosewater",
@@ -569,81 +744,7 @@ const definitions = {
         accent: false,
       },
     },
-  },
-};
-
-const ansiMappings = {
-  black: {
-    normal: {
-      mapping: "", // superfluous, exists to make TypeScript happy
-      code: 0,
-    },
-    bright: {
-      code: 8,
-    },
-  },
-  red: {
-    normal: {
-      mapping: "red",
-      code: 1,
-    },
-    bright: {
-      code: 9,
-    },
-  },
-  green: {
-    normal: {
-      mapping: "green",
-      code: 2,
-    },
-    bright: {
-      code: 10,
-    },
-  },
-  yellow: {
-    normal: {
-      mapping: "yellow",
-      code: 3,
-    },
-    bright: {
-      code: 11,
-    },
-  },
-  blue: {
-    normal: {
-      mapping: "blue",
-      code: 4,
-    },
-    bright: {
-      code: 12,
-    },
-  },
-  magenta: {
-    normal: {
-      mapping: "pink",
-      code: 5,
-    },
-    bright: {
-      code: 13,
-    },
-  },
-  cyan: {
-    normal: {
-      mapping: "teal",
-      code: 6,
-    },
-    bright: {
-      code: 14,
-    },
-  },
-  white: {
-    normal: {
-      mapping: "", // superfluous, exists to make TypeScript happy
-      code: 7,
-    },
-    bright: {
-      code: 15,
-    },
+    ansiColors: ansiColors("mocha"),
   },
 };
 
@@ -662,13 +763,61 @@ const toRgb = (color: Color): { r: number; g: number; b: number } => {
   };
 };
 
-const toHsl = (hex: string): { h: number; s: number; l: number } => {
-  const { h, s, l } = tinycolor(hex).toHsl();
+const toHsl = (color: Color): { h: number; s: number; l: number } => {
+  const coords = color.to("hsl").toGamut().coords;
   return {
-    h,
-    s,
-    l,
+    h: coords[0],
+    s: coords[1] / 100,
+    l: coords[2] / 100,
   };
+};
+
+const blendColor = (
+  intensity: Intensity,
+  accentColor: Color,
+  blendingColor: Color,
+): Color => {
+  return accentColor.toGamut().mix(blendingColor, intensity / 100, {
+    space: "srgb",
+    outputSpace: "srgb",
+  });
+};
+
+const blendedColors = <T extends CatppuccinTintColors | CatppuccinShadeColors>(
+  type: "Tint" | "Shade",
+  colors: DefinitionColors,
+  blendingColor: Color,
+) => {
+  return entriesFromObject(colors).filter(([_, color]) => color.accent)
+    .reduce(
+      (acc, [name, color]) => {
+        acc[name as AccentName] = intensities.reduce(
+          (acc, intensity, intensityIndex) => {
+            const accentColor = colors[name].object;
+            const blendedColor = blendColor(
+              intensity,
+              accentColor,
+              blendingColor,
+            );
+            acc[
+              `${type.toLowerCase()}${intensityIndex + 1}` as
+                | TintName
+                | ShadeName
+            ] = {
+              name: `${color.name} ${type} ${intensityIndex + 1}`,
+              order: intensityIndex,
+              hex: toHex(blendedColor),
+              rgb: toRgb(blendedColor),
+              hsl: toHsl(blendedColor),
+            };
+            return acc;
+          },
+          {} as Writeable<Record<TintName | ShadeName, BlendedColorFormat>>,
+        );
+        return acc;
+      },
+      {} as Writeable<T>,
+    );
 };
 
 const formatted = entriesFromObject(definitions).reduce(
@@ -678,6 +827,16 @@ const formatted = entriesFromObject(definitions).reduce(
       emoji: flavor.emoji,
       order: currentIndex,
       dark: flavor.dark,
+      tints: blendedColors(
+        "Tint",
+        flavor.colors,
+        flavor.tints.blendingColor,
+      ),
+      shades: blendedColors(
+        "Shade",
+        flavor.colors,
+        flavor.shades.blendingColor,
+      ),
       colors: entriesFromObject(flavor.colors).reduce(
         (acc, [colorName, color], currentIndex) => {
           acc[colorName] = {
@@ -685,42 +844,32 @@ const formatted = entriesFromObject(definitions).reduce(
             order: currentIndex,
             hex: toHex(color.object),
             rgb: toRgb(color.object),
-            hsl: toHsl(toHex(color.object)),
+            hsl: toHsl(color.object),
             accent: color.accent,
           };
           return acc;
         },
         {} as Writeable<CatppuccinColors>,
       ),
-      ansiColors: entriesFromObject(ansiMappings).reduce(
+      ansiColors: entriesFromObject(flavor.ansiColors).reduce(
         (acc, [name, props], currentIndex) => {
-          const mapping = props.normal.mapping as ColorName;
-          const normalName = name[0].toUpperCase() +
-            name.substring(1).toLowerCase();
+          const normalMapping = props.normal.mapping as ColorName;
+          const normalColor = flavor.colors[normalMapping].object;
+          const normalName = `${name[0].toUpperCase()}${
+            name.substring(1).toLowerCase()
+          }`;
           const brightName = `Bright ${normalName}`;
-          let normalColor: Color;
           let brightColor: Color;
 
-          if (name == "black") {
-            normalColor = flavor.dark
-              ? flavor.colors["surface1"].object
-              : flavor.colors["subtext1"].object;
-            brightColor = flavor.dark
-              ? flavor.colors["surface2"].object
-              : flavor.colors["subtext0"].object;
-          } else if (name == "white") {
-            normalColor = flavor.dark
-              ? flavor.colors["subtext0"].object
-              : flavor.colors["surface2"].object;
-            brightColor = flavor.dark
-              ? flavor.colors["subtext1"].object
-              : flavor.colors["surface1"].object;
+          if (props.bright.mapping) {
+            brightColor =
+              flavor.colors[props.bright.mapping as ColorName].object;
           } else {
-            normalColor = flavor.colors[mapping].object;
-            brightColor = new Color(normalColor);
-            brightColor.lch.l *= flavor.dark ? 0.94 : 1.09;
-            brightColor.lch.c += flavor.dark ? 8 : 0;
-            brightColor.lch.h += 2;
+            brightColor = blendColor(
+              INTENSITY_TWO,
+              normalColor,
+              flavor.tints.blendingColor,
+            );
           }
 
           acc[name] = {
@@ -730,14 +879,14 @@ const formatted = entriesFromObject(definitions).reduce(
               name: normalName,
               hex: toHex(normalColor),
               rgb: toRgb(normalColor),
-              hsl: toHsl(toHex(normalColor)),
+              hsl: toHsl(normalColor),
               code: props.normal.code,
             },
             bright: {
               name: brightName,
               hex: toHex(brightColor),
               rgb: toRgb(brightColor),
-              hsl: toHsl(toHex(brightColor)),
+              hsl: toHsl(brightColor),
               code: props.bright.code,
             },
           };
@@ -749,7 +898,17 @@ const formatted = entriesFromObject(definitions).reduce(
     };
     return acc;
   },
-  {} as Flavors<Omit<CatppuccinFlavor, "colorEntries" | "ansiColorEntries">>,
+  {} as Flavors<
+    Omit<
+      CatppuccinFlavor,
+      | "accentColorEntries"
+      | "monochromaticColorEntries"
+      | "colorEntries"
+      | "tintEntries"
+      | "shadeEntries"
+      | "ansiColorEntries"
+    >
+  >,
 );
 
 const __dirname = new URL(".", import.meta.url).pathname;
