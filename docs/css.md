@@ -17,7 +17,10 @@ Import the palettes:
 /* if you have it installed via NPM & a CSS loader configured */
 @import "@catppuccin/palette/style";
 
-/* alternatively via unpkg.com */
+/* alternatively via jsdelivr */
+@import url('https://cdn.jsdelivr.net/npm/@catppuccin/palette/css/catppuccin.css');
+
+/* alternatively via unpkg */
 @import url('https://unpkg.com/@catppuccin/palette/css/catppuccin.css');
 ```
 
