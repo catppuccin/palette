@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.2](https://github.com/catppuccin/palette/compare/v1.7.1...v1.7.2) (2025-03-17)
+
+
+### Documentation
+
+* **css:** document `jsdelivr` as an option ([#123](https://github.com/catppuccin/palette/issues/123)) ([0df7db6](https://github.com/catppuccin/palette/commit/0df7db6fe201b437d91e7288fa22807bb0e44701))
+* **README:** add `catppuccin/ruby` ([#114](https://github.com/catppuccin/palette/issues/114)) ([b85d36a](https://github.com/catppuccin/palette/commit/b85d36adec22631684ae64ced0a5cdd15462de3b))
+* **sass.md:** update maps to latest sass version (and fix minor mistake) ([#118](https://github.com/catppuccin/palette/issues/118)) ([1d13846](https://github.com/catppuccin/palette/commit/1d13846d736bdd96ca84e8406209c834ed9f8fc6))
+
 ## [1.7.1](https://github.com/catppuccin/palette/compare/v1.7.0...v1.7.1) (2024-11-02)
 
 
