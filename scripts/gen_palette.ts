@@ -64,11 +64,13 @@ type DefinitionAnsiColors = {
   };
 };
 
-const intensities = [15, 30, 45, 60, 75] as const;
+const shadeIntensities = [10, 25, 40, 55, 70] as const;
+const tintIntensities = [10, 20, 30, 40, 50] as const;
 
-type Intensity = (typeof intensities)[number];
+type TintIntensity = (typeof tintIntensities)[number];
+type ShadeIntensity = (typeof shadeIntensities)[number];
 
-const INTENSITY_TWO: Intensity = intensities[1];
+const TINT_INTENSITY_TWO: TintIntensity = tintIntensities[1];
 
 const entriesFromObject = <T extends object>(obj: T): Entries<T> =>
   Object.entries(obj) as Entries<T>;
@@ -773,18 +775,19 @@ const toHsl = (color: Color): { h: number; s: number; l: number } => {
 };
 
 const blendColor = (
-  intensity: Intensity,
+  intensity: TintIntensity | ShadeIntensity,
   accentColor: Color,
   blendingColor: Color,
 ): Color => {
   return accentColor.toGamut().mix(blendingColor, intensity / 100, {
-    space: "srgb",
+    space: "srgb-linear",
     outputSpace: "srgb",
   });
 };
 
 const blendedColors = <T extends CatppuccinTintColors | CatppuccinShadeColors>(
   type: "Tint" | "Shade",
+  intensities: readonly TintIntensity[] | readonly ShadeIntensity[],
   colors: DefinitionColors,
   blendingColor: Color,
 ) => {
@@ -829,11 +832,13 @@ const formatted = entriesFromObject(definitions).reduce(
       dark: flavor.dark,
       tints: blendedColors(
         "Tint",
+        tintIntensities,
         flavor.colors,
         flavor.tints.blendingColor,
       ),
       shades: blendedColors(
         "Shade",
+        shadeIntensities,
         flavor.colors,
         flavor.shades.blendingColor,
       ),
@@ -866,7 +871,7 @@ const formatted = entriesFromObject(definitions).reduce(
               flavor.colors[props.bright.mapping as ColorName].object;
           } else {
             brightColor = blendColor(
-              INTENSITY_TWO,
+              TINT_INTENSITY_TWO,
               normalColor,
               flavor.tints.blendingColor,
             );
