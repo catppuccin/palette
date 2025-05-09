@@ -30,7 +30,7 @@ jobs:
         run: deno lint --compact
 
       - name: Test
-        run: deno test --doc
+        run: deno test --doc --allow-env
 
       - name: Build
         run: deno task build

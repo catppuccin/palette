@@ -5,8 +5,7 @@
     "npm:ase-utils@0.1.1": "0.1.1",
     "npm:chalk@^5.4.1": "5.4.1",
     "npm:colorjs.io@0.5.2": "0.5.2",
-    "npm:procreate-swatches@0.1.1": "0.1.1",
-    "npm:tinycolor2@1.6.0": "1.6.0"
+    "npm:procreate-swatches@0.1.1": "0.1.1"
   },
   "npm": {
     "@szydlovski/color-convert@0.1.3": {
@@ -109,9 +108,6 @@
       "dependencies": [
         "safe-buffer"
       ]
-    },
-    "tinycolor2@1.6.0": {
-      "integrity": "sha512-XPaBkWQJdsf3pLKJV9p4qN/S+fm2Oj8AIPo1BTUhg5oxkvm9+SVEGFdhyOz7tTdUTfvxMiAs4sp6/eZO2Ew+pw=="
     },
     "util-deprecate@1.0.2": {
       "integrity": "sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw=="
@@ -467,8 +463,7 @@
       "npm:ase-utils@0.1.1",
       "npm:chalk@^5.4.1",
       "npm:colorjs.io@0.5.2",
-      "npm:procreate-swatches@0.1.1",
-      "npm:tinycolor2@1.6.0"
+      "npm:procreate-swatches@0.1.1"
     ]
   }
 }

@@ -4,6 +4,8 @@ type Entries<T> = {
   [K in keyof T]: [K, T[K]];
 }[keyof T][];
 
+type Writeable<T> = { -readonly [P in keyof T]: T[P] };
+
 const entriesFromObject = <T extends object>(obj: T): Entries<T> =>
   Object.entries(obj) as Entries<T>;
 
@@ -49,7 +51,11 @@ export type MonochromaticName =
   | "mantle"
   | "crust";
 
-type AnsiName =
+export type TintName = "tint1" | "tint2" | "tint3" | "tint4" | "tint5";
+
+export type ShadeName = "shade1" | "shade2" | "shade3" | "shade4" | "shade5";
+
+export type AnsiName =
   | "black"
   | "red"
   | "green"
@@ -68,6 +74,26 @@ export type ColorName = AccentName | MonochromaticName;
  * Generic to map type T to all Catppuccin color names.
  */
 export type Colors<T> = Record<ColorName, T>;
+
+/**
+ * Generic to map type T to all Catppuccin accent color names.
+ */
+export type AccentColors<T> = Record<AccentName, T>;
+
+/**
+ * Generic to map type T to all Catppuccin monochromatic color names.
+ */
+export type MonochromaticColors<T> = Record<MonochromaticName, T>;
+
+/**
+ * Generic to map type T to all Catppuccin tint color names.
+ */
+export type TintColors<T> = Record<AccentName, Record<TintName, T>>;
+
+/**
+ * Generic to map type T to all Catppuccin shade color names.
+ */
+export type ShadeColors<T> = Record<AccentName, Record<ShadeName, T>>;
 
 /**
  * Generic to map type T to all ANSI color names.
@@ -104,14 +130,44 @@ export type CatppuccinFlavor = Readonly<{
   colors: CatppuccinColors;
 
   /**
+   * An object containing all the generated tints of the flavor.
+   */
+  tints: CatppuccinTintColors;
+
+  /**
+   * An object containing all the generated shades of the flavor.
+   */
+  shades: CatppuccinShadeColors;
+
+  /**
    * An object containing all the ANSI color mappings of the flavor.
    */
   ansiColors: CatppuccinAnsiColors;
 
   /**
+   * A typed Object.entries iterable of the accent colors of the flavor.
+   */
+  accentColorEntries: Entries<CatppuccinAccentColors>;
+
+  /**
+   * A typed Object.entries iterable of the monochromatic colors of the flavor.
+   */
+  monochromaticColorEntries: Entries<CatppuccinMonochromaticColors>;
+
+  /**
    * A typed Object.entries iterable of the colors of the flavor.
    */
   colorEntries: Entries<CatppuccinColors>;
+
+  /**
+   * A typed Object.entries iterable of the generated tints of the flavor.
+   */
+  tintEntries: Entries<CatppuccinTintColors>;
+
+  /**
+   * A typed Object.entries iterable of the generated shades of the flavor.
+   */
+  shadeEntries: Entries<CatppuccinShadeColors>;
 
   /**
    * A typed Object.entries iterable of the ANSI colors of the flavor.
@@ -123,6 +179,28 @@ export type CatppuccinFlavor = Readonly<{
  * All colors of Catppuccin.
  */
 export type CatppuccinColors = Readonly<Colors<ColorFormat>>;
+
+/**
+ * All accent colors of Catppuccin.
+ */
+export type CatppuccinAccentColors = Readonly<AccentColors<ColorFormat>>;
+
+/**
+ * All monochromatic colors of Catppuccin.
+ */
+export type CatppuccinMonochromaticColors = Readonly<
+  MonochromaticColors<ColorFormat>
+>;
+
+/**
+ * All tint colors of Catppuccin.
+ */
+export type CatppuccinTintColors = Readonly<TintColors<BlendedColorFormat>>;
+
+/**
+ * All shade colors of Catppuccin.
+ */
+export type CatppuccinShadeColors = Readonly<ShadeColors<BlendedColorFormat>>;
 
 /**
  * All ANSI color mappings of Catppuccin.
@@ -217,6 +295,8 @@ export type ColorFormat = Readonly<{
   accent: boolean;
 }>;
 
+export type BlendedColorFormat = Readonly<Omit<ColorFormat, "accent">>;
+
 export type AnsiColorGroups = Readonly<{
   /**
    * Name of the ANSI color.
@@ -305,19 +385,89 @@ const { version: _, ...jsonFlavors } = definitions;
  */
 export const version = definitions.version;
 
+const accentNames: Readonly<AccentName[]> = [
+  "rosewater",
+  "flamingo",
+  "pink",
+  "mauve",
+  "red",
+  "maroon",
+  "peach",
+  "yellow",
+  "green",
+  "teal",
+  "sky",
+  "sapphire",
+  "blue",
+  "lavender",
+] as const;
+
+const monochromaticNames: Readonly<MonochromaticName[]> = [
+  "text",
+  "subtext1",
+  "subtext0",
+  "overlay2",
+  "overlay1",
+  "overlay0",
+  "surface2",
+  "surface1",
+  "surface0",
+  "base",
+  "mantle",
+  "crust",
+] as const;
+
+/**
+ * Checks if the given key is an accent name.
+ */
+export const isAccent = (key: string): key is AccentName => {
+  return accentNames.includes(key as AccentName);
+};
+
+/**
+ * Checks if the given key is a monochromatic name.
+ */
+export const isMonochromatic = (key: string): key is MonochromaticName => {
+  return monochromaticNames.includes(key as MonochromaticName);
+};
+
 /**
  * All flavors of Catppuccin.
  */
-export const flavors: CatppuccinFlavors = entriesFromObject(
-  jsonFlavors,
-).reduce((acc, [flavorName, flavor]) => {
-  acc[flavorName] = {
-    ...flavor,
-    colorEntries: entriesFromObject(flavor.colors),
-    ansiColorEntries: entriesFromObject(flavor.ansiColors),
-  };
-  return acc;
-}, {} as CatppuccinFlavors);
+export const flavors: CatppuccinFlavors = entriesFromObject(jsonFlavors).reduce(
+  (acc, [flavorName, flavor]) => {
+    const accentColors = Object.entries(flavor.colors).reduce(
+      (acc, [colorName, color]) => {
+        if (isAccent(colorName)) {
+          acc[colorName] = color;
+        }
+        return acc;
+      },
+      {} as Writeable<CatppuccinAccentColors>,
+    );
+    const monochromaticColors = Object.entries(flavor.colors).reduce(
+      (acc, [colorName, color]) => {
+        if (isMonochromatic(colorName)) {
+          acc[colorName] = color;
+        }
+        return acc;
+      },
+      {} as Writeable<CatppuccinMonochromaticColors>,
+    );
+
+    acc[flavorName] = {
+      ...flavor,
+      colorEntries: entriesFromObject(flavor.colors),
+      accentColorEntries: entriesFromObject(accentColors),
+      monochromaticColorEntries: entriesFromObject(monochromaticColors),
+      tintEntries: entriesFromObject(flavor.tints),
+      shadeEntries: entriesFromObject(flavor.shades),
+      ansiColorEntries: entriesFromObject(flavor.ansiColors),
+    };
+    return acc;
+  },
+  {} as CatppuccinFlavors,
+);
 
 /**
  * A typed `Object.entries()` iterable of all Catppuccin flavors.
