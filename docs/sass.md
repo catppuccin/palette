@@ -62,8 +62,8 @@ Input:
 @each $flavor, $color in catppuccin.$palette {
     .my-#{$flavor}-class {
         // you need surround the catppuccin color names with quotes
-        background: map.get($color, 'base');
-        color: map.get($color, 'blue');
+        background: #{map.get($color, 'base')};
+        color: #{map.get($color, 'blue')};
     }
 }
 ```
