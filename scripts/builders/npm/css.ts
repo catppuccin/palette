@@ -6,13 +6,14 @@ import { flavorEntries } from "@catppuccin/palette";
 const template = flavorEntries
   .map(([flavorName, { colorEntries }]) => {
     const colors = colorEntries
-      .map(([colorName, { hex, rgb, hsl: { h, s, l } }]) => {
+      .map(([colorName, { hex, rgb, hsl: { h, s, l }, oklch }]) => {
         const name = `--ctp-${flavorName}-${colorName}`;
 
         return [
           sprintf("  %s: %s;", name, hex),
           sprintf("  %s-rgb: %d %d %d;", name, ...Object.values(rgb)),
           sprintf("  %s-hsl: %.3f %.3f%% %.3f%%;", name, h, s * 100, l * 100),
+          sprintf("  %s-oklch: %.4f %.4f %.4f;", name, oklch.l, oklch.c, oklch.h),
         ].join("\n");
       })
       .join("\n");
