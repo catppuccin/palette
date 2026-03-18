@@ -212,6 +212,25 @@ export type ColorFormat = Readonly<{
   };
 
   /**
+   * Formatted oklch value.
+   * @example { l: 0.8369, c: 0.1054, h: 238.92 }
+   */
+  oklch: {
+    /**
+     * Lightness, 0-1
+     */
+    l: number;
+    /**
+     * Chroma, 0-0.4
+     */
+    c: number;
+    /**
+     * Hue, 0-360
+     */
+    h: number;
+  };
+
+  /**
    * Indicates whether the color is intended to be used as an accent color.
    */
   accent: boolean;
@@ -289,6 +308,25 @@ export type AnsiColorFormat = Readonly<{
      * Lightness, 0-100
      */
     l: number;
+  };
+
+  /**
+   * Formatted oklch value.
+   * @example { l: 0.8369, c: 0.1054, h: 238.92 }
+   */
+  oklch: {
+    /**
+     * Lightness, 0-1
+     */
+    l: number;
+    /**
+     * Chroma, 0-0.4
+     */
+    c: number;
+    /**
+     * Hue, 0-360
+     */
+    h: number;
   };
 
   /**
