@@ -674,9 +674,9 @@ const toHsl = (hex: string): { h: number; s: number; l: number } => {
 const toOklch = (color: Color): { l: number; c: number; h: number } => {
   const [l, c, h] = color.to("oklch").coords;
   return {
-    l: Math.round(l * 10000) / 10000,
-    c: Math.round(c * 10000) / 10000,
-    h: Math.round((h ?? 0) * 10000) / 10000,
+    l,
+    c,
+    h: h ?? 0,
   };
 };
 
