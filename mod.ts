@@ -346,20 +346,20 @@ export const version = definitions.version;
 /**
  * All flavors of Catppuccin.
  */
- export const flavors: CatppuccinFlavors = entriesFromObject(
-   jsonFlavors,
- ).reduce((acc, [flavorName, flavor]) => {
-   acc[flavorName] = {
-     ...flavor,
-     colorEntries: entriesFromObject(flavor.colors),
-     ansiColorEntries: entriesFromObject(flavor.ansiColors),
-   };
-   return acc;
- }, {} as CatppuccinFlavors);
+export const flavors: CatppuccinFlavors = entriesFromObject(
+  jsonFlavors,
+).reduce((acc, [flavorName, flavor]) => {
+  acc[flavorName] = {
+    ...flavor,
+    colorEntries: entriesFromObject(flavor.colors),
+    ansiColorEntries: entriesFromObject(flavor.ansiColors),
+  };
+  return acc;
+}, {} as CatppuccinFlavors);
 
 /**
  * A typed `Object.entries()` iterable of all Catppuccin flavors.
  */
- export const flavorEntries: Entries<CatppuccinFlavors> = entriesFromObject(
-   flavors,
- );
+export const flavorEntries: Entries<CatppuccinFlavors> = entriesFromObject(
+  flavors,
+);
