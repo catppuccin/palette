@@ -11,15 +11,15 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: nekowinston/setup-deno@v2
+      - uses: denoland/setup-deno@v2
 
       - uses: swift-actions/setup-swift@v2
         with:
-          swift-version: "5"
+          swift-version: "6"
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: "lts/*"
 
@@ -38,7 +38,7 @@ jobs:
           COMPILE_APPLE_COLOR_LIST: 1
 
       - name: Upload Built Palette Formats
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: "Catppuccin Palette Formats"
           path: dist/palettes

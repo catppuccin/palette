@@ -28,11 +28,11 @@ jobs:
     needs: release-please
     if: ${{ needs.release-please.outputs.release_created }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: nekowinston/setup-deno@v2
+      - uses: denoland/setup-deno@v2
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: "lts/*"
           registry-url: "https://registry.npmjs.org"
