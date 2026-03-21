@@ -15,7 +15,7 @@ jobs:
 
       - uses: denoland/setup-deno@v2
 
-      - uses: swift-actions/setup-swift@v2
+      - uses: swift-actions/setup-swift@v3
         with:
           swift-version: "6"
 
