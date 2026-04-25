@@ -1,30 +1,47 @@
 import { ensureDir } from "std/fs/mod.ts";
 
-import { flavorEntries } from "@catppuccin/palette";
+import { type CatppuccinFlavor, flavorEntries } from "@catppuccin/palette";
+import { indent } from "./utils.ts";
+
+function getColorsForFlavor(
+  flavor: CatppuccinFlavor,
+  inMap: boolean,
+) {
+  const colors = flavor.colorEntries
+    .map(([key, value]) => {
+      return `${inMap ? "" : "@"}${key}: ${value.hex};`;
+    })
+    .join("\n");
+
+  const ansiColors = flavor.ansiColorEntries.map(
+    ([ansiColorName, { normal, bright }]) => {
+      return `@${ansiColorName}: {
+  normal: ${normal.hex};
+  bright: ${bright.hex};
+};`;
+    },
+  ).join("\n");
+
+  return `${colors}\n\n@ansi: {\n${indent(ansiColors, "  ")}\n};`;
+}
 
 const combined = `@catppuccin: {
 ${
   flavorEntries
-    .map(([flavorName, palette]) => {
-      const color = Object.entries(palette.colors)
-        .map(([key, value]) => {
-          return `    ${key}: ${value.hex}`;
-        })
-        .join(";\n");
-      return `  @${flavorName}: {\n${color}\n  }`;
+    .map(([flavorName, flavorPalette]) => {
+      return `  @${flavorName}: {\n${
+        indent(getColorsForFlavor(flavorPalette, true), "    ")
+      }\n  }`;
     })
     .join("\n")
 }
 };`;
 
 const mixins = flavorEntries
-  .map(([flavorName, { colorEntries }]) => {
-    const color = colorEntries
-      .map(([key, value]) => {
-        return `  ${key}: ${value.hex}`;
-      })
-      .join(";\n");
-    return `#catppuccin(@flavour) when (@flavour = ${flavorName}) {\n${color}\n}`;
+  .map(([flavorName, flavorPalette]) => {
+    return `#catppuccin(@flavour) when (@flavour = ${flavorName}) {\n${
+      indent(getColorsForFlavor(flavorPalette, false), "  ")
+    }\n}`;
   })
   .join("\n");
 
@@ -32,14 +49,10 @@ export const compileLess = async (outDir: string) => {
   await ensureDir(`${outDir}/less`);
 
   // write each flavor to its own file
-  flavorEntries.map(([flavorName, palette]) => {
+  flavorEntries.map(([flavorName, flavorPalette]) => {
     Deno.writeTextFile(
       `${outDir}/less/_${flavorName}.less`,
-      Object.entries(palette.colors)
-        .map(([key, value]) => {
-          return `@${key}: ${value.hex};`;
-        })
-        .join("\n"),
+      getColorsForFlavor(flavorPalette, false),
     );
   });
 
