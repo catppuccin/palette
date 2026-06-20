@@ -28,7 +28,7 @@ jobs:
     needs: release-please
     if: ${{ needs.release-please.outputs.release_created }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - uses: denoland/setup-deno@v2
 
