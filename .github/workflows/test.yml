@@ -19,7 +19,7 @@ jobs:
         with:
           swift-version: "6"
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: "lts/*"
 
