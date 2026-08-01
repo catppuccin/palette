@@ -1,10 +1,10 @@
 {
-  "version": "4",
+  "version": "5",
   "specifiers": {
     "npm:@types/node@*": "18.16.19",
     "npm:ase-utils@0.1.1": "0.1.1",
     "npm:chalk@^5.4.1": "5.4.1",
-    "npm:colorjs.io@0.5.2": "0.5.2",
+    "npm:colorjs.io@0.7.1": "0.7.1",
     "npm:procreate-swatches@0.1.1": "0.1.1",
     "npm:tinycolor2@1.6.0": "1.6.0"
   },
@@ -40,8 +40,8 @@
     "chalk@5.4.1": {
       "integrity": "sha512-zgVZuo2WcZgfUEmsn6eO3kINexW8RAE4maiQ8QNs8CtpPCSyMiYsULR3HQYkm3w8FIA3SberyMJMSldGsW+U3w=="
     },
-    "colorjs.io@0.5.2": {
-      "integrity": "sha512-twmVoizEW7ylZSN32OgKdXRmo1qg+wT5/6C3xu5b9QsWzSFAhHLn2xd8ro0diCsKfCj1RdaTP/nrcW+vAoQPIw=="
+    "colorjs.io@0.7.1": {
+      "integrity": "sha512-LY7OHnJZxHwT5UlzNa9bbhHHDbzB6yE5+3MIPwJEQKRvSCt/T4G7epsj+9j2BExUIIfXFIJGsIXUKdfrK9Q5tA=="
     },
     "core-util-is@1.0.3": {
       "integrity": "sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ=="
@@ -466,7 +466,7 @@
     "dependencies": [
       "npm:ase-utils@0.1.1",
       "npm:chalk@^5.4.1",
-      "npm:colorjs.io@0.5.2",
+      "npm:colorjs.io@0.7.1",
       "npm:procreate-swatches@0.1.1",
       "npm:tinycolor2@1.6.0"
     ]
